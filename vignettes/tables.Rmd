@@ -1,0 +1,100 @@
+---
+title: Tables
+output:
+    rmarkdown::html_vignette:
+        toc_float: true
+vignette: >
+    %\VignetteIndexEntry{Tables}
+    %\VignetteEngine{knitr::rmarkdown}
+    %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+Sys.setenv(LANGUAGE = "en")
+library("sbcdata")
+sbcdata
+```
+
+**Authors**: `r paste0(format(eval(parse(text = packageDescription("sbcdata")[["Authors@R"]])), include = c("given", "family", "role")), collapse =", ")`<br />
+**Last modified:** `r file.info("flowcharts.Rmd")$mtime`<br />
+**Compiled**: `r date()`
+
+```{r dp}
+sbcdata <- exclude_entries(sbcdata)
+sbcdata <- sbcdata[(!Excluded),]
+
+.lbl <- function(x, unit) {
+    if (nchar(unit))
+        paste0(x, " [", unit, "]")
+     else
+        x
+}
+
+for (i in seq_len(nrow(labcodes))) {
+    attr(sbcdata[[labcodes$Code[i]]], "label") <-
+        .lbl(labcodes$Code[i], labcodes$Unit[i])
+}
+```
+
+# Baseline Leipzig
+
+```{r baseline}
+library("gtsummary")
+theme_gtsummary_journal(journal = "nejm")
+theme_gtsummary_compact()
+
+ukl <- subset(sbcdata, Center == "Leipzig")
+
+tblGeneral <- ukl[!duplicated(ukl$Id),] |>
+    select(Age, Sex, Diagnosis) |>
+    tbl_summary(by = Diagnosis, missing_text = "(Missing)") |>
+    add_p()
+
+tblLabs <- ukl[, c("Diagnosis", labcodes$Code), with = FALSE] |>
+    tbl_summary(by = Diagnosis, missing_text = "(Missing)") |>
+    add_p()
+
+tbl_stack(
+    list(add_n(tblGeneral), add_n(tblLabs)),
+    group_header = c("General", "Laboratory Diagnostics")
+)
+```
+
+# Greifswald vs Leipzig
+
+```{r umgvsukl}
+tblGeneral <- sbcdata[
+    !duplicated(sbcdata[,c("Id", "Center"), with = FALSE]),
+] |>
+    select(Age, Sex, Diagnosis, Center) |>
+    tbl_summary(by = Center, missing_text = "(Missing)") |>
+    add_p()
+
+tblLabs <- sbcdata[, c("Center", labcodes$Code), with = FALSE] |>
+    tbl_summary(by = Center, missing_text = "(Missing)") |>
+    add_p()
+
+tbl_stack(
+    list(add_n(tblGeneral), add_n(tblLabs)),
+    group_header = c("General", "Laboratory Diagnostics")
+)
+```
+
+# Leipzig PCT
+
+```{r pct}
+pct <- ukl[sbcdata:::.is_cbc(ukl, labcodes$Code[-1], complete = TRUE), ]
+tblGeneral <- pct[!duplicated(pct$Id),] |>
+    select(Age, Sex, Diagnosis) |>
+    tbl_summary(by = Diagnosis, missing_text = "(Missing)") |>
+    add_p()
+
+tblLabs <- pct[, c("Diagnosis", labcodes$Code), with = FALSE] |>
+    tbl_summary(by = Diagnosis, missing_text = "(Missing)") |>
+    add_p()
+
+tbl_stack(
+    list(add_n(tblGeneral), add_n(tblLabs)),
+    group_header = c("General", "Laboratory Diagnostics")
+)
+```

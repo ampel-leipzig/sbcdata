@@ -1,0 +1,11 @@
+^\.git$
+^\.github$
+^\.editorconfig$
+^\.gitignore$
+^docs$
+^inst/intdata$
+^inst/scripts$
+^playground$
+^LICENSE\.md$
+^README\.md$
+^README\.Rmd$

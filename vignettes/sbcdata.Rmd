@@ -1,0 +1,187 @@
+---
+title: Introduction to sbcdata
+output:
+    rmarkdown::html_vignette:
+        toc_float: true
+vignette: >
+    %\VignetteIndexEntry{Introduction to sbcdata}
+    %\VignetteEngine{knitr::rmarkdown}
+    %\VignetteEncoding{UTF-8}
+bibliography: bibliography.bib
+---
+
+```{r setup, include = FALSE}
+Sys.setenv(LANGUAGE = "en")
+library("sbcdata")
+sbcdata
+```
+
+**Authors**: `r paste0(format(eval(parse(text = packageDescription("sbcdata")[["Authors@R"]])), include = c("given", "family", "role")), collapse =", ")`<br />
+**Last modified:** `r file.info("sbcdata.Rmd")$mtime`<br />
+**Compiled**: `r date()`
+
+# Introduction
+
+The data were collected as part of the [AMPEL](https://ampel.care) project
+(Analysis and Reporting System for the Improvement of Patient Safety
+through Real-Time Integration of Laboratory Findings,
+\url{https://ampel.care}).
+They include administration data, sepsis labels based on ICD10 codes
+and laboratory diagnostics from patients admitted to the
+University Hospital Leipzig between Januar 2014 and December 2019 and to the
+University Hospital Greifswald between Januar 2015 and December 2020,
+respectively.
+Additionally it provides functions to generate a similar
+dataset from MIMIC-IV [@Johnson2021].
+
+## Installation
+
+You can install the released version of `sbcdata`
+from directly from github:
+
+```{r install, eval = FALSE}
+# install.packages("remotes")
+remotes::install_github("ampel-leipzig/sbcdata")
+```
+
+## License
+
+The datasets are available under the
+[CC-BY](https://creativecommons.org/by/4.0/) license.
+
+## Citation
+
+To cite the `sbcdata` package, please use:
+
+```{r}
+citation("sbcdata")
+```
+
+# The `sbcdata` package
+
+## Overview
+
+The `sbcdata` dataset contains `ncol(sbcdata)` variables for
+`nrow(sbcdata)` laboratory diagnostics.
+
+```{r str}
+str(sbcdata)
+```
+
+## Missing data
+
+```{r missingdatatbl}
+centers <- c("Greifswald", "Leipzig")
+
+labs <- sbcdata[, labcodes$Code, with = FALSE]
+labs <- as.matrix(labs)
+labsna <- is.na(labs)
+mode(labsna) <- "numeric"
+
+nna <- rowsum(labsna, group = sbcdata$Center)
+nna <- rbind(nna, Total = colSums(nna))
+knitr::kable(t(nna), caption = "Missing Data")
+
+pna <- round(nna / c(table(sbcdata$Center), nrow(sbcdata)) * 100, 2)
+
+knitr::kable(t(pna), caption = "Missing Data [%]")
+```
+
+```{r missingdataimg, echo = FALSE}
+.imagemd <- function(x, center, subset = 1e4,
+                     col = c(palette.colors(2L)[2L], "white")) {
+    old.par <- par(no.readonly = TRUE)
+    on.exit(par(old.par))
+
+    nr <- min(nrow(x), subset)
+    rws <- seq_len(nr)
+    nc <- ncol(x)
+    nms <- colnames(x)
+
+    mai <- par("mai")
+    w <- max(strwidth(nms, "inch"), na.rm = TRUE) + 1/16
+    if (mai[2L] < w)
+        mai[2L] <- mai[4L] + w # taken from dotchart
+    par(mai = mai)
+
+    y <- seq_len(nc)
+    image(
+        rws, y, x[rws, rev(y)], col = col,
+        xlim = 0.5 + c(0L, nr), ylim = 0.5 + c(0L, nc),
+        axes = FALSE, xlab = "", ylab = ""
+    )
+    title(main = paste0("Missing Data: ", center), adj = 0L)
+    title(sub = paste0("Subset of ", subset, " rows."), adj = 0L)
+    title(xlab = "Rows", adj = 1L)
+    mtext(
+        rev(nms), at = y, adj = 0L, side = 2L, las = 2L,
+        line = (w + 0.1) / par("csi"), cex = 0.75
+    )
+    abline(h = y, col = "#808080", lty = "dotted", lwd = 1L)
+}
+
+for (cnt in centers)
+    .imagemd(labsna[sbcdata$Center == cnt,], center = cnt, subset = 1e5)
+```
+
+## Densities
+
+```{r densities}
+.plotdens <- function(l, main,
+                      col = viridisLite::cividis(length(l) + 1)[-1L]) {
+    old.par <- par(no.readonly = TRUE)
+    on.exit(par(old.par))
+
+    d <- lapply(l, density, na.rm = TRUE)
+    xlim <- range(vapply(d, function(x)range(x$x), double(2)))
+    ylim <- c(0, max(vapply(d, function(x)max(x$y), double(1))))
+
+    plot(
+        NA, xlim = xlim, ylim = ylim,
+        axes = FALSE, xlab = "", ylab = "", main = ""
+    )
+    for (i in seq_along(d)) {
+        lines(d[[i]], col = col[i])
+        polygon(d[[i]], col = sub("FF$", "55", col[i]))
+    }
+    title(main = main, adj = 0L)
+    title(ylab = "Density", adj = 1L)
+    legend(
+        "topright",
+        legend = paste0(
+            names(l), ": ",
+            "N = ", vapply(d, function(x)x$n, integer(1)), "; ",
+            "BW = ", vapply(d, function(x)formatC(x$bw), character(1))
+        ),
+        col = col, lty = 1, lwd = 1, cex = 0.75, bty = "n"
+    )
+    axis(1, lwd.ticks = 0L, col = "#808080")
+    axis(2, lwd.ticks = 0L, col = "#808080")
+}
+
+for (v in colnames(labs))
+    .plotdens(split(labs[, v], sbcdata$Center), v)
+```
+
+## Boxplot HGB
+
+```{r boxplothgb}
+boxplot(HGB ~ Sex + Center, data = sbcdata, col = viridisLite::cividis(2))
+```
+
+## Prevalence
+
+```{r prevalence}
+dup <- duplicated(sbcdata[, .(Id, Center)])
+tbl <- table(sbcdata[!dup, .(Center, Diagnosis)])
+addmargins(tbl)
+proportions(tbl, margin = 1)
+```
+
+# Session Information
+
+```{r sessionInfo}
+sessionInfo()
+```
+
+# References

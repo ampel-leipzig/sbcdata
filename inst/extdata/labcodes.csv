@@ -1,0 +1,8 @@
+"Code","Description","Unit"
+"CRP","C-reactive protein","mg/l"
+"HGB","hemoglobin","mmol/l"
+"MCV","mean corpuscular volume","fl"
+"PCT","procalcitonin","ng/ml"
+"PLT","platelets","Gpt/l"
+"RBC","red blood count","Tpt/l"
+"WBC","white blood count","Gpt/l"

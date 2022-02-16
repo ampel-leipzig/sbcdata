@@ -1,0 +1,90 @@
+Package: sbcdata
+Title:
+    Laboratory Diagnostics from Septic and Non-septic Patients Used
+    in the AMPEL Project
+Version: 0.0.1
+Date: 2021-11-16
+Description:
+    The data were collected as part of the AMPEL project
+    (Analysis and Reporting System for the Improvement of Patient Safety
+    through Real-Time Integration of Laboratory Findings,
+    \url{https://ampel.care}).
+    They include administration data, sepsis labels based on ICD10 codes
+    and laboratory diagnostics from patients admitted to the
+    University Hospital Leipzig between Januar 2014 and December 2019 and to the
+    University Hospital Greifswald between Januar 2015 and December 2020,
+    respectively. Additionally it provides functions to generate a similar
+    dataset from MIMIC-IV (Johnson et al. 2021 \doi{10.13026/S6N6-XD98}).
+Authors@R:
+    c(
+        person(
+            given = "Sebastian", family = "Gibb",
+            email = "mail@sebastiangibb.de",
+            role = c("aut", "cre"),
+		    comment = c(ORCID = "0000-0001-7406-4443")
+        ),
+        person(
+            given = "Paul", family = "Ahrens",
+            email = "paul.ahrens@medizin.uni-leipzig.de",
+            role = c("aut", "dtc")
+        ),
+        person(
+            given = "Daniel", family = "Steinbach",
+            email = "daniel.steinbach@medizin.uni-leipzig.de",
+            role = c("aut", "dtc")
+        ),
+        person(
+            given = "Thorsten", family = "Kaiser",
+            email = "thorsten.kaiser@medizin.uni-leipzig.de",
+            role = c("aut", "dtc")
+        ),
+        person(
+            given = "Mark", family = "Wernsdorfer",
+            email = "mark.wernsdorfer@medizin.uni-leipzig.de",
+            role = "dtc"
+        ),
+        person(
+            given = "Matthias", family = "Nauck",
+            email = "matthias.nauck@med.uni-greifswald.de",
+            role = "dtc"
+        ),
+        person(
+            given = "Stefan", family = "Bollmann",
+            email = "stefan.bollmann@med.uni-greifswald.de",
+            role = "dtc"
+        ),
+        person(
+            given = "Thomas", family = "Hildebrandt",
+            email = "thomas.hildebrandt@med.uni-greifswald.de",
+            role = "dtc"
+        )
+    )
+Maintainer: Sebastian Gibb <mail@sebastiangibb.de>
+Depends:
+    R (>= 4.1),
+    data.table
+Suggests:
+    knitr,
+    rmarkdown,
+    viridisLite,
+    DiagrammeR,
+    gtsummary,
+    testthat (>= 3.0.0)
+License: CC BY 4.0
+LazyData: yes
+URL: https://github.com/ampel-leipzig/sbcdata
+BugReports: https://github.com/ampel-leipzig/sbcdata/issues/
+Roxygen: list(markdown=TRUE)
+RoxygenNote: 7.1.2
+VignetteBuilder: knitr
+Encoding: UTF-8
+Config/testthat/edition: 3
+Collate:
+    'sbcdata-package.R'
+    'counts.R'
+    'exclude.R'
+    'import_mimic.R'
+    'labcodes.R'
+    'sendercodes.R'
+    'sbcdata.R'
+    'utils.R'

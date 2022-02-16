@@ -1,0 +1,101 @@
+---
+title: Data Processing Flow Charts
+output:
+    rmarkdown::html_vignette:
+        toc_float: true
+vignette: >
+    %\VignetteIndexEntry{Data Processing Flow Charts}
+    %\VignetteEngine{knitr::rmarkdown}
+    %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+Sys.setenv(LANGUAGE = "en")
+library("sbcdata")
+sbcdata
+```
+
+**Authors**: `r paste0(format(eval(parse(text = packageDescription("sbcdata")[["Authors@R"]])), include = c("given", "family", "role")), collapse =", ")`<br />
+**Last modified:** `r file.info("flowcharts.Rmd")$mtime`<br />
+**Compiled**: `r date()`
+
+```{r dp}
+umg <- exclude_entries(subset(sbcdata, Center == "Greifswald"))
+ukl <- exclude_entries(subset(sbcdata, Center == "Leipzig"))
+```
+
+# Greifswald
+
+```{r fcumg, results = "asis", echo = FALSE, fig.width = 7, fig.height = 7, fig.cap = "Flowchart Inclusion/Exclusion Greifswald."}
+years <- "2015-2020"
+msg <- attr(umg, "message")
+ncases <- attr(umg, "n_cases")
+ncbc <- attr(umg, "n_cbc")
+graph <- "
+digraph flowchart {
+    graph [splines = false];
+
+    // consort nodes
+    node [shape = box, style = 'rounded,filled', width = 2, height = 0.5, fillcolor = '#7589af'];
+    Enrollment [label = 'Enrollment']
+    Allocation [label = 'Allocation']
+    Analysis [label = 'Analysis']
+
+    // visible nodes
+    node [shape = box, style = rectangle, width = 2, height = 0.5];
+    n1 [label = '@@1-1\\n@@3\\n@@2-1'];
+    n2 [label = 'Excluded:\\l- @@1-2\\l    @@2-2\\l- @@1-3\\l    @@2-3\\l- @@1-4\\l    @@2-4\\l- @@1-5\\l    @@2-5\\l- @@1-6\\l    @@2-6\\l'];
+    n3 [label = '@@1-7\\n@@2-7'];
+    n4 [label = '@@1-8\\n@@2-8'];
+    n5 [label = '@@1-9\\n@@2-9'];
+    n6 [label = 'Excluded:\\l- @@1-10\\l    @@2-10\\l- @@1-11\\l    @@2-11\\l'];
+    n7 [label = '@@1-12\\n@@2-12'];
+
+    // plaintext nodes
+    node [shape = plaintext, width = 2, height = 0.5];
+    t1 [label = 'Control group'];
+    t2 [label = 'Sepsis\nbased on ICD10']
+
+    // invisible nodes
+    node [shape = point, width = 0, height = 0];
+    i1 [style = invis];
+    i2 [style = invis];
+    i3 [style = invis];
+
+    {rank = same Allocation n3 i2};
+
+    // edge statements
+    {rank = same; Enrollment n1};
+    n1 -> i1 [arrowhead = none, minlen = 1];
+    {rank = same; i1 -> n2 [minlen = 15]};
+    i1 -> n3;
+    {rank = same; Allocation n3};
+    n3 -> t1 [minlen = 0.5 ];
+    {rank = same; Analysis n4};
+    t1 -> n4;
+    {rank = same; n3 -> i2 [arrowhead = none, minlen = 5]};
+    i2 -> t2;
+    t2 -> n5;
+    n5 -> i3 [arrowhead = none];
+    {rank = same; i3 -> n6 [minlen = 5]};
+    i3 -> n7;
+    {rank = same; n4 n7};
+}
+[1]: msg
+[2]: paste0('(', ncases, ' cases; ', ncbc, ' BCs)')
+[3]: years
+"
+
+DiagrammeR::grViz(graph)
+```
+
+# Leipzig
+
+```{r fcukl, results = "asis", echo = FALSE, fig.width = 7, fig.height = 7, fig.cap = "Flowchart Inclusion/Exclusion Leipzig."}
+years <- "2014-2019"
+msg <- attr(ukl, "message")
+ncases <- attr(ukl, "n_cases")
+ncbc <- attr(ukl, "n_cbc")
+
+DiagrammeR::grViz(graph)
+```
