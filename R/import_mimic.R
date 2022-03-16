@@ -193,11 +193,19 @@ import_mimic <- function(path, verbose = interactive()) {
     setorder(labevents, subject_id, charttime)
 
     ## helper columns for TargetIcu and SecToIcu calculation
+    labevents$transfer_id[is.na(labevents$transfer_id)] <- 0
     labevents[,
         isNewWard := (
-            c(FALSE, subject_id[-1] == subject_id[-.N]) &   # same patient
-            c(FALSE, hadm_id[-1] == hadm_id[-.N]) &         # same case
-            c(FALSE, transfer_id[-1] != transfer_id[-.N])   # new ward
+            ## same patient
+            c(FALSE, subject_id[-1] == subject_id[-.N]) &
+            ## same case
+            c(
+                FALSE,
+                !is.na(hadm_id[-1]) & !is.na(hadm_id[-.N]) &
+                hadm_id[-1] == hadm_id[-.N]
+            ) &
+            ## new ward
+            c(FALSE, transfer_id[-1] != transfer_id[-.N])
         )
     ]
     labevents[, `:=`(
