@@ -40,7 +40,7 @@ exclude_entries <- function(x) {
     ncbc <- c(ncbc, count_cbc(x[newex,]))
 
     ## Exclude second, third, ... episode
-    excl <- x$Episode > 1
+    excl <- x$Episode > 1 | is.na(x$Episode)
     newex <- !x$Excluded & excl
     x[, Excluded := Excluded | excl]
     msg <- c(msg, "BCs from following episodes")
