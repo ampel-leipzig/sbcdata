@@ -3,6 +3,8 @@
 #' Run the preproccesing/exclusion as done in the AMPEL project.
 #'
 #' @param x `data.table`, in the format described in [`sbcdata`]
+#' @param time `numeric(2)`, keep just entries between `time[1]` and
+#' `time[2]`, in seconds.
 #' @return `data.frame`, same as `x` but with an added column `Excluded` and
 #' 3 attributes `"message"`, `"n_cases"`, `"n_cbc"` that describe the
 #' processing and the kept cases and complete blood counts (CBC)
@@ -12,7 +14,7 @@
 #' @examples
 #' x <- exclude_entries(sbcdata)
 #' attributes(x)
-exclude_entries <- function(x) {
+exclude_entries <- function(x, time = c(6, 72) * 3600) {
     x[, Excluded := FALSE]
     msg <- character()
     ncases <- integer()
@@ -90,11 +92,16 @@ exclude_entries <- function(x) {
 
     ## Shouldn't we move > 72 h before Admission to Control?
     ## Exclude CBC in Sepsis cases not between 72-6 h before admission to ICU
-    excl <- !.is_time_range(x, c(72, 6) * 3600)
+    excl <- !.is_time_range(x, time)
     excl <- (is.na(excl) | excl) & sepsis
     newex <- !x$Excluded & excl
     x[, Excluded := Excluded | excl]
-    msg <- c(msg, "BC not >= 6 h and <= 72 h before ICU admission")
+    msg <- c(msg,
+        sprintf(
+            "BC not >= %.0f h and <= %.0f h before ICU admission",
+            time[1] / 3600, time[2] / 3600
+        )
+    )
     ncases <- c(ncases, .count_cbc_cases(x[newex,]))
     ncbc <- c(ncbc, count_cbc(x[newex,]))
 
