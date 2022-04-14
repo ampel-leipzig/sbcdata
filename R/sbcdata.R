@@ -71,6 +71,7 @@
 #'  A41.9}
 #'  \item{A42.7}
 #'  \item{B37.7}
+#'  \item{R57.2}
 #' }
 #' If the ICD10 code was R65.x without any of the sepsis-related codes above the
 #' `Diagnoses` `"SIRS"` was used. Everything else is labeled as "`Control`".

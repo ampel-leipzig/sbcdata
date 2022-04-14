@@ -85,6 +85,7 @@ The \code{Diagnosis} was based on ICD10 codes. \code{"Sepsis"} was assumed for:
 A41.9}
 \item{A42.7}
 \item{B37.7}
+\item{R57.2}
 }
 If the ICD10 code was R65.x without any of the sepsis-related codes above the
 \code{Diagnoses} \code{"SIRS"} was used. Everything else is labeled as "\code{Control}".

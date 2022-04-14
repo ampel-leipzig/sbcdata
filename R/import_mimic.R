@@ -155,14 +155,15 @@ import_mimic <- function(path, verbose = interactive()) {
     )
 
     ## filter ICD-9 and ICD-10 sepsis codes
-    diagnoses_icd[, SIRS := grepl("99590|R65\\.[0-9]+", diagnoses_icd$icd_code)]
+    diagnoses_icd[, SIRS := grepl("99590|R651[01]", diagnoses_icd$icd_code)]
     diagnoses_icd[, Sepsis := diagnoses_icd$icd_code %in% c(
-        "99591", "99592",
+        "78552", "99591", "99592",
         "A021", "A207", "A227", "A241", "A267", "A327", "A392", "A393", "A394",
         "A40", "A400", "A401", "A403", "A408", "A409", "A41", "A410", "A4101",
         "A4102", "A411", "A412", "A413", "A414", "A4150", "A4151", "A4152",
-        "A4153", "A4159", "A418", "A4181", "A4189", "A419", "A427", "B377")
-    ]
+        "A4153", "A4159", "A418", "A4181", "A4189", "A419", "A427", "B377",
+        "R6520", "R6521"
+    )]
     sirs_sepsis <- diagnoses_icd[,
         .(SIRS = max(SIRS), Sepsis = max(Sepsis)),
         by = c("subject_id", "hadm_id")

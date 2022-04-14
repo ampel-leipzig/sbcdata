@@ -81,12 +81,13 @@ full[, Diagnosis := ifelse(grepl("R65\\.[0-9]+", Icd), "SIRS", "Control")]
 ## A41.0, A41.1, A41.2, A41.3, A41.4, A41.51, A41.52, A41.58, A41.8, A41.9 
 ## A42.7   
 ## B37.7   
+## R57.2
 ##
 ## will overwrite some SIRS cases
 full[, Diagnosis := ifelse(
     grepl(paste(
         "A02\\.1|A20\\.7|A22\\.7|A23\\.9|A24\\.1|A26\\.7|A32\\.7|A39\\.[2-4]",
-        "A40\\.[0-3,8,9]|A41\\.[0-5,8-9][1,2,8]*|A42\\.7|B37\\.7",
+        "A40\\.[0-3,8,9]|A41\\.[0-5,8-9][1,2,8]*|A42\\.7|B37\\.7|R57\\.2",
         sep = "|"
     ), Icd),
     "Sepsis", Diagnosis
