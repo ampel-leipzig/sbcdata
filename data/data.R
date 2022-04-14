@@ -6,6 +6,7 @@ delayedAssign("sbcdata", local({
             junkpaths = TRUE,
             exdir = tempdir()
         ),
+        na.strings = c("NA", ""),
         showProgress = FALSE
     )
 }))
