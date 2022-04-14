@@ -4,10 +4,13 @@
 \alias{exclude_entries}
 \title{AMPEL Preprocessing/Exclusion}
 \usage{
-exclude_entries(x)
+exclude_entries(x, time = c(6, 72) * 3600)
 }
 \arguments{
 \item{x}{\code{data.table}, in the format described in \code{\link{sbcdata}}}
+
+\item{time}{\code{numeric(2)}, keep just entries between \code{time[1]} and
+\code{time[2]}, in seconds.}
 }
 \value{
 \code{data.frame}, same as \code{x} but with an added column \code{Excluded} and

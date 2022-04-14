@@ -116,7 +116,6 @@ exclude_entries <- function(x, time = c(6, 72) * 3600) {
     x
 }
 
-#'
 #' Test for Complete Blood Count
 #'
 #' @param x `data.table`, in the format described in [`sbcdata`]
