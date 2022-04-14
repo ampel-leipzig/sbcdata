@@ -305,12 +305,14 @@ set.seed(220216)
 lab[,
     `:=`(
         Id = match(ids, sample(unique(ids))),
-        Center = "Greifswald"
+        Center = "Greifswald",
+        Set = "Validation"
     )
 ]
 setorder(lab, Id, Time, Episode)
 lab <- lab[,
-    c("Id", "Age", "Sex", "Diagnosis", "Center", "Sender", "Episode", "Time",
+    c("Id", "Age", "Sex", "Diagnosis", "Center", "Set",
+      "Sender", "Episode", "Time",
       "TargetIcu", "SecToIcu", labdesc$Code), with = FALSE
 ]
 

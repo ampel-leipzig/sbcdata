@@ -153,12 +153,14 @@ set.seed(220216)
 full[,
     `:=`(
         Id = match(ids, sample(unique(ids))),
-        Center = "Leipzig"
+        Center = "Leipzig",
+        Set = "Training"
     )
 ]
 setorder(full, Id, Time, Episode)
 full <- full[,
-    c("Id", "Age", "Sex", "Diagnosis", "Center", "Sender", "Episode", "Time",
+    c("Id", "Age", "Sex", "Diagnosis", "Center", "Set",
+      "Sender", "Episode", "Time",
       "TargetIcu", "SecToIcu", labdesc$Code), with = FALSE
 ]
 

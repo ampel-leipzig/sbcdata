@@ -5,7 +5,7 @@
 \alias{sbcdata}
 \title{Laboratory Diagnostics of Patients at University Hospitals}
 \format{
-A \code{data.table} with 17 columns/variables:
+A \code{data.table} with 18 columns/variables:
 \describe{
 \item{Id}{\code{integer}, identification number of the case, unique for each
 center.}
@@ -14,6 +14,7 @@ center.}
 \item{Diagnosis}{\code{character}, diagnosis, could be \code{"Control"}, \code{"SIRS"}
 and \code{"Sepsis"}. See below for details.}
 \item{Center}{\code{character}, center, one of \code{"Greifswald"} or \code{"Leipzig"}.}
+\item{Set}{\code{character}, center, one of \code{"Training"} or \code{"Validation"}.}
 \item{Sender}{\code{character}, sender/origin which send the blood sample to the
 laboratory. See \code{\link{sendercodes}} for a description of all possible codes.}
 \item{Epsiode}{\code{integer}, counter for episodes on intensive care units,

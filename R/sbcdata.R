@@ -9,7 +9,7 @@
 #' For external validation the same laboratory values were taken
 #' from 2015 to 2020 at the University Hospital Greifswald.
 #'
-#' @format A `data.table` with 17 columns/variables:
+#' @format A `data.table` with 18 columns/variables:
 #' \describe{
 #'  \item{Id}{`integer`, identification number of the case, unique for each
 #'  center.}
@@ -18,6 +18,7 @@
 #'  \item{Diagnosis}{`character`, diagnosis, could be `"Control"`, `"SIRS"`
 #'  and `"Sepsis"`. See below for details.}
 #'  \item{Center}{`character`, center, one of `"Greifswald"` or `"Leipzig"`.}
+#'  \item{Set}{`character`, center, one of `"Training"` or `"Validation"`.}
 #'  \item{Sender}{`character`, sender/origin which send the blood sample to the
 #'  laboratory. See [`sendercodes`] for a description of all possible codes.}
 #'  \item{Epsiode}{`integer`, counter for episodes on intensive care units,

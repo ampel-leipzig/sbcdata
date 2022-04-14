@@ -254,7 +254,8 @@ import_mimic <- function(path, verbose = interactive()) {
     labevents[,
         `:=`(
             Id = match(ids, unique(ids)),
-            Center = "MIMIC-IV" # or should we use Boston here?
+            Center = "MIMIC-IV", # or should we use Boston here?,
+            Set = "Validation"
         )
     ]
 
@@ -262,7 +263,10 @@ import_mimic <- function(path, verbose = interactive()) {
     labevents[, `:=` (CRP = NA_real_, PCT = NA_real_)]
 
     labevents[,
-       c("Id", "Age", "Sex", "Diagnosis", "Center", "Sender", "Episode", "Time",
-         "TargetIcu", "SecToIcu", labdesc$Code), with = FALSE
+        c(
+            "Id", "Age", "Sex", "Diagnosis", "Center", "Set",
+            "Sender", "Episode", "Time", "TargetIcu", "SecToIcu", labdesc$Code
+        ),
+        with = FALSE
     ]
 }
