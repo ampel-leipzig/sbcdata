@@ -97,6 +97,10 @@ same patient at the same time in the same run of the analyser.
 It could not be decided which one is the correct/better one so removal is
 suggested. An example could be found below.
 
+In the \code{Center} \code{"Greifswald"} the sender codes are not as detailed as in
+\code{"Leipzig"}. That's why \code{"OTHER"} occures more often and \code{"AMB"} fewer
+than in \code{"Leipzig"}.
+
 At the \code{Center} \code{"Greifswald"} the admission/discharge timepoint was recorded
 in and extracted from the clinical information system. These data were not
 available for the \code{Center} \code{"Leipzig"}. There the first/last blood sample

@@ -65,24 +65,31 @@ lab <- lab[!is.na(Value),]
 setorder(lab, Id, Time, OrderId)
 
 labsenderdesc <- data.frame(
-    Sender = c("GEN", "ED",
+    Sender = c("AMB",
+               "GEN", "ED",
                "CICU", "CIMC",
-               "NICU", "NIMC",
                "MICU", "MIMC",
-               "PICU",
-               "SICU", "SIMC"),
+               "NICU", "NIMC",
+               "OR",
+               "PICU", "PIMC",
+               "SICU", "SIMC",
+               "STUD"),
     Description = c(
+        "out patients",
         "general/normal ward",
         "emergency department",
         "combined intensive care",
         "combined intermediate care",
-        "neurological intensive care",
-        "neurological intermediate care",
         "medical intensive care unit",
         "medical intermediate care",
+        "neurological intensive care",
+        "neurological intermediate care",
+        "operation room",
         "pediatric intensive care unit",
+        "pediatric intermediate care",
         "surgical intensive care unit",
-        "surgical intermediate care"
+        "surgical intermediate care",
+        "study measurements"
     )
 )
 
@@ -93,7 +100,7 @@ sendermap <- read.csv(
 )
 
 lab[, Sender := sendermap$Type[match(Sender, sendermap$Sender)]]
-lab$Sender[is.na(lab$Sender)] <- "GEN"
+lab$Sender[is.na(lab$Sender)] <- "OTHER"
 
 ## drop duplicated
 lab <- unique(lab)

@@ -83,6 +83,10 @@
 #' It could not be decided which one is the correct/better one so removal is
 #' suggested. An example could be found below.
 #'
+#' In the `Center` `"Greifswald"` the sender codes are not as detailed as in
+#' `"Leipzig"`. That's why `"OTHER"` occures more often and `"AMB"` fewer
+#' than in `"Leipzig"`.
+#'
 #' At the `Center` `"Greifswald"` the admission/discharge timepoint was recorded
 #' in and extracted from the clinical information system. These data were not
 #' available for the `Center` `"Leipzig"`. There the first/last blood sample
