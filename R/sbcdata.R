@@ -3,8 +3,11 @@
 #' This dataset includes laboratory diagnostics for the
 #' complete blood counts without differentiation,
 #' C-reactive protein and procalictonin for
-#' patients admitted at the University Hospital Greifswald and Leipzig from
-#' 2015 to 2020 and from 2014 to 2019, respectively.
+#' patients admitted at the University Hospital Leipzig from
+#' 2014 to 2019 as Training and from 2020 to 2021 as Validation set,
+#' respectively.
+#' For external validation the same laboratory values were taken
+#' from 2015 to 2020 at the University Hospital Greifswald.
 #'
 #' @format A `data.table` with 17 columns/variables:
 #' \describe{
@@ -38,22 +41,22 @@
 #' }
 #'
 #' @source{
+#' ## Data University Hospital Leipzig
+#' \describe{
+#'  \item{R package}{Sebastian Gibb}
+#'  \item{Data Processing}{Maria Schmidt, Paul Ahrens and Mark Wernsdorfer}
+#'  \item{Laboratory Data Collection/Extraction}{Maria Schmidt, Thorsten Kaiser}
+#'  \item{Administration Data Extraction}{Maria Schmidt, Thorsten Kaiser}
+#'  \item{Reference Ethic Committee}{214/18ek}
+#' }}
+#'
+#' @source{
 #' ## Data University Medicine Greifswald
 #' \describe{
 #'  \item{Data Processing/R package}{Sebastian Gibb}
 #'  \item{Laboratory Data Collection/Extraction}{Matthias Nauck and Stefan Bollmann}
 #'  \item{Administration Data Extraction}{Thomas Hildebrandt}
 #'  \item{Reference Ethic Committee}{BB133/10}
-#' }}
-#'
-#' @source{
-#' ## Data University Hospital Leipzig
-#' \describe{
-#'  \item{R package}{Sebastian Gibb}
-#'  \item{Data Processing}{Paul Ahrens and Mark Wernsdorfer}
-#'  \item{Laboratory Data Collection/Extraction}{Thorsten Kaiser}
-#'  \item{Administration Data Extraction}{Thorsten Kaiser}
-#'  \item{Reference Ethic Committee}{214/18ek}
 #' }}
 #'
 #' @details
