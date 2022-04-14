@@ -48,6 +48,17 @@ icd <- fread(
 ## rename columns
 setnames(icd, c("PatientId", "Id", "Icd"))
 
+r572 <- fread(
+    file.path("..", "intdata", "ukl_faelle_r57.2_2014-2022.csv"),
+    select = c("Fall  Medizinisch")
+)
+
+setnames(r572, "Id")
+
+r572 <- copy(icd[match(r572$Id, icd$Id),])
+r572 <- r572[!is.na(r572$Id),]
+r572$Icd <- "R57.2"
+
 ## drop duplicates
 icd <- unique(icd)
 

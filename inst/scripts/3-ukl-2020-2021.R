@@ -15,6 +15,16 @@ setnames(
     new = c("Id", "Time")
 )
 
+## add missing Sepsis label for R57.2
+r572 <- fread(
+    file.path("..", "intdata", "ukl_faelle_r57.2_2014-2022.csv"),
+    select = c("Fall  Medizinisch")
+)
+
+setnames(r572, "Id")
+
+full$Diagnosis[full$Id %in% r572$Id] <- "Sepsis"
+
 ## remove entries where Sex is unknown
 full <- full[Sex != "U",]
 
@@ -23,8 +33,6 @@ setorder(full, Id, Time, OrderId)
 
 ## drop patients < 18 years
 full <- full[Age >= 18,]
-
-setorder(full, Id, Time, OrderId)
 
 ## helper columns for TargetIcu and SecToIcu calculation
 full[, isNewWard := (

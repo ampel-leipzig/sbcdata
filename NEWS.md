@@ -1,5 +1,9 @@
 # sbcdata 0.0
 
+## Changes in 0.0.5
+
+- Adapt "Diagnosis" labels for Leipzig data according to R57.2.
+
 ## Changes in 0.0.4
 
 - Add Leipzig 2020-2021 Validation Set.
