@@ -33,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sbcdata</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.0.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.0.5</span>
       </span>
     </div>
 
@@ -94,7 +94,7 @@
 
     
     
-<p><strong>Authors</strong>: Sebastian Gibb [aut, cre], Paul Ahrens [aut, dtc], Daniel Steinbach [aut, dtc], Maria Schmidt [aut, dtc], Thorsten Kaiser [aut, dtc], Mark Wernsdorfer [dtc], Matthias Nauck [dtc], Stefan Bollmann [dtc], Thomas Hildebrandt [dtc]<br><strong>Last modified:</strong> 2022-04-14 18:45:22<br><strong>Compiled</strong>: Thu Apr 14 18:50:35 2022</p>
+<p><strong>Authors</strong>: Sebastian Gibb [aut, cre], Paul Ahrens [aut, dtc], Daniel Steinbach [aut, dtc], Maria Schmidt [aut, dtc], Thorsten Kaiser [aut, dtc], Mark Wernsdorfer [dtc], Matthias Nauck [dtc], Stefan Bollmann [dtc], Thomas Hildebrandt [dtc]<br><strong>Last modified:</strong> 2022-04-14 19:14:28<br><strong>Compiled</strong>: Thu Apr 14 19:16:45 2022</p>
 <div class="section level2">
 <h2 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
 </h2>
@@ -124,7 +124,7 @@
 <span class="co">##   Sebastian Gibb, Paul Ahrens, Daniel Steinbach, Maria Schmidt and</span>
 <span class="co">##   Thorsten Kaiser (2022). sbcdata: Laboratory Diagnostics from Septic</span>
 <span class="co">##   and Non-septic Patients Used in the AMPEL Project. R package version</span>
-<span class="co">##   0.0.4. https://github.com/ampel-leipzig/sbcdata</span>
+<span class="co">##   0.0.5. https://github.com/ampel-leipzig/sbcdata</span>
 <span class="co">## </span>
 <span class="co">## A BibTeX entry for LaTeX users is</span>
 <span class="co">## </span>
@@ -133,7 +133,7 @@
 <span class="co">## in the AMPEL Project},</span>
 <span class="co">##     author = {Sebastian Gibb and Paul Ahrens and Daniel Steinbach and Maria Schmidt and Thorsten Kaiser},</span>
 <span class="co">##     year = {2022},</span>
-<span class="co">##     note = {R package version 0.0.4},</span>
+<span class="co">##     note = {R package version 0.0.5},</span>
 <span class="co">##     url = {https://github.com/ampel-leipzig/sbcdata},</span>
 <span class="co">##   }</span></code></pre>
 </div>
@@ -351,14 +351,14 @@
 <pre><code><span class="co">##             Diagnosis</span>
 <span class="co">## Center       Control Sepsis   SIRS    Sum</span>
 <span class="co">##   Greifswald  161396   5330   2415 169141</span>
-<span class="co">##   Leipzig     733470   9538   1197 744205</span>
-<span class="co">##   Sum         894866  14868   3612 913346</span></code></pre>
+<span class="co">##   Leipzig     733392   9616   1197 744205</span>
+<span class="co">##   Sum         894788  14946   3612 913346</span></code></pre>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/proportions.html" class="external-link">proportions</a></span><span class="op">(</span><span class="va">tbl</span>, margin <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></code></pre></div>
 <pre><code><span class="co">##             Diagnosis</span>
 <span class="co">## Center           Control      Sepsis        SIRS</span>
 <span class="co">##   Greifswald 0.954209801 0.031512170 0.014278028</span>
-<span class="co">##   Leipzig    0.985575211 0.012816361 0.001608428</span></code></pre>
+<span class="co">##   Leipzig    0.985470401 0.012921171 0.001608428</span></code></pre>
 </div>
 </div>
 <div class="section level2">
@@ -381,7 +381,7 @@
 <span class="co">## [1] stats     graphics  grDevices utils     datasets  methods   base     </span>
 <span class="co">## </span>
 <span class="co">## other attached packages:</span>
-<span class="co">## [1] sbcdata_0.0.4     data.table_1.14.2</span>
+<span class="co">## [1] sbcdata_0.0.5     data.table_1.14.2</span>
 <span class="co">## </span>
 <span class="co">## loaded via a namespace (and not attached):</span>
 <span class="co">##  [1] knitr_1.38        magrittr_2.0.3    viridisLite_0.4.0 R6_2.5.1         </span>
