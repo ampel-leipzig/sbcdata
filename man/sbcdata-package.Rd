@@ -23,6 +23,7 @@ Authors:
 \itemize{
   \item Paul Ahrens \email{paul.ahrens@medizin.uni-leipzig.de} [data contributor]
   \item Daniel Steinbach \email{daniel.steinbach@medizin.uni-leipzig.de} [data contributor]
+  \item Maria Schmidt \email{maria.schmidt@medizin.uni-leipzig.de} [data contributor]
   \item Thorsten Kaiser \email{thorsten.kaiser@medizin.uni-leipzig.de} [data contributor]
 }
 

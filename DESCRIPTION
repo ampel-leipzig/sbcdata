@@ -34,6 +34,11 @@ Authors@R:
             role = c("aut", "dtc")
         ),
         person(
+            given = "Maria", family = "Schmidt",
+            email = "maria.schmidt@medizin.uni-leipzig.de",
+            role = c("aut", "dtc")
+        ),
+        person(
             given = "Thorsten", family = "Kaiser",
             email = "thorsten.kaiser@medizin.uni-leipzig.de",
             role = c("aut", "dtc")
