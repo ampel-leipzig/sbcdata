@@ -24,7 +24,7 @@ from 2015 to 2020 at the University Hospital Greifswald."><!-- mathjax --><scrip
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sbcdata</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.0.5</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.0.6</span>
       </span>
     </div>
 
@@ -172,7 +172,7 @@ intensive care unit <code>TargetIcu</code>.</p></dd>
     </div>
     <div id="details">
     <h2>Details</h2>
-    <p>The <code>Diagnosis</code> was based on ICD10 codes. <code>"Sepsis"</code> was assumed for:</p><ul><li><p>A02.1</p></li>
+    <p>The <code>Diagnosis</code> was based on ICD10-GM codes. <code>"Sepsis"</code> was assumed for:</p><ul><li><p>A02.1</p></li>
 <li><p>A20.7</p></li>
 <li><p>A22.7</p></li>
 <li><p>A24.1</p></li>
@@ -185,8 +185,10 @@ A41.9</p></li>
 <li><p>A42.7</p></li>
 <li><p>B37.7</p></li>
 <li><p>R57.2</p></li>
+<li><p>R65.1</p></li>
 </ul><p>If the ICD10 code was R65.x without any of the sepsis-related codes above the
-<code>Diagnoses</code> <code>"SIRS"</code> was used. Everything else is labeled as "<code>Control</code>".</p>
+<code>Diagnoses</code> <code>"SIRS"</code> was used (except R65.2).
+Everything else is labeled as "<code>Control</code>".</p>
 <p>For the <code>Center</code> <code>"Greifswald"</code> there are a few entries with duplicated
 time points <code>Time</code> for the same <code>Id</code> and <code>Sender</code> with different laboratory
 values. This happens due to the analyses of multiple blood samples from the
