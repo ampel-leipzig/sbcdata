@@ -77,7 +77,7 @@ setorder(full, Id, Time, OrderId)
 
 ## rewrite diagnosis
 ## SIRS
-## do we want to treat R65.0, R65.1 as sepsis?
+## we treat R65.1 as sepsis below
 full[, Diagnosis := ifelse(grepl("R65\\.[0-9]+", Icd), "SIRS", "Control")]
 ## Sepsis
 ## A02.1
@@ -93,16 +93,14 @@ full[, Diagnosis := ifelse(grepl("R65\\.[0-9]+", Icd), "SIRS", "Control")]
 ## A42.7   
 ## B37.7   
 ## R57.2
+## R65.1
 ##
 ## will overwrite some SIRS cases
-full[, Diagnosis := ifelse(
-    grepl(paste(
-        "A02\\.1|A20\\.7|A22\\.7|A23\\.9|A24\\.1|A26\\.7|A32\\.7|A39\\.[2-4]",
-        "A40\\.[0-3,8,9]|A41\\.[0-5,8-9][1,2,8]*|A42\\.7|B37\\.7|R57\\.2",
-        sep = "|"
-    ), Icd),
-    "Sepsis", Diagnosis
-)]
+full$Diagnosis[grepl(paste(
+    "A02\\.1|A20\\.7|A22\\.7|A23\\.9|A24\\.1|A26\\.7|A32\\.7|A39\\.[2-4]",
+    "A40\\.[0-3,8,9]|A41\\.[0-5,8-9][1,2,8]*|A42\\.7|B37\\.7|R57\\.2|R65\\.1",
+    sep = "|"
+), full$Icd)] <- "Sepsis"
 
 ## drop now useless ICD column
 full[, Icd := NULL]

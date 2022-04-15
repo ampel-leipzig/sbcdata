@@ -75,7 +75,7 @@ For external validation the same laboratory values were taken
 from 2015 to 2020 at the University Hospital Greifswald.
 }
 \details{
-The \code{Diagnosis} was based on ICD10 codes. \code{"Sepsis"} was assumed for:
+The \code{Diagnosis} was based on ICD10-GM codes. \code{"Sepsis"} was assumed for:
 \itemize{
 \item{A02.1}
 \item{A20.7}
@@ -90,9 +90,11 @@ A41.9}
 \item{A42.7}
 \item{B37.7}
 \item{R57.2}
+\item{R65.1}
 }
 If the ICD10 code was R65.x without any of the sepsis-related codes above the
-\code{Diagnoses} \code{"SIRS"} was used. Everything else is labeled as "\code{Control}".
+\code{Diagnoses} \code{"SIRS"} was used (except R65.2).
+Everything else is labeled as "\code{Control}".
 
 For the \code{Center} \code{"Greifswald"} there are a few entries with duplicated
 time points \code{Time} for the same \code{Id} and \code{Sender} with different laboratory

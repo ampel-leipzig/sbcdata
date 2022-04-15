@@ -208,7 +208,7 @@ adm$Icd[!nchar(adm$Icd)] <- NA
 ## rewrite diagnosis
 adm[, Diagnosis :=  "Control"]
 ## SIRS
-## do we want to treat R65.0, R65.1 as sepsis?
+## we treat R65.1 as sepsis below
 adm$Diagnosis[grepl("R65\\.[0-9]+", adm$Icd)] <- "SIRS"
 ## Sepsis
 ## A02.1
@@ -224,11 +224,12 @@ adm$Diagnosis[grepl("R65\\.[0-9]+", adm$Icd)] <- "SIRS"
 ## A42.7   
 ## B37.7   
 ## R57.2
+## R65.1
 ##
 ## will overwrite some SIRS cases
 adm$Diagnosis[grepl(paste(
     "A02\\.1|A20\\.7|A22\\.7|A23\\.9|A24\\.1|A26\\.7|A32\\.7|A39\\.[2-4]",
-    "A40\\.[0-3,8,9]|A41\\.[0-5,8-9][1,2,8]*|A42\\.7|B37\\.7|R57\\.2",
+    "A40\\.[0-3,8,9]|A41\\.[0-5,8-9][1,2,8]*|A42\\.7|B37\\.7|R57\\.2|R65\\.1",
     sep = "|"
 ), adm$Icd)] <- "Sepsis"
 

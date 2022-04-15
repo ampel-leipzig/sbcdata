@@ -7,6 +7,12 @@ library("data.table")
 
 ## read output from Maria Schmidt
 full <- as.data.table(readRDS(file.path("..", "intdata", "ukl_2019.rds")))
+icd <- as.data.table(
+    readRDS(file.path("..", "intdata", "ukl_caseid_all.icd_2019-2021.rds"))
+)[, .(CaseId, all.ICD)]
+
+## drop unknown Id column
+full[, Id := NULL]
 
 ## rename columns
 setnames(
@@ -15,18 +21,44 @@ setnames(
     new = c("Id", "Time")
 )
 
-## add missing Sepsis label for R57.2
-r572 <- fread(
-    file.path("..", "intdata", "ukl_faelle_r57.2_2014-2022.csv"),
-    select = c("Fall  Medizinisch")
+setnames(
+    icd,
+    old = c("CaseId", "all.ICD"),
+    new = c("Id", "Icd")
 )
-
-setnames(r572, "Id")
-
-full$Diagnosis[full$Id %in% r572$Id] <- "Sepsis"
 
 ## remove entries where Sex is unknown
 full <- full[Sex != "U",]
+
+full <- merge(full, icd, by = "Id", all.x = TRUE, all.y = FALSE)
+
+## rewrite diagnosis
+full[, Diagnosis :=  "Control"]
+## SIRS
+## we treat R65.1 as sepsis below
+full$Diagnosis[grepl("R65\\.[0-9]+", full$Icd)] <- "SIRS"
+## Sepsis
+## A02.1
+## A20.7
+## A22.7   
+## A23.9   
+## A24.1   
+## A26.7   
+## A32.7   
+## A39.2, A39.3, A39.4   
+## A40.0, A40.1, A40.2, A40.3, A40.8, A40.9   
+## A41.0, A41.1, A41.2, A41.3, A41.4, A41.51, A41.52, A41.58, A41.8, A41.9 
+## A42.7   
+## B37.7   
+## R57.2
+## R65.1
+##
+## will overwrite some SIRS cases
+full$Diagnosis[grepl(paste(
+    "A02\\.1|A20\\.7|A22\\.7|A23\\.9|A24\\.1|A26\\.7|A32\\.7|A39\\.[2-4]",
+    "A40\\.[0-3,8,9]|A41\\.[0-5,8-9][1,2,8]*|A42\\.7|B37\\.7|R57\\.2|R65\\.1",
+    sep = "|"
+), full$Icd)] <- "Sepsis"
 
 ## reorder
 setorder(full, Id, Time, OrderId)

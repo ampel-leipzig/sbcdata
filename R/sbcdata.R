@@ -61,7 +61,7 @@
 #' }}
 #'
 #' @details
-#' The `Diagnosis` was based on ICD10 codes. `"Sepsis"` was assumed for:
+#' The `Diagnosis` was based on ICD10-GM codes. `"Sepsis"` was assumed for:
 #' \itemize{
 #'  \item{A02.1}
 #'  \item{A20.7}
@@ -76,9 +76,11 @@
 #'  \item{A42.7}
 #'  \item{B37.7}
 #'  \item{R57.2}
+#'  \item{R65.1}
 #' }
 #' If the ICD10 code was R65.x without any of the sepsis-related codes above the
-#' `Diagnoses` `"SIRS"` was used. Everything else is labeled as "`Control`".
+#' `Diagnoses` `"SIRS"` was used (except R65.2).
+#' Everything else is labeled as "`Control`".
 #'
 #' For the `Center` `"Greifswald"` there are a few entries with duplicated
 #' time points `Time` for the same `Id` and `Sender` with different laboratory

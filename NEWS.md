@@ -1,5 +1,9 @@
 # sbcdata 0.0
 
+## Changes in 0.0.6
+
+- Treat SIRS caused by an infection as "Sepsis" (ICD10-GM R65.1).
+
 ## Changes in 0.0.5
 
 - Adapt "Diagnosis" labels for Leipzig data according to R57.2.
