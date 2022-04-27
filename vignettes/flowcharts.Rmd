@@ -20,8 +20,8 @@ sbcdata
 **Compiled**: `r date()`
 
 ```{r dp}
-umg <- exclude_entries(subset(sbcdata, Center == "Greifswald"))
-ukl <- exclude_entries(subset(sbcdata, Center == "Leipzig"))
+umg <- sbc_exclude_entries(subset(sbcdata, Center == "Greifswald"))
+ukl <- sbc_exclude_entries(subset(sbcdata, Center == "Leipzig"))
 ```
 
 # Greifswald

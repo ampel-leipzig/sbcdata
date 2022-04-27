@@ -1,20 +1,21 @@
-#' AMPEL Preprocessing/Exclusion
+#' AMPEL Exclusion
 #'
-#' Run the preproccesing/exclusion as done in the AMPEL project.
+#' Run the exclusion as done in the AMPEL project.
 #'
 #' @param x `data.table`, in the format described in [`sbcdata`]
 #' @param time `numeric(2)`, keep just entries between `time[1]` and
 #' `time[2]`, in seconds.
-#' @return `data.frame`, same as `x` but with an added column `Excluded` and
-#' 3 attributes `"message"`, `"n_cases"`, `"n_cbc"` that describe the
-#' processing and the kept cases and complete blood counts (CBC)
+#' @return `data.table`, same as `x` but with an added column `Excluded` and
+#' 3 attributes, namely `"exclude_message"`, `"exclude_cases"`, `"exclude_cbc"`
+#' that describe the processing and the kept cases and
+#' complete blood counts (CBC)
 #' @author Sebastian Gibb <mail@@sebastiangibb.de>
 #' @import data.table
 #' @export
 #' @examples
-#' x <- exclude_entries(sbcdata)
+#' x <- sbc_exclude_entries(sbcdata)
 #' attributes(x)
-exclude_entries <- function(x, time = c(6, 72) * 3600) {
+sbc_exclude_entries <- function(x, time = c(-Inf, Inf) * 3600) {
     x[, Excluded := FALSE]
     msg <- character()
     ncases <- integer()
@@ -90,8 +91,7 @@ exclude_entries <- function(x, time = c(6, 72) * 3600) {
     ncases <- c(ncases, .count_cbc_cases(x[newex,]))
     ncbc <- c(ncbc, count_cbc(x[newex,]))
 
-    ## Shouldn't we move > 72 h before Admission to Control?
-    ## Exclude CBC in Sepsis cases not between 72-6 h before admission to ICU
+    ## Exclude CBC in Sepsis cases not between time before admission to ICU
     excl <- !.is_time_range(x, time)
     excl <- (is.na(excl) | excl) & sepsis
     newex <- !x$Excluded & excl
@@ -110,9 +110,9 @@ exclude_entries <- function(x, time = c(6, 72) * 3600) {
     ncases <- c(ncases, .count_cbc_cases(x[!x$Excluded & sepsis,]))
     ncbc <- c(ncbc, count_cbc(x[!x$Excluded & sepsis,]))
 
-    setattr(x, "message", msg)
-    setattr(x, "n_cases", ncases)
-    setattr(x, "n_cbc", ncbc)
+    setattr(x, "exclude_message", msg)
+    setattr(x, "exclude_cases", ncases)
+    setattr(x, "exclude_cbc", ncbc)
     x
 }
 

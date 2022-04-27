@@ -20,7 +20,7 @@ sbcdata
 **Compiled**: `r date()`
 
 ```{r dp}
-sbcdata <- exclude_entries(sbcdata)
+sbcdata <- sbc_exclude_entries(sbcdata)
 sbcdata <- sbcdata[(!Excluded),]
 
 .lbl <- function(x, unit) {

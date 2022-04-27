@@ -2,6 +2,8 @@
 
 export(count_cases)
 export(count_cbc)
-export(exclude_entries)
 export(import_mimic)
+export(sbc_exclude_entries)
+export(sbc_label)
+export(sbc_preprocess)
 import(data.table)

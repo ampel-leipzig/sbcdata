@@ -1,3 +1,11 @@
+# sbcdata 0.1
+
+## Changes in 0.1.0
+
+- Rename `exclude_entries` into `sbc_exclude_entries`.
+- Add `sbc_label` for labeling into Sepsis/Control cases.
+- Add `sbc_preprocess` as wrapper for `sbc_exclude_entries` and `sbc_label`.
+
 # sbcdata 0.0
 
 ## Changes in 0.0.7
