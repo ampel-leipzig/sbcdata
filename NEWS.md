@@ -1,5 +1,9 @@
 # sbcdata 0.0
 
+## Changes in 0.0.7
+
+- Integrate new data query from Greifswald.
+
 ## Changes in 0.0.6
 
 - Treat SIRS caused by an infection as "Sepsis" (ICD10-GM R65.1).

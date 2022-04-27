@@ -121,7 +121,7 @@ lab <- dcast(lab, Id + OrderId + Time + Sender ~ Code, value.var = "Value")
 
 ## import administration data
 adm <- fread(
-    file.path("..", "intdata", "umg_admdata_2015_2020_sepsis_20210921.csv")
+    file.path("..", "intdata", "umg_admdata_2015_2020_sepsis_20220426.csv")
 )
 
 ## rename columns
@@ -130,6 +130,7 @@ setnames(adm, c(
     "DateAdmission", "DateDischarge",
     "WardAdmission", "WardDischarge",
     "Drg", "Age", "Sex", "Icd",
+    "Icd2", ## Resubmission ICD after a short discharge (a few hours/days)
     paste(c(
             "Icu",
             "DateAdmissionIcu", "TimeAdmissionIcu",
@@ -140,11 +141,25 @@ setnames(adm, c(
     )
 ))
 
+## combine date and time columns
+dtcols <- grep("Date.*Icu\\.", colnames(adm), value = TRUE)
+tmcols <- grep("Time.*Icu\\.", colnames(adm), value = TRUE)
+for (i in seq_along(dtcols))
+    adm[[tmcols[i]]] <- paste(adm[[dtcols[i]]], adm[[tmcols[i]]])
+
+
+expandIcd <- function(x)trimws(unlist(strsplit(x, split = ";", fixed = TRUE)))
+
+adm[, Icd := mapply(function(icd, icd2)
+    paste(sort.int(union(expandIcd(icd), expandIcd(icd2))), collapse = ";"),
+    icd = Icd, icd2 = Icd2
+)]
+
 ## drop useless columns
 useless <-  c(
     "Drg",
     "DateAdmission", "DateDischarge",
-    "WardAdmission", "WardDischarge",
+    "WardAdmission", "WardDischarge", "Icd2",
     paste(
         c("DateAdmissionIcu", "DateDischargeIcu"),
         rep(1:10, each = 2),
