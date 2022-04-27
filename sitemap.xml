@@ -31,9 +31,6 @@
     <loc>/reference/counts.html</loc>
   </url>
   <url>
-    <loc>/reference/exclude_entries.html</loc>
-  </url>
-  <url>
     <loc>/reference/import_mimic.html</loc>
   </url>
   <url>
@@ -41,6 +38,15 @@
   </url>
   <url>
     <loc>/reference/labcodes.html</loc>
+  </url>
+  <url>
+    <loc>/reference/sbc_exclude_entries.html</loc>
+  </url>
+  <url>
+    <loc>/reference/sbc_label.html</loc>
+  </url>
+  <url>
+    <loc>/reference/sbc_preprocess.html</loc>
   </url>
   <url>
     <loc>/reference/sbcdata-package.html</loc>

@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sbcdata</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.0.6</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.2</span>
       </span>
     </div>
 
@@ -64,34 +64,55 @@
     </div>
 
     <div class="section level2">
+<h2 class="page-header" data-toc-text="0.1" id="sbcdata-01">sbcdata 0.1<a class="anchor" aria-label="anchor" href="#sbcdata-01"></a></h2>
+<div class="section level3">
+<h3 id="changes-in-0-1">Changes in 0.1.2<a class="anchor" aria-label="anchor" href="#changes-in-0-1"></a></h3>
+<ul><li>Use plural of BCs in label messages.</li>
+</ul></div>
+<div class="section level3">
+<h3 id="changes-in-0-1-1">Changes in 0.1.1<a class="anchor" aria-label="anchor" href="#changes-in-0-1-1"></a></h3>
+<ul><li>Use lower-case “sepsis” in exclusion messages.</li>
+</ul></div>
+<div class="section level3">
+<h3 id="changes-in-0-1-2">Changes in 0.1.0<a class="anchor" aria-label="anchor" href="#changes-in-0-1-2"></a></h3>
+<ul><li>Rename <code>exclude_entries</code> into <code>sbc_exclude_entries</code>.</li>
+<li>Add <code>sbc_label</code> for labeling into Sepsis/Control cases.</li>
+<li>Add <code>sbc_preprocess</code> as wrapper for <code>sbc_exclude_entries</code> and <code>sbc_label</code>.</li>
+</ul></div>
+</div>
+    <div class="section level2">
 <h2 class="page-header" data-toc-text="0.0" id="sbcdata-00">sbcdata 0.0<a class="anchor" aria-label="anchor" href="#sbcdata-00"></a></h2>
 <div class="section level3">
-<h3 id="changes-in-0-0">Changes in 0.0.6<a class="anchor" aria-label="anchor" href="#changes-in-0-0"></a></h3>
+<h3 id="changes-in-0-0">Changes in 0.0.7<a class="anchor" aria-label="anchor" href="#changes-in-0-0"></a></h3>
+<ul><li>Integrate new data query from Greifswald.</li>
+</ul></div>
+<div class="section level3">
+<h3 id="changes-in-0-0-1">Changes in 0.0.6<a class="anchor" aria-label="anchor" href="#changes-in-0-0-1"></a></h3>
 <ul><li>Treat SIRS caused by an infection as “Sepsis” (ICD10-GM R65.1).</li>
 </ul></div>
 <div class="section level3">
-<h3 id="changes-in-0-0-1">Changes in 0.0.5<a class="anchor" aria-label="anchor" href="#changes-in-0-0-1"></a></h3>
+<h3 id="changes-in-0-0-2">Changes in 0.0.5<a class="anchor" aria-label="anchor" href="#changes-in-0-0-2"></a></h3>
 <ul><li>Adapt “Diagnosis” labels for Leipzig data according to R57.2.</li>
 </ul></div>
 <div class="section level3">
-<h3 id="changes-in-0-0-2">Changes in 0.0.4<a class="anchor" aria-label="anchor" href="#changes-in-0-0-2"></a></h3>
+<h3 id="changes-in-0-0-3">Changes in 0.0.4<a class="anchor" aria-label="anchor" href="#changes-in-0-0-3"></a></h3>
 <ul><li>Add Leipzig 2020-2021 Validation Set.</li>
 <li>Add “Set” column with “Training”/“Validation”.</li>
 <li>Adapt to more detailed sender codes.</li>
 <li>Treat severe septic shock 785.52 and R65.2x (ICD9/10-CM) and R57.2 (ICD10-GM) as “Sepsis”.</li>
 </ul></div>
 <div class="section level3">
-<h3 id="changes-in-0-0-3">Changes in 0.0.3<a class="anchor" aria-label="anchor" href="#changes-in-0-0-3"></a></h3>
+<h3 id="changes-in-0-0-4">Changes in 0.0.3<a class="anchor" aria-label="anchor" href="#changes-in-0-0-4"></a></h3>
 <ul><li>
 <code>exclude_entries</code>: new argument <code>time</code> to filter specific time range.</li>
 </ul></div>
 <div class="section level3">
-<h3 id="changes-in-0-0-4">Changes in 0.0.2<a class="anchor" aria-label="anchor" href="#changes-in-0-0-4"></a></h3>
+<h3 id="changes-in-0-0-5">Changes in 0.0.2<a class="anchor" aria-label="anchor" href="#changes-in-0-0-5"></a></h3>
 <ul><li>
 <code>import_mimic</code>: fix <code>Episode</code> calculation for <code>NA</code> in <code>hadm_id</code> and <code>transfer_id</code>.</li>
 </ul></div>
 <div class="section level3">
-<h3 id="changes-in-0-0-5">Changes in 0.0.1<a class="anchor" aria-label="anchor" href="#changes-in-0-0-5"></a></h3>
+<h3 id="changes-in-0-0-6">Changes in 0.0.1<a class="anchor" aria-label="anchor" href="#changes-in-0-0-6"></a></h3>
 <ul><li>Initial version.</li>
 </ul></div>
 </div>

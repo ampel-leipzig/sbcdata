@@ -33,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sbcdata</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.0.6</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.2</span>
       </span>
     </div>
 
@@ -94,7 +94,7 @@
 
     
     
-<p><strong>Authors</strong>: Sebastian Gibb [aut, cre], Paul Ahrens [aut, dtc], Daniel Steinbach [aut, dtc], Maria Schmidt [aut, dtc], Thorsten Kaiser [aut, dtc], Mark Wernsdorfer [dtc], Matthias Nauck [dtc], Stefan Bollmann [dtc], Thomas Hildebrandt [dtc]<br><strong>Last modified:</strong> 2022-04-15 14:48:32<br><strong>Compiled</strong>: Fri Apr 15 14:50:26 2022</p>
+<p><strong>Authors</strong>: Sebastian Gibb [aut, cre], Paul Ahrens [aut, dtc], Daniel Steinbach [aut, dtc], Maria Schmidt [aut, dtc], Thorsten Kaiser [aut, dtc], Mark Wernsdorfer [dtc], Matthias Nauck [dtc], Stefan Bollmann [dtc], Thomas Hildebrandt [dtc]<br><strong>Last modified:</strong> 2022-04-27 20:52:10<br><strong>Compiled</strong>: Wed Apr 27 20:54:47 2022</p>
 <div class="section level2">
 <h2 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
 </h2>
@@ -121,10 +121,10 @@
 <pre><code><span class="co">## </span>
 <span class="co">## To cite package 'sbcdata' in publications use:</span>
 <span class="co">## </span>
-<span class="co">##   Sebastian Gibb, Paul Ahrens, Daniel Steinbach, Maria Schmidt and</span>
-<span class="co">##   Thorsten Kaiser (2022). sbcdata: Laboratory Diagnostics from Septic</span>
-<span class="co">##   and Non-septic Patients Used in the AMPEL Project. R package version</span>
-<span class="co">##   0.0.6. https://github.com/ampel-leipzig/sbcdata</span>
+<span class="co">##   Gibb S, Ahrens P, Steinbach D, Schmidt M, Kaiser T (2022). _sbcdata:</span>
+<span class="co">##   Laboratory Diagnostics from Septic and Non-septic Patients Used in</span>
+<span class="co">##   the AMPEL Project_. R package version 0.1.2,</span>
+<span class="co">##   &lt;https://github.com/ampel-leipzig/sbcdata&gt;.</span>
 <span class="co">## </span>
 <span class="co">## A BibTeX entry for LaTeX users is</span>
 <span class="co">## </span>
@@ -133,7 +133,7 @@
 <span class="co">## in the AMPEL Project},</span>
 <span class="co">##     author = {Sebastian Gibb and Paul Ahrens and Daniel Steinbach and Maria Schmidt and Thorsten Kaiser},</span>
 <span class="co">##     year = {2022},</span>
-<span class="co">##     note = {R package version 0.0.6},</span>
+<span class="co">##     note = {R package version 0.1.2},</span>
 <span class="co">##     url = {https://github.com/ampel-leipzig/sbcdata},</span>
 <span class="co">##   }</span></code></pre>
 </div>
@@ -151,7 +151,7 @@
 <span class="co">##  $ Id       : int  1 2 3 3 3 3 3 3 3 3 ...</span>
 <span class="co">##  $ Age      : int  25 75 77 77 77 77 77 77 77 77 ...</span>
 <span class="co">##  $ Sex      : chr  "W" "M" "W" "W" ...</span>
-<span class="co">##  $ Diagnosis: chr  "Control" "Control" "SIRS" "SIRS" ...</span>
+<span class="co">##  $ Diagnosis: chr  "Control" "Control" "Sepsis" "Sepsis" ...</span>
 <span class="co">##  $ Center   : chr  "Greifswald" "Greifswald" "Greifswald" "Greifswald" ...</span>
 <span class="co">##  $ Set      : chr  "Validation" "Validation" "Validation" "Validation" ...</span>
 <span class="co">##  $ Sender   : chr  "AMB" "GEN" "OTHER" "OTHER" ...</span>
@@ -350,14 +350,14 @@
 <span class="fu"><a href="https://rdrr.io/r/stats/addmargins.html" class="external-link">addmargins</a></span><span class="op">(</span><span class="va">tbl</span><span class="op">)</span></code></pre></div>
 <pre><code><span class="co">##             Diagnosis</span>
 <span class="co">## Center       Control Sepsis   SIRS    Sum</span>
-<span class="co">##   Greifswald  161396   6100   1645 169141</span>
+<span class="co">##   Greifswald  161160   6995    986 169141</span>
 <span class="co">##   Leipzig     732763  10231   1211 744205</span>
-<span class="co">##   Sum         894159  16331   2856 913346</span></code></pre>
+<span class="co">##   Sum         893923  17226   2197 913346</span></code></pre>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/proportions.html" class="external-link">proportions</a></span><span class="op">(</span><span class="va">tbl</span>, margin <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></code></pre></div>
 <pre><code><span class="co">##             Diagnosis</span>
 <span class="co">## Center           Control      Sepsis        SIRS</span>
-<span class="co">##   Greifswald 0.954209801 0.036064585 0.009725614</span>
+<span class="co">##   Greifswald 0.952814516 0.041356028 0.005829456</span>
 <span class="co">##   Leipzig    0.984625204 0.013747556 0.001627240</span></code></pre>
 </div>
 </div>
@@ -366,13 +366,13 @@
 </h2>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/sessionInfo.html" class="external-link">sessionInfo</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<pre><code><span class="co">## R version 4.1.3 (2022-03-10)</span>
+<pre><code><span class="co">## R version 4.2.0 (2022-04-22)</span>
 <span class="co">## Platform: x86_64-apple-darwin17.0 (64-bit)</span>
 <span class="co">## Running under: macOS Big Sur/Monterey 10.16</span>
 <span class="co">## </span>
 <span class="co">## Matrix products: default</span>
-<span class="co">## BLAS:   /Library/Frameworks/R.framework/Versions/4.1/Resources/lib/libRblas.0.dylib</span>
-<span class="co">## LAPACK: /Library/Frameworks/R.framework/Versions/4.1/Resources/lib/libRlapack.dylib</span>
+<span class="co">## BLAS:   /Library/Frameworks/R.framework/Versions/4.2/Resources/lib/libRblas.0.dylib</span>
+<span class="co">## LAPACK: /Library/Frameworks/R.framework/Versions/4.2/Resources/lib/libRlapack.dylib</span>
 <span class="co">## </span>
 <span class="co">## locale:</span>
 <span class="co">## [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8</span>
@@ -381,17 +381,17 @@
 <span class="co">## [1] stats     graphics  grDevices utils     datasets  methods   base     </span>
 <span class="co">## </span>
 <span class="co">## other attached packages:</span>
-<span class="co">## [1] sbcdata_0.0.6     data.table_1.14.2</span>
+<span class="co">## [1] sbcdata_0.1.2     data.table_1.14.2</span>
 <span class="co">## </span>
 <span class="co">## loaded via a namespace (and not attached):</span>
-<span class="co">##  [1] knitr_1.38        magrittr_2.0.3    viridisLite_0.4.0 R6_2.5.1         </span>
+<span class="co">##  [1] knitr_1.39        magrittr_2.0.3    viridisLite_0.4.0 R6_2.5.1         </span>
 <span class="co">##  [5] ragg_1.2.2        rlang_1.0.2       fastmap_1.1.0     highr_0.9        </span>
-<span class="co">##  [9] stringr_1.4.0     tools_4.1.3       xfun_0.30         cli_3.2.0        </span>
+<span class="co">##  [9] stringr_1.4.0     tools_4.2.0       xfun_0.30         cli_3.3.0        </span>
 <span class="co">## [13] jquerylib_0.1.4   htmltools_0.5.2   systemfonts_1.0.4 yaml_2.3.5       </span>
 <span class="co">## [17] digest_0.6.29     rprojroot_2.0.3   pkgdown_2.0.2     textshaping_0.3.6</span>
 <span class="co">## [21] purrr_0.3.4       sass_0.4.1        fs_1.5.2          memoise_2.0.1    </span>
-<span class="co">## [25] cachem_1.0.6      evaluate_0.15     rmarkdown_2.13    stringi_1.7.6    </span>
-<span class="co">## [29] compiler_4.1.3    bslib_0.3.1       desc_1.4.1        jsonlite_1.8.0</span></code></pre>
+<span class="co">## [25] cachem_1.0.6      evaluate_0.15     rmarkdown_2.14    stringi_1.7.6    </span>
+<span class="co">## [29] compiler_4.2.0    bslib_0.3.1       desc_1.4.1        jsonlite_1.8.0</span></code></pre>
 </div>
 <div class="section level2">
 <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
