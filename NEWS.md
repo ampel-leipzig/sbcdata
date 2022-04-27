@@ -1,5 +1,9 @@
 # sbcdata 0.1
 
+## Changes in 0.1.1
+
+- Use lower-case "sepsis" in exclusion messages.
+
 ## Changes in 0.1.0
 
 - Rename `exclude_entries` into `sbc_exclude_entries`.

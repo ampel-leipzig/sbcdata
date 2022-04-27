@@ -62,7 +62,7 @@ sbc_exclude_entries <- function(x, time = c(-Inf, Inf) * 3600) {
     excl <- .is_only_sirs(x)
     newex <- !x$Excluded & excl
     x[, Excluded := Excluded | excl]
-    msg <- c(msg, "Cases with SIRS but without Sepsis diagnosis")
+    msg <- c(msg, "Cases with SIRS but without sepsis diagnosis")
     ncases <- c(ncases, .count_cbc_cases(x[newex,]))
     ncbc <- c(ncbc, count_cbc(x[newex,]))
 
