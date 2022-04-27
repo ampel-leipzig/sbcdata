@@ -1,5 +1,9 @@
 # sbcdata 0.1
 
+## Changes in 0.1.2
+
+- Use plural of BCs in label messages.
+
 ## Changes in 0.1.1
 
 - Use lower-case "sepsis" in exclusion messages.
