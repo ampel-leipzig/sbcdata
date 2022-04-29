@@ -2,7 +2,7 @@
 % Please edit documentation in R/label.R
 \name{sbc_label}
 \alias{sbc_label}
-\title{Label BCs}
+\title{Label CBCs}
 \usage{
 sbc_label(x, time = 6 * 3600)
 }

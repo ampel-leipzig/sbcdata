@@ -1,5 +1,9 @@
 # sbcdata 0.1
 
+## Changes in 0.1.3
+
+- Use CBC instead of BC as acronym for (complete) blood counts.
+
 ## Changes in 0.1.2
 
 - Use plural of BCs in label messages.

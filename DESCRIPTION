@@ -2,8 +2,8 @@ Package: sbcdata
 Title:
     Laboratory Diagnostics from Septic and Non-septic Patients Used
     in the AMPEL Project
-Version: 0.1.2
-Date: 2022-04-27
+Version: 0.1.3
+Date: 2022-04-29
 Description:
     The data were collected as part of the AMPEL project
     (Analysis and Reporting System for the Improvement of Patient Safety

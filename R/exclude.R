@@ -38,7 +38,7 @@ sbc_exclude_entries <- function(x, time = c(-Inf, Inf) * 3600) {
     excl <- .is_sender_icu(x, icu = "ICU") | .is_sectoicu_negative(x)
     newex <- !x$Excluded & excl
     x[, Excluded := Excluded | excl]
-    msg <- c(msg, "BCs from ICU")
+    msg <- c(msg, "CBCs from ICU")
     ncases <- c(ncases, .count_cbc_cases(x[newex,]))
     ncbc <- c(ncbc, count_cbc(x[newex,]))
 
@@ -46,7 +46,7 @@ sbc_exclude_entries <- function(x, time = c(-Inf, Inf) * 3600) {
     excl <- x$Episode > 1 | is.na(x$Episode)
     newex <- !x$Excluded & excl
     x[, Excluded := Excluded | excl]
-    msg <- c(msg, "BCs from following episodes")
+    msg <- c(msg, "CBCs from following episodes")
     ncases <- c(ncases, .count_cbc_cases(x[newex,]))
     ncbc <- c(ncbc, count_cbc(x[newex,]))
 
@@ -54,7 +54,7 @@ sbc_exclude_entries <- function(x, time = c(-Inf, Inf) * 3600) {
     excl <- !.is_cbc(x, complete = TRUE)
     newex <- !x$Excluded & excl
     x[, Excluded := Excluded | excl]
-    msg <- c(msg, "Incomplete BCs")
+    msg <- c(msg, "Incomplete CBCs")
     ncases <- c(ncases, .count_cbc_cases(x[newex,]))
     ncbc <- c(ncbc, count_cbc(x[newex,]))
 
@@ -98,7 +98,7 @@ sbc_exclude_entries <- function(x, time = c(-Inf, Inf) * 3600) {
     x[, Excluded := Excluded | excl]
     msg <- c(msg,
         sprintf(
-            "BC not >= %.0f h and <= %.0f h before ICU admission",
+            "CBC not >= %.0f h and <= %.0f h before ICU admission",
             time[1] / 3600, time[2] / 3600
         )
     )

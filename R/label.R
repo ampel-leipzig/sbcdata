@@ -1,4 +1,4 @@
-#' Label BCs
+#' Label CBCs
 #'
 #' Run the labeling as done in the AMPEL project.
 #'
@@ -24,7 +24,7 @@ sbc_label <- function(x, time = 6 * 3600) {
     msg <- c(
         "Analysed control group",
         "Analysed sepsis group",
-        sprintf("BCs > %.0f h before ICU admission", time / 3600)
+        sprintf("CBCs > %.0f h before ICU admission", time / 3600)
     )
     ncases <- c(
         .count_cbc_cases(x[!keep & !x$Excluded,]),
