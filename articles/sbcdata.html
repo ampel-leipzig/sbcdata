@@ -33,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sbcdata</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.4</span>
       </span>
     </div>
 
@@ -94,7 +94,7 @@
 
     
     
-<p><strong>Authors</strong>: Sebastian Gibb [aut, cre], Paul Ahrens [aut, dtc], Daniel Steinbach [aut, dtc], Maria Schmidt [aut, dtc], Thorsten Kaiser [aut, dtc], Mark Wernsdorfer [dtc], Matthias Nauck [dtc], Stefan Bollmann [dtc], Thomas Hildebrandt [dtc]<br><strong>Last modified:</strong> 2022-04-27 20:52:10<br><strong>Compiled</strong>: Wed Apr 27 20:54:47 2022</p>
+<p><strong>Authors</strong>: Sebastian Gibb [aut, cre], Paul Ahrens [aut, dtc], Daniel Steinbach [aut, dtc], Maria Schmidt [aut, dtc], Thorsten Kaiser [aut, dtc], Mark Wernsdorfer [dtc], Matthias Nauck [dtc], Stefan Bollmann [dtc], Thomas Hildebrandt [dtc]<br><strong>Last modified:</strong> 2022-05-25 09:20:54<br><strong>Compiled</strong>: Wed May 25 09:23:31 2022</p>
 <div class="section level2">
 <h2 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
 </h2>
@@ -123,7 +123,7 @@
 <span class="co">## </span>
 <span class="co">##   Gibb S, Ahrens P, Steinbach D, Schmidt M, Kaiser T (2022). _sbcdata:</span>
 <span class="co">##   Laboratory Diagnostics from Septic and Non-septic Patients Used in</span>
-<span class="co">##   the AMPEL Project_. R package version 0.1.2,</span>
+<span class="co">##   the AMPEL Project_. R package version 0.1.4,</span>
 <span class="co">##   &lt;https://github.com/ampel-leipzig/sbcdata&gt;.</span>
 <span class="co">## </span>
 <span class="co">## A BibTeX entry for LaTeX users is</span>
@@ -133,7 +133,7 @@
 <span class="co">## in the AMPEL Project},</span>
 <span class="co">##     author = {Sebastian Gibb and Paul Ahrens and Daniel Steinbach and Maria Schmidt and Thorsten Kaiser},</span>
 <span class="co">##     year = {2022},</span>
-<span class="co">##     note = {R package version 0.1.2},</span>
+<span class="co">##     note = {R package version 0.1.4},</span>
 <span class="co">##     url = {https://github.com/ampel-leipzig/sbcdata},</span>
 <span class="co">##   }</span></code></pre>
 </div>
@@ -147,7 +147,7 @@
 <p>The <code>sbcdata</code> dataset contains <code>ncol(sbcdata)</code> variables for <code>nrow(sbcdata)</code> laboratory diagnostics.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">sbcdata</span><span class="op">)</span></code></pre></div>
-<pre><code><span class="co">## Classes 'data.table' and 'data.frame':   2714612 obs. of  18 variables:</span>
+<pre><code><span class="co">## Classes 'data.table' and 'data.frame':   2709568 obs. of  18 variables:</span>
 <span class="co">##  $ Id       : int  1 2 3 3 3 3 3 3 3 3 ...</span>
 <span class="co">##  $ Age      : int  25 75 77 77 77 77 77 77 77 77 ...</span>
 <span class="co">##  $ Sex      : chr  "W" "M" "W" "W" ...</span>
@@ -193,45 +193,45 @@
 <tbody>
 <tr class="odd">
 <td align="left">CRP</td>
-<td align="right">346014</td>
-<td align="right">741424</td>
-<td align="right">1087438</td>
+<td align="right">344944</td>
+<td align="right">737450</td>
+<td align="right">1082394</td>
 </tr>
 <tr class="even">
 <td align="left">HGB</td>
-<td align="right">20785</td>
-<td align="right">113930</td>
-<td align="right">134715</td>
+<td align="right">19715</td>
+<td align="right">109956</td>
+<td align="right">129671</td>
 </tr>
 <tr class="odd">
 <td align="left">MCV</td>
-<td align="right">20796</td>
-<td align="right">113952</td>
-<td align="right">134748</td>
+<td align="right">19726</td>
+<td align="right">109978</td>
+<td align="right">129704</td>
 </tr>
 <tr class="even">
 <td align="left">PCT</td>
-<td align="right">621802</td>
-<td align="right">1889673</td>
-<td align="right">2511475</td>
+<td align="right">620732</td>
+<td align="right">1885699</td>
+<td align="right">2506431</td>
 </tr>
 <tr class="odd">
 <td align="left">PLT</td>
-<td align="right">21129</td>
-<td align="right">114886</td>
-<td align="right">136015</td>
+<td align="right">20059</td>
+<td align="right">110912</td>
+<td align="right">130971</td>
 </tr>
 <tr class="even">
 <td align="left">RBC</td>
-<td align="right">20795</td>
-<td align="right">113947</td>
-<td align="right">134742</td>
+<td align="right">19725</td>
+<td align="right">109973</td>
+<td align="right">129698</td>
 </tr>
 <tr class="odd">
 <td align="left">WBC</td>
-<td align="right">20795</td>
-<td align="right">113929</td>
-<td align="right">134724</td>
+<td align="right">19725</td>
+<td align="right">109955</td>
+<td align="right">129680</td>
 </tr>
 </tbody>
 </table>
@@ -250,45 +250,45 @@
 <tbody>
 <tr class="odd">
 <td align="left">CRP</td>
-<td align="right">51.90</td>
-<td align="right">36.20</td>
-<td align="right">40.06</td>
+<td align="right">51.83</td>
+<td align="right">36.08</td>
+<td align="right">39.95</td>
 </tr>
 <tr class="even">
 <td align="left">HGB</td>
-<td align="right">3.12</td>
-<td align="right">5.56</td>
-<td align="right">4.96</td>
+<td align="right">2.96</td>
+<td align="right">5.38</td>
+<td align="right">4.79</td>
 </tr>
 <tr class="odd">
 <td align="left">MCV</td>
-<td align="right">3.12</td>
-<td align="right">5.56</td>
-<td align="right">4.96</td>
+<td align="right">2.96</td>
+<td align="right">5.38</td>
+<td align="right">4.79</td>
 </tr>
 <tr class="even">
 <td align="left">PCT</td>
-<td align="right">93.27</td>
-<td align="right">92.27</td>
-<td align="right">92.52</td>
+<td align="right">93.26</td>
+<td align="right">92.26</td>
+<td align="right">92.50</td>
 </tr>
 <tr class="odd">
 <td align="left">PLT</td>
-<td align="right">3.17</td>
-<td align="right">5.61</td>
-<td align="right">5.01</td>
+<td align="right">3.01</td>
+<td align="right">5.43</td>
+<td align="right">4.83</td>
 </tr>
 <tr class="even">
 <td align="left">RBC</td>
-<td align="right">3.12</td>
-<td align="right">5.56</td>
-<td align="right">4.96</td>
+<td align="right">2.96</td>
+<td align="right">5.38</td>
+<td align="right">4.79</td>
 </tr>
 <tr class="odd">
 <td align="left">WBC</td>
-<td align="right">3.12</td>
-<td align="right">5.56</td>
-<td align="right">4.96</td>
+<td align="right">2.96</td>
+<td align="right">5.38</td>
+<td align="right">4.79</td>
 </tr>
 </tbody>
 </table>
@@ -381,14 +381,14 @@
 <span class="co">## [1] stats     graphics  grDevices utils     datasets  methods   base     </span>
 <span class="co">## </span>
 <span class="co">## other attached packages:</span>
-<span class="co">## [1] sbcdata_0.1.2     data.table_1.14.2</span>
+<span class="co">## [1] sbcdata_0.1.4     data.table_1.14.2</span>
 <span class="co">## </span>
 <span class="co">## loaded via a namespace (and not attached):</span>
 <span class="co">##  [1] knitr_1.39        magrittr_2.0.3    viridisLite_0.4.0 R6_2.5.1         </span>
 <span class="co">##  [5] ragg_1.2.2        rlang_1.0.2       fastmap_1.1.0     highr_0.9        </span>
-<span class="co">##  [9] stringr_1.4.0     tools_4.2.0       xfun_0.30         cli_3.3.0        </span>
+<span class="co">##  [9] stringr_1.4.0     tools_4.2.0       xfun_0.31         cli_3.3.0        </span>
 <span class="co">## [13] jquerylib_0.1.4   htmltools_0.5.2   systemfonts_1.0.4 yaml_2.3.5       </span>
-<span class="co">## [17] digest_0.6.29     rprojroot_2.0.3   pkgdown_2.0.2     textshaping_0.3.6</span>
+<span class="co">## [17] digest_0.6.29     rprojroot_2.0.3   pkgdown_2.0.3     textshaping_0.3.6</span>
 <span class="co">## [21] purrr_0.3.4       sass_0.4.1        fs_1.5.2          memoise_2.0.1    </span>
 <span class="co">## [25] cachem_1.0.6      evaluate_0.15     rmarkdown_2.14    stringi_1.7.6    </span>
 <span class="co">## [29] compiler_4.2.0    bslib_0.3.1       desc_1.4.1        jsonlite_1.8.0</span></code></pre>
@@ -421,7 +421,7 @@
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
 </div>
 
       </footer>
