@@ -4,6 +4,7 @@
 ###############################################################################
 
 library("data.table")
+devtools::load_all()
 
 ## read output from Maria Schmidt
 full <- as.data.table(readRDS(file.path("..", "intdata", "ukl_2019.rds")))
@@ -125,6 +126,8 @@ full <- full[,
 ## remove entries where all laboratory values are NA
 allNa <- rowSums(!is.na(full[, labdesc$Code, with = FALSE])) == 0
 full <- full[!allNa,]
+
+full <- .merge_df_lab(full)
 
 ## combine datasets
 full <- rbind(ukl2019, full)

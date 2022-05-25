@@ -1,6 +1,6 @@
 ###############################################################################
-## Please source the `1-umg.R` and `2-ukl.R` first
-#' if the dataset should be regenerated.
+## Please source the `1-umg.R`, `2-ukl.R`, and `3-ukl-2020-2021.R` first
+## if the dataset should be regenerated.
 ###############################################################################
 
 library("data.table")

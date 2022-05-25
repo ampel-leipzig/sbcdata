@@ -7,6 +7,7 @@
 ###############################################################################
 
 library("data.table")
+devtools::load_all()
 
 ## import lab data
 lab <- fread(
@@ -331,6 +332,8 @@ lab <- lab[,
       "Sender", "Episode", "Time",
       "TargetIcu", "SecToIcu", labdesc$Code), with = FALSE
 ]
+
+lab <- .merge_df_lab(lab)
 
 ## export data
 write.csv(

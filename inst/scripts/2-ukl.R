@@ -8,6 +8,7 @@
 ###############################################################################
 
 library("data.table")
+devtools::load_all()
 
 lab <- fread(
     file.path("..", "intdata", "ukl_labdata.csv"),
@@ -176,6 +177,8 @@ full <- full[,
 ## remove entries where all laboratory values are NA
 allNa <- rowSums(!is.na(full[, labdesc$Code, with = FALSE])) == 0
 full <- full[!allNa,]
+
+full <- .merge_df_lab(full)
 
 ## export data
 saveRDS(full, file = "ukl.RDS")

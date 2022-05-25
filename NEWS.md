@@ -1,5 +1,10 @@
 # sbcdata 0.1
 
+## Changes in 0.1.4
+
+- Merge entries with identical timestamp but different (non-overlapping)
+  laboratory measurements.
+
 ## Changes in 0.1.3
 
 - Use CBC instead of BC as acronym for (complete) blood counts.
