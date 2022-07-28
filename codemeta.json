@@ -1,0 +1,211 @@
+{
+  "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
+  "@type": "SoftwareSourceCode",
+  "identifier": "sbcdata",
+  "description": " The data were collected as part of the AMPEL project (Analysis and Reporting System for the Improvement of Patient Safety through Real-Time Integration of Laboratory Findings, \\urlhttps://ampel.care). They include administration data, sepsis labels based on ICD10 codes and laboratory diagnostics from patients admitted to the University Hospital Leipzig between Januar 2014 and December 2021 and to the University Hospital Greifswald between Januar 2015 and December 2020, respectively. Additionally it provides functions to generate a similar dataset from MIMIC-IV (Johnson et al. 2021 \\doi10.13026/S6N6-XD98).",
+  "name": "sbcdata: \n    Laboratory Diagnostics from Septic and Non-septic Patients Used\n    in the AMPEL Project",
+  "codeRepository": "https://github.com/ampel-leipzig/sbcdata",
+  "issueTracker": "https://github.com/ampel-leipzig/sbcdata/issues/",
+  "license": "https://spdx.org/licenses/CC-BY-4.0",
+  "version": "1.0.0",
+  "programmingLanguage": {
+    "@type": "ComputerLanguage",
+    "name": "R",
+    "url": "https://r-project.org"
+  },
+  "runtimePlatform": "R version 4.2.1 (2022-06-23)",
+  "author": [
+    {
+      "@type": "Person",
+      "givenName": "Sebastian",
+      "familyName": "Gibb",
+      "email": "mail@sebastiangibb.de",
+      "@id": "https://orcid.org/0000-0001-7406-4443"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Paul",
+      "familyName": "Ahrens",
+      "email": "paul.ahrens@medizin.uni-leipzig.de"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Daniel",
+      "familyName": "Steinbach",
+      "email": "daniel.steinbach@medizin.uni-leipzig.de"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Maria",
+      "familyName": "Schmidt",
+      "email": "maria.schmidt@medizin.uni-leipzig.de"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Thorsten",
+      "familyName": "Kaiser",
+      "email": "thorsten.kaiser@medizin.uni-leipzig.de"
+    }
+  ],
+  "contributor": [
+    {
+      "@type": "Person",
+      "givenName": "Paul",
+      "familyName": "Ahrens",
+      "email": "paul.ahrens@medizin.uni-leipzig.de"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Daniel",
+      "familyName": "Steinbach",
+      "email": "daniel.steinbach@medizin.uni-leipzig.de"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Maria",
+      "familyName": "Schmidt",
+      "email": "maria.schmidt@medizin.uni-leipzig.de"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Thorsten",
+      "familyName": "Kaiser",
+      "email": "thorsten.kaiser@medizin.uni-leipzig.de"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Mark",
+      "familyName": "Wernsdorfer",
+      "email": "mark.wernsdorfer@medizin.uni-leipzig.de"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Matthias",
+      "familyName": "Nauck",
+      "email": "matthias.nauck@med.uni-greifswald.de"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Stefan",
+      "familyName": "Bollmann",
+      "email": "stefan.bollmann@med.uni-greifswald.de"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Thomas",
+      "familyName": "Hildebrandt",
+      "email": "thomas.hildebrandt@med.uni-greifswald.de"
+    }
+  ],
+  "maintainer": [
+    {
+      "@type": "Person",
+      "givenName": "Sebastian",
+      "familyName": "Gibb",
+      "email": "mail@sebastiangibb.de",
+      "@id": "https://orcid.org/0000-0001-7406-4443"
+    }
+  ],
+  "softwareSuggestions": [
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "knitr",
+      "name": "knitr",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=knitr"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "rmarkdown",
+      "name": "rmarkdown",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=rmarkdown"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "viridisLite",
+      "name": "viridisLite",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=viridisLite"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "DiagrammeR",
+      "name": "DiagrammeR",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=DiagrammeR"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "gtsummary",
+      "name": "gtsummary",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=gtsummary"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "testthat",
+      "name": "testthat",
+      "version": ">= 3.0.0",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=testthat"
+    }
+  ],
+  "softwareRequirements": {
+    "1": {
+      "@type": "SoftwareApplication",
+      "identifier": "R",
+      "name": "R",
+      "version": ">= 4.1"
+    },
+    "2": {
+      "@type": "SoftwareApplication",
+      "identifier": "data.table",
+      "name": "data.table",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=data.table"
+    },
+    "SystemRequirements": null
+  },
+  "fileSize": "47113.858KB",
+  "releaseNotes": "https://github.com/ampel-leipzig/sbcdata/blob/master/NEWS.md",
+  "readme": "https://github.com/ampel-leipzig/sbcdata/blob/main/README.md",
+  "contIntegration": ["https://github.com/ampel-leipzig/sbcdata/actions", "https://codecov.io/gh/ampel-leipzig/sbcdata?branch=main"],
+  "developmentStatus": "https://www.repostatus.org/#active",
+  "keywords": ["data", "sepsis", "r-package", "r-stats", "laboratory"]
+}

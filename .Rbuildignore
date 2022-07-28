@@ -9,3 +9,5 @@
 ^LICENSE\.md$
 ^README\.md$
 ^README\.Rmd$
+^CITATION\.cff$
+^codemeta\.json$
