@@ -33,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sbcdata</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.0</span>
       </span>
     </div>
 
@@ -94,58 +94,58 @@
 
     
     
-<p><strong>Authors</strong>: Sebastian Gibb [aut, cre], Paul Ahrens [aut, dtc], Daniel Steinbach [aut, dtc], Maria Schmidt [aut, dtc], Thorsten Kaiser [aut, dtc], Mark Wernsdorfer [dtc], Matthias Nauck [dtc], Stefan Bollmann [dtc], Thomas Hildebrandt [dtc]<br><strong>Last modified:</strong> 2022-05-25 09:20:54<br><strong>Compiled</strong>: Wed May 25 09:24:10 2022</p>
+<p><strong>Authors</strong>: Sebastian Gibb [aut, cre], Paul Ahrens [aut, dtc], Daniel Steinbach [aut, dtc], Maria Schmidt [aut, dtc], Thorsten Kaiser [aut, dtc], Mark Wernsdorfer [dtc], Matthias Nauck [dtc], Stefan Bollmann [dtc], Thomas Hildebrandt [dtc]<br><strong>Last modified:</strong> 2022-07-28 11:01:48<br><strong>Compiled</strong>: Thu Jul 28 11:04:53 2022</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">sbcdata</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/sbc_exclude_entries.html">sbc_exclude_entries</a></span><span class="op">(</span><span class="va">sbcdata</span><span class="op">)</span>
-<span class="va">sbcdata</span> <span class="op">&lt;-</span> <span class="va">sbcdata</span><span class="op">[</span><span class="op">(</span><span class="op">!</span><span class="va">Excluded</span><span class="op">)</span>,<span class="op">]</span>
-
-<span class="va">.lbl</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">unit</span><span class="op">)</span> <span class="op">{</span>
-    <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nchar.html" class="external-link">nchar</a></span><span class="op">(</span><span class="va">unit</span><span class="op">)</span><span class="op">)</span>
-        <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="va">x</span>, <span class="st">" ["</span>, <span class="va">unit</span>, <span class="st">"]"</span><span class="op">)</span>
-     <span class="kw">else</span>
-        <span class="va">x</span>
-<span class="op">}</span>
-
-<span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq_len</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">labcodes</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span>
-    <span class="fu"><a href="https://rdrr.io/r/base/attr.html" class="external-link">attr</a></span><span class="op">(</span><span class="va">sbcdata</span><span class="op">[[</span><span class="va">labcodes</span><span class="op">$</span><span class="va">Code</span><span class="op">[</span><span class="va">i</span><span class="op">]</span><span class="op">]</span><span class="op">]</span>, <span class="st">"label"</span><span class="op">)</span> <span class="op">&lt;-</span>
-        <span class="fu">.lbl</span><span class="op">(</span><span class="va">labcodes</span><span class="op">$</span><span class="va">Code</span><span class="op">[</span><span class="va">i</span><span class="op">]</span>, <span class="va">labcodes</span><span class="op">$</span><span class="va">Unit</span><span class="op">[</span><span class="va">i</span><span class="op">]</span><span class="op">)</span>
-<span class="op">}</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">sbcdata</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/sbc_exclude_entries.html">sbc_exclude_entries</a></span><span class="op">(</span><span class="va">sbcdata</span><span class="op">)</span></span>
+<span><span class="va">sbcdata</span> <span class="op">&lt;-</span> <span class="va">sbcdata</span><span class="op">[</span><span class="op">(</span><span class="op">!</span><span class="va">Excluded</span><span class="op">)</span>,<span class="op">]</span></span>
+<span></span>
+<span><span class="va">.lbl</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">unit</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nchar.html" class="external-link">nchar</a></span><span class="op">(</span><span class="va">unit</span><span class="op">)</span><span class="op">)</span></span>
+<span>        <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="va">x</span>, <span class="st">" ["</span>, <span class="va">unit</span>, <span class="st">"]"</span><span class="op">)</span></span>
+<span>     <span class="kw">else</span></span>
+<span>        <span class="va">x</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq_len</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">labcodes</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/attr.html" class="external-link">attr</a></span><span class="op">(</span><span class="va">sbcdata</span><span class="op">[[</span><span class="va">labcodes</span><span class="op">$</span><span class="va">Code</span><span class="op">[</span><span class="va">i</span><span class="op">]</span><span class="op">]</span><span class="op">]</span>, <span class="st">"label"</span><span class="op">)</span> <span class="op">&lt;-</span></span>
+<span>        <span class="fu">.lbl</span><span class="op">(</span><span class="va">labcodes</span><span class="op">$</span><span class="va">Code</span><span class="op">[</span><span class="va">i</span><span class="op">]</span>, <span class="va">labcodes</span><span class="op">$</span><span class="va">Unit</span><span class="op">[</span><span class="va">i</span><span class="op">]</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code></pre></div>
 <div class="section level2">
 <h2 id="baseline-leipzig">Baseline Leipzig<a class="anchor" aria-label="anchor" href="#baseline-leipzig"></a>
 </h2>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="st"><a href="https://github.com/ddsjoberg/gtsummary" class="external-link">"gtsummary"</a></span><span class="op">)</span>
-<span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/theme_gtsummary.html" class="external-link">theme_gtsummary_journal</a></span><span class="op">(</span>journal <span class="op">=</span> <span class="st">"nejm"</span><span class="op">)</span></code></pre></div>
-<pre><code><span class="co">## Setting theme `New England Journal of Medicine`</span></code></pre>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="st"><a href="https://github.com/ddsjoberg/gtsummary" class="external-link">"gtsummary"</a></span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">## #Uighur</span></span></code></pre>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/theme_gtsummary.html" class="external-link">theme_gtsummary_compact</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<pre><code><span class="co">## Setting theme `Compact`</span></code></pre>
+<code class="sourceCode R"><span><span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/theme_gtsummary.html" class="external-link">theme_gtsummary_journal</a></span><span class="op">(</span>journal <span class="op">=</span> <span class="st">"nejm"</span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">## Setting theme `New England Journal of Medicine`</span></span></code></pre>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">ukl</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/subset.html" class="external-link">subset</a></span><span class="op">(</span><span class="va">sbcdata</span>, <span class="va">Center</span> <span class="op">==</span> <span class="st">"Leipzig"</span><span class="op">)</span>
-
-<span class="va">tblGeneral</span> <span class="op">&lt;-</span> <span class="va">ukl</span><span class="op">[</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/duplicated.html" class="external-link">duplicated</a></span><span class="op">(</span><span class="va">ukl</span><span class="op">$</span><span class="va">Id</span><span class="op">)</span>,<span class="op">]</span> |&gt;
-    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">Age</span>, <span class="va">Sex</span>, <span class="va">Diagnosis</span><span class="op">)</span> |&gt;
-    <span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/tbl_summary.html" class="external-link">tbl_summary</a></span><span class="op">(</span>by <span class="op">=</span> <span class="va">Diagnosis</span>, missing_text <span class="op">=</span> <span class="st">"(Missing)"</span><span class="op">)</span> |&gt;
-    <span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/add_p.html" class="external-link">add_p</a></span><span class="op">(</span><span class="op">)</span>
-
-<span class="va">tblLabs</span> <span class="op">&lt;-</span> <span class="va">ukl</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Diagnosis"</span>, <span class="va">labcodes</span><span class="op">$</span><span class="va">Code</span><span class="op">)</span>, with <span class="op">=</span> <span class="cn">FALSE</span><span class="op">]</span> |&gt;
-    <span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/tbl_summary.html" class="external-link">tbl_summary</a></span><span class="op">(</span>by <span class="op">=</span> <span class="va">Diagnosis</span>, missing_text <span class="op">=</span> <span class="st">"(Missing)"</span><span class="op">)</span> |&gt;
-    <span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/add_p.html" class="external-link">add_p</a></span><span class="op">(</span><span class="op">)</span>
-
-<span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/tbl_stack.html" class="external-link">tbl_stack</a></span><span class="op">(</span>
-    <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/add_n.html" class="external-link">add_n</a></span><span class="op">(</span><span class="va">tblGeneral</span><span class="op">)</span>, <span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/add_n.html" class="external-link">add_n</a></span><span class="op">(</span><span class="va">tblLabs</span><span class="op">)</span><span class="op">)</span>,
-    group_header <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"General"</span>, <span class="st">"Laboratory Diagnostics"</span><span class="op">)</span>
-<span class="op">)</span></code></pre></div>
-<pre><code><span class="co">## <span style="color: #00BBBB;">ℹ</span> Column headers among stacked tables differ. Headers from the first table are</span>
-<span class="co">## used. Use `quiet = TRUE` to supress this message.</span></code></pre>
-<pre><code><span class="co">## Warning: The `fmt_missing()` function is deprecated and will soon be removed</span>
-<span class="co">## * Use the `sub_missing()` function instead</span></code></pre>
-<div id="xltpirvpqm" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<code class="sourceCode R"><span><span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/theme_gtsummary.html" class="external-link">theme_gtsummary_compact</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">## Setting theme `Compact`</span></span></code></pre>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">ukl</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/subset.html" class="external-link">subset</a></span><span class="op">(</span><span class="va">sbcdata</span>, <span class="va">Center</span> <span class="op">==</span> <span class="st">"Leipzig"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">tblGeneral</span> <span class="op">&lt;-</span> <span class="va">ukl</span><span class="op">[</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/duplicated.html" class="external-link">duplicated</a></span><span class="op">(</span><span class="va">ukl</span><span class="op">$</span><span class="va">Id</span><span class="op">)</span>,<span class="op">]</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">Age</span>, <span class="va">Sex</span>, <span class="va">Diagnosis</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/tbl_summary.html" class="external-link">tbl_summary</a></span><span class="op">(</span>by <span class="op">=</span> <span class="va">Diagnosis</span>, missing_text <span class="op">=</span> <span class="st">"(Missing)"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/add_p.html" class="external-link">add_p</a></span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">tblLabs</span> <span class="op">&lt;-</span> <span class="va">ukl</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Diagnosis"</span>, <span class="va">labcodes</span><span class="op">$</span><span class="va">Code</span><span class="op">)</span>, with <span class="op">=</span> <span class="cn">FALSE</span><span class="op">]</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/tbl_summary.html" class="external-link">tbl_summary</a></span><span class="op">(</span>by <span class="op">=</span> <span class="va">Diagnosis</span>, missing_text <span class="op">=</span> <span class="st">"(Missing)"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/add_p.html" class="external-link">add_p</a></span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/tbl_stack.html" class="external-link">tbl_stack</a></span><span class="op">(</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/add_n.html" class="external-link">add_n</a></span><span class="op">(</span><span class="va">tblGeneral</span><span class="op">)</span>, <span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/add_n.html" class="external-link">add_n</a></span><span class="op">(</span><span class="va">tblLabs</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>    group_header <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"General"</span>, <span class="st">"Laboratory Diagnostics"</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">## <span style="color: #00BBBB;">ℹ</span> Column headers among stacked tables differ. Headers from the first table are</span></span>
+<span><span class="co">## used. Use `quiet = TRUE` to supress this message.</span></span></code></pre>
+<div id="vylszxpnwt" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#xltpirvpqm .gt_table {
+#vylszxpnwt .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -170,7 +170,7 @@
   border-left-color: #D3D3D3;
 }
 
-#xltpirvpqm .gt_heading {
+#vylszxpnwt .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -182,7 +182,7 @@
   border-right-color: #D3D3D3;
 }
 
-#xltpirvpqm .gt_title {
+#vylszxpnwt .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -194,7 +194,7 @@
   border-bottom-width: 0;
 }
 
-#xltpirvpqm .gt_subtitle {
+#vylszxpnwt .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -206,13 +206,13 @@
   border-top-width: 0;
 }
 
-#xltpirvpqm .gt_bottom_border {
+#vylszxpnwt .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#xltpirvpqm .gt_col_headings {
+#vylszxpnwt .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -227,7 +227,7 @@
   border-right-color: #D3D3D3;
 }
 
-#xltpirvpqm .gt_col_heading {
+#vylszxpnwt .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -247,7 +247,7 @@
   overflow-x: hidden;
 }
 
-#xltpirvpqm .gt_column_spanner_outer {
+#vylszxpnwt .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -259,15 +259,15 @@
   padding-right: 4px;
 }
 
-#xltpirvpqm .gt_column_spanner_outer:first-child {
+#vylszxpnwt .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#xltpirvpqm .gt_column_spanner_outer:last-child {
+#vylszxpnwt .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#xltpirvpqm .gt_column_spanner {
+#vylszxpnwt .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -279,7 +279,7 @@
   width: 100%;
 }
 
-#xltpirvpqm .gt_group_heading {
+#vylszxpnwt .gt_group_heading {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -304,7 +304,7 @@
   vertical-align: middle;
 }
 
-#xltpirvpqm .gt_empty_group_heading {
+#vylszxpnwt .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -319,15 +319,15 @@
   vertical-align: middle;
 }
 
-#xltpirvpqm .gt_from_md > :first-child {
+#vylszxpnwt .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#xltpirvpqm .gt_from_md > :last-child {
+#vylszxpnwt .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#xltpirvpqm .gt_row {
+#vylszxpnwt .gt_row {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -346,7 +346,7 @@
   overflow-x: hidden;
 }
 
-#xltpirvpqm .gt_stub {
+#vylszxpnwt .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -359,7 +359,7 @@
   padding-right: 5px;
 }
 
-#xltpirvpqm .gt_stub_row_group {
+#vylszxpnwt .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -373,11 +373,11 @@
   vertical-align: top;
 }
 
-#xltpirvpqm .gt_row_group_first td {
+#vylszxpnwt .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#xltpirvpqm .gt_summary_row {
+#vylszxpnwt .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -387,16 +387,16 @@
   padding-right: 5px;
 }
 
-#xltpirvpqm .gt_first_summary_row {
+#vylszxpnwt .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#xltpirvpqm .gt_first_summary_row.thick {
+#vylszxpnwt .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#xltpirvpqm .gt_last_summary_row {
+#vylszxpnwt .gt_last_summary_row {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -406,7 +406,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#xltpirvpqm .gt_grand_summary_row {
+#vylszxpnwt .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -416,7 +416,7 @@
   padding-right: 5px;
 }
 
-#xltpirvpqm .gt_first_grand_summary_row {
+#vylszxpnwt .gt_first_grand_summary_row {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -426,11 +426,11 @@
   border-top-color: #D3D3D3;
 }
 
-#xltpirvpqm .gt_striped {
+#vylszxpnwt .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#xltpirvpqm .gt_table_body {
+#vylszxpnwt .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -439,7 +439,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#xltpirvpqm .gt_footnotes {
+#vylszxpnwt .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -453,7 +453,7 @@
   border-right-color: #D3D3D3;
 }
 
-#xltpirvpqm .gt_footnote {
+#vylszxpnwt .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 1px;
@@ -462,7 +462,7 @@
   padding-right: 5px;
 }
 
-#xltpirvpqm .gt_sourcenotes {
+#vylszxpnwt .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -476,7 +476,7 @@
   border-right-color: #D3D3D3;
 }
 
-#xltpirvpqm .gt_sourcenote {
+#vylszxpnwt .gt_sourcenote {
   font-size: 90%;
   padding-top: 1px;
   padding-bottom: 1px;
@@ -484,36 +484,36 @@
   padding-right: 5px;
 }
 
-#xltpirvpqm .gt_left {
+#vylszxpnwt .gt_left {
   text-align: left;
 }
 
-#xltpirvpqm .gt_center {
+#vylszxpnwt .gt_center {
   text-align: center;
 }
 
-#xltpirvpqm .gt_right {
+#vylszxpnwt .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#xltpirvpqm .gt_font_normal {
+#vylszxpnwt .gt_font_normal {
   font-weight: normal;
 }
 
-#xltpirvpqm .gt_font_bold {
+#vylszxpnwt .gt_font_bold {
   font-weight: bold;
 }
 
-#xltpirvpqm .gt_font_italic {
+#vylszxpnwt .gt_font_italic {
   font-style: italic;
 }
 
-#xltpirvpqm .gt_super {
+#vylszxpnwt .gt_super {
   font-size: 65%;
 }
 
-#xltpirvpqm .gt_two_val_uncert {
+#vylszxpnwt .gt_two_val_uncert {
   display: inline-block;
   line-height: 1em;
   text-align: right;
@@ -522,31 +522,31 @@
   margin-left: 0.1em;
 }
 
-#xltpirvpqm .gt_footnote_marks {
+#vylszxpnwt .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#xltpirvpqm .gt_asterisk {
+#vylszxpnwt .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#xltpirvpqm .gt_slash_mark {
+#vylszxpnwt .gt_slash_mark {
   font-size: 0.7em;
   line-height: 0.7em;
   vertical-align: 0.15em;
 }
 
-#xltpirvpqm .gt_fraction_numerator {
+#vylszxpnwt .gt_fraction_numerator {
   font-size: 0.6em;
   line-height: 0.6em;
   vertical-align: 0.45em;
 }
 
-#xltpirvpqm .gt_fraction_denominator {
+#vylszxpnwt .gt_fraction_denominator {
   font-size: 0.6em;
   line-height: 0.6em;
   vertical-align: -0.05em;
@@ -681,32 +681,30 @@
 <div class="section level2">
 <h2 id="greifswald-vs-leipzig">Greifswald vs Leipzig<a class="anchor" aria-label="anchor" href="#greifswald-vs-leipzig"></a>
 </h2>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">tblGeneral</span> <span class="op">&lt;-</span> <span class="va">sbcdata</span><span class="op">[</span>
-    <span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/duplicated.html" class="external-link">duplicated</a></span><span class="op">(</span><span class="va">sbcdata</span><span class="op">[</span>,<span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Id"</span>, <span class="st">"Center"</span><span class="op">)</span>, with <span class="op">=</span> <span class="cn">FALSE</span><span class="op">]</span><span class="op">)</span>,
-<span class="op">]</span> |&gt;
-    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">Age</span>, <span class="va">Sex</span>, <span class="va">Diagnosis</span>, <span class="va">Center</span><span class="op">)</span> |&gt;
-    <span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/tbl_summary.html" class="external-link">tbl_summary</a></span><span class="op">(</span>by <span class="op">=</span> <span class="va">Center</span>, missing_text <span class="op">=</span> <span class="st">"(Missing)"</span><span class="op">)</span> |&gt;
-    <span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/add_p.html" class="external-link">add_p</a></span><span class="op">(</span><span class="op">)</span>
-
-<span class="va">tblLabs</span> <span class="op">&lt;-</span> <span class="va">sbcdata</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Center"</span>, <span class="va">labcodes</span><span class="op">$</span><span class="va">Code</span><span class="op">)</span>, with <span class="op">=</span> <span class="cn">FALSE</span><span class="op">]</span> |&gt;
-    <span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/tbl_summary.html" class="external-link">tbl_summary</a></span><span class="op">(</span>by <span class="op">=</span> <span class="va">Center</span>, missing_text <span class="op">=</span> <span class="st">"(Missing)"</span><span class="op">)</span> |&gt;
-    <span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/add_p.html" class="external-link">add_p</a></span><span class="op">(</span><span class="op">)</span>
-
-<span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/tbl_stack.html" class="external-link">tbl_stack</a></span><span class="op">(</span>
-    <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/add_n.html" class="external-link">add_n</a></span><span class="op">(</span><span class="va">tblGeneral</span><span class="op">)</span>, <span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/add_n.html" class="external-link">add_n</a></span><span class="op">(</span><span class="va">tblLabs</span><span class="op">)</span><span class="op">)</span>,
-    group_header <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"General"</span>, <span class="st">"Laboratory Diagnostics"</span><span class="op">)</span>
-<span class="op">)</span></code></pre></div>
-<pre><code><span class="co">## <span style="color: #00BBBB;">ℹ</span> Column headers among stacked tables differ. Headers from the first table are</span>
-<span class="co">## used. Use `quiet = TRUE` to supress this message.</span></code></pre>
-<pre><code><span class="co">## Warning: The `fmt_missing()` function is deprecated and will soon be removed</span>
-<span class="co">## * Use the `sub_missing()` function instead</span></code></pre>
-<div id="sekwrahwyt" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">tblGeneral</span> <span class="op">&lt;-</span> <span class="va">sbcdata</span><span class="op">[</span></span>
+<span>    <span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/duplicated.html" class="external-link">duplicated</a></span><span class="op">(</span><span class="va">sbcdata</span><span class="op">[</span>,<span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Id"</span>, <span class="st">"Center"</span><span class="op">)</span>, with <span class="op">=</span> <span class="cn">FALSE</span><span class="op">]</span><span class="op">)</span>,</span>
+<span><span class="op">]</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">Age</span>, <span class="va">Sex</span>, <span class="va">Diagnosis</span>, <span class="va">Center</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/tbl_summary.html" class="external-link">tbl_summary</a></span><span class="op">(</span>by <span class="op">=</span> <span class="va">Center</span>, missing_text <span class="op">=</span> <span class="st">"(Missing)"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/add_p.html" class="external-link">add_p</a></span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">tblLabs</span> <span class="op">&lt;-</span> <span class="va">sbcdata</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Center"</span>, <span class="va">labcodes</span><span class="op">$</span><span class="va">Code</span><span class="op">)</span>, with <span class="op">=</span> <span class="cn">FALSE</span><span class="op">]</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/tbl_summary.html" class="external-link">tbl_summary</a></span><span class="op">(</span>by <span class="op">=</span> <span class="va">Center</span>, missing_text <span class="op">=</span> <span class="st">"(Missing)"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/add_p.html" class="external-link">add_p</a></span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/tbl_stack.html" class="external-link">tbl_stack</a></span><span class="op">(</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/add_n.html" class="external-link">add_n</a></span><span class="op">(</span><span class="va">tblGeneral</span><span class="op">)</span>, <span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/add_n.html" class="external-link">add_n</a></span><span class="op">(</span><span class="va">tblLabs</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>    group_header <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"General"</span>, <span class="st">"Laboratory Diagnostics"</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">## <span style="color: #00BBBB;">ℹ</span> Column headers among stacked tables differ. Headers from the first table are</span></span>
+<span><span class="co">## used. Use `quiet = TRUE` to supress this message.</span></span></code></pre>
+<div id="mdrewqpxgi" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#sekwrahwyt .gt_table {
+#mdrewqpxgi .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -731,7 +729,7 @@
   border-left-color: #D3D3D3;
 }
 
-#sekwrahwyt .gt_heading {
+#mdrewqpxgi .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -743,7 +741,7 @@
   border-right-color: #D3D3D3;
 }
 
-#sekwrahwyt .gt_title {
+#mdrewqpxgi .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -755,7 +753,7 @@
   border-bottom-width: 0;
 }
 
-#sekwrahwyt .gt_subtitle {
+#mdrewqpxgi .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -767,13 +765,13 @@
   border-top-width: 0;
 }
 
-#sekwrahwyt .gt_bottom_border {
+#mdrewqpxgi .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#sekwrahwyt .gt_col_headings {
+#mdrewqpxgi .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -788,7 +786,7 @@
   border-right-color: #D3D3D3;
 }
 
-#sekwrahwyt .gt_col_heading {
+#mdrewqpxgi .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -808,7 +806,7 @@
   overflow-x: hidden;
 }
 
-#sekwrahwyt .gt_column_spanner_outer {
+#mdrewqpxgi .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -820,15 +818,15 @@
   padding-right: 4px;
 }
 
-#sekwrahwyt .gt_column_spanner_outer:first-child {
+#mdrewqpxgi .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#sekwrahwyt .gt_column_spanner_outer:last-child {
+#mdrewqpxgi .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#sekwrahwyt .gt_column_spanner {
+#mdrewqpxgi .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -840,7 +838,7 @@
   width: 100%;
 }
 
-#sekwrahwyt .gt_group_heading {
+#mdrewqpxgi .gt_group_heading {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -865,7 +863,7 @@
   vertical-align: middle;
 }
 
-#sekwrahwyt .gt_empty_group_heading {
+#mdrewqpxgi .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -880,15 +878,15 @@
   vertical-align: middle;
 }
 
-#sekwrahwyt .gt_from_md > :first-child {
+#mdrewqpxgi .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#sekwrahwyt .gt_from_md > :last-child {
+#mdrewqpxgi .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#sekwrahwyt .gt_row {
+#mdrewqpxgi .gt_row {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -907,7 +905,7 @@
   overflow-x: hidden;
 }
 
-#sekwrahwyt .gt_stub {
+#mdrewqpxgi .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -920,7 +918,7 @@
   padding-right: 5px;
 }
 
-#sekwrahwyt .gt_stub_row_group {
+#mdrewqpxgi .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -934,11 +932,11 @@
   vertical-align: top;
 }
 
-#sekwrahwyt .gt_row_group_first td {
+#mdrewqpxgi .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#sekwrahwyt .gt_summary_row {
+#mdrewqpxgi .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -948,16 +946,16 @@
   padding-right: 5px;
 }
 
-#sekwrahwyt .gt_first_summary_row {
+#mdrewqpxgi .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#sekwrahwyt .gt_first_summary_row.thick {
+#mdrewqpxgi .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#sekwrahwyt .gt_last_summary_row {
+#mdrewqpxgi .gt_last_summary_row {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -967,7 +965,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#sekwrahwyt .gt_grand_summary_row {
+#mdrewqpxgi .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -977,7 +975,7 @@
   padding-right: 5px;
 }
 
-#sekwrahwyt .gt_first_grand_summary_row {
+#mdrewqpxgi .gt_first_grand_summary_row {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -987,11 +985,11 @@
   border-top-color: #D3D3D3;
 }
 
-#sekwrahwyt .gt_striped {
+#mdrewqpxgi .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#sekwrahwyt .gt_table_body {
+#mdrewqpxgi .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1000,7 +998,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#sekwrahwyt .gt_footnotes {
+#mdrewqpxgi .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1014,7 +1012,7 @@
   border-right-color: #D3D3D3;
 }
 
-#sekwrahwyt .gt_footnote {
+#mdrewqpxgi .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 1px;
@@ -1023,7 +1021,7 @@
   padding-right: 5px;
 }
 
-#sekwrahwyt .gt_sourcenotes {
+#mdrewqpxgi .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1037,7 +1035,7 @@
   border-right-color: #D3D3D3;
 }
 
-#sekwrahwyt .gt_sourcenote {
+#mdrewqpxgi .gt_sourcenote {
   font-size: 90%;
   padding-top: 1px;
   padding-bottom: 1px;
@@ -1045,36 +1043,36 @@
   padding-right: 5px;
 }
 
-#sekwrahwyt .gt_left {
+#mdrewqpxgi .gt_left {
   text-align: left;
 }
 
-#sekwrahwyt .gt_center {
+#mdrewqpxgi .gt_center {
   text-align: center;
 }
 
-#sekwrahwyt .gt_right {
+#mdrewqpxgi .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#sekwrahwyt .gt_font_normal {
+#mdrewqpxgi .gt_font_normal {
   font-weight: normal;
 }
 
-#sekwrahwyt .gt_font_bold {
+#mdrewqpxgi .gt_font_bold {
   font-weight: bold;
 }
 
-#sekwrahwyt .gt_font_italic {
+#mdrewqpxgi .gt_font_italic {
   font-style: italic;
 }
 
-#sekwrahwyt .gt_super {
+#mdrewqpxgi .gt_super {
   font-size: 65%;
 }
 
-#sekwrahwyt .gt_two_val_uncert {
+#mdrewqpxgi .gt_two_val_uncert {
   display: inline-block;
   line-height: 1em;
   text-align: right;
@@ -1083,31 +1081,31 @@
   margin-left: 0.1em;
 }
 
-#sekwrahwyt .gt_footnote_marks {
+#mdrewqpxgi .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#sekwrahwyt .gt_asterisk {
+#mdrewqpxgi .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#sekwrahwyt .gt_slash_mark {
+#mdrewqpxgi .gt_slash_mark {
   font-size: 0.7em;
   line-height: 0.7em;
   vertical-align: 0.15em;
 }
 
-#sekwrahwyt .gt_fraction_numerator {
+#mdrewqpxgi .gt_fraction_numerator {
   font-size: 0.6em;
   line-height: 0.6em;
   vertical-align: 0.45em;
 }
 
-#sekwrahwyt .gt_fraction_denominator {
+#mdrewqpxgi .gt_fraction_denominator {
   font-size: 0.6em;
   line-height: 0.6em;
   vertical-align: -0.05em;
@@ -1264,30 +1262,28 @@
 <h2 id="leipzig-pct">Leipzig PCT<a class="anchor" aria-label="anchor" href="#leipzig-pct"></a>
 </h2>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">pct</span> <span class="op">&lt;-</span> <span class="va">ukl</span><span class="op">[</span><span class="fu">sbcdata</span><span class="fu">:::</span><span class="fu">.is_cbc</span><span class="op">(</span><span class="va">ukl</span>, <span class="va">labcodes</span><span class="op">$</span><span class="va">Code</span><span class="op">[</span><span class="op">-</span><span class="fl">1</span><span class="op">]</span>, complete <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>, <span class="op">]</span>
-<span class="va">tblGeneral</span> <span class="op">&lt;-</span> <span class="va">pct</span><span class="op">[</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/duplicated.html" class="external-link">duplicated</a></span><span class="op">(</span><span class="va">pct</span><span class="op">$</span><span class="va">Id</span><span class="op">)</span>,<span class="op">]</span> |&gt;
-    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">Age</span>, <span class="va">Sex</span>, <span class="va">Diagnosis</span><span class="op">)</span> |&gt;
-    <span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/tbl_summary.html" class="external-link">tbl_summary</a></span><span class="op">(</span>by <span class="op">=</span> <span class="va">Diagnosis</span>, missing_text <span class="op">=</span> <span class="st">"(Missing)"</span><span class="op">)</span> |&gt;
-    <span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/add_p.html" class="external-link">add_p</a></span><span class="op">(</span><span class="op">)</span>
-
-<span class="va">tblLabs</span> <span class="op">&lt;-</span> <span class="va">pct</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Diagnosis"</span>, <span class="va">labcodes</span><span class="op">$</span><span class="va">Code</span><span class="op">)</span>, with <span class="op">=</span> <span class="cn">FALSE</span><span class="op">]</span> |&gt;
-    <span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/tbl_summary.html" class="external-link">tbl_summary</a></span><span class="op">(</span>by <span class="op">=</span> <span class="va">Diagnosis</span>, missing_text <span class="op">=</span> <span class="st">"(Missing)"</span><span class="op">)</span> |&gt;
-    <span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/add_p.html" class="external-link">add_p</a></span><span class="op">(</span><span class="op">)</span>
-
-<span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/tbl_stack.html" class="external-link">tbl_stack</a></span><span class="op">(</span>
-    <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/add_n.html" class="external-link">add_n</a></span><span class="op">(</span><span class="va">tblGeneral</span><span class="op">)</span>, <span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/add_n.html" class="external-link">add_n</a></span><span class="op">(</span><span class="va">tblLabs</span><span class="op">)</span><span class="op">)</span>,
-    group_header <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"General"</span>, <span class="st">"Laboratory Diagnostics"</span><span class="op">)</span>
-<span class="op">)</span></code></pre></div>
-<pre><code><span class="co">## <span style="color: #00BBBB;">ℹ</span> Column headers among stacked tables differ. Headers from the first table are</span>
-<span class="co">## used. Use `quiet = TRUE` to supress this message.</span></code></pre>
-<pre><code><span class="co">## Warning: The `fmt_missing()` function is deprecated and will soon be removed</span>
-<span class="co">## * Use the `sub_missing()` function instead</span></code></pre>
-<div id="vyqvvjolqa" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<code class="sourceCode R"><span><span class="va">pct</span> <span class="op">&lt;-</span> <span class="va">ukl</span><span class="op">[</span><span class="fu">sbcdata</span><span class="fu">:::</span><span class="fu">.is_cbc</span><span class="op">(</span><span class="va">ukl</span>, <span class="va">labcodes</span><span class="op">$</span><span class="va">Code</span><span class="op">[</span><span class="op">-</span><span class="fl">1</span><span class="op">]</span>, complete <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>, <span class="op">]</span></span>
+<span><span class="va">tblGeneral</span> <span class="op">&lt;-</span> <span class="va">pct</span><span class="op">[</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/duplicated.html" class="external-link">duplicated</a></span><span class="op">(</span><span class="va">pct</span><span class="op">$</span><span class="va">Id</span><span class="op">)</span>,<span class="op">]</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">Age</span>, <span class="va">Sex</span>, <span class="va">Diagnosis</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/tbl_summary.html" class="external-link">tbl_summary</a></span><span class="op">(</span>by <span class="op">=</span> <span class="va">Diagnosis</span>, missing_text <span class="op">=</span> <span class="st">"(Missing)"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/add_p.html" class="external-link">add_p</a></span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">tblLabs</span> <span class="op">&lt;-</span> <span class="va">pct</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Diagnosis"</span>, <span class="va">labcodes</span><span class="op">$</span><span class="va">Code</span><span class="op">)</span>, with <span class="op">=</span> <span class="cn">FALSE</span><span class="op">]</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/tbl_summary.html" class="external-link">tbl_summary</a></span><span class="op">(</span>by <span class="op">=</span> <span class="va">Diagnosis</span>, missing_text <span class="op">=</span> <span class="st">"(Missing)"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/add_p.html" class="external-link">add_p</a></span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/tbl_stack.html" class="external-link">tbl_stack</a></span><span class="op">(</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/add_n.html" class="external-link">add_n</a></span><span class="op">(</span><span class="va">tblGeneral</span><span class="op">)</span>, <span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/add_n.html" class="external-link">add_n</a></span><span class="op">(</span><span class="va">tblLabs</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>    group_header <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"General"</span>, <span class="st">"Laboratory Diagnostics"</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">## <span style="color: #00BBBB;">ℹ</span> Column headers among stacked tables differ. Headers from the first table are</span></span>
+<span><span class="co">## used. Use `quiet = TRUE` to supress this message.</span></span></code></pre>
+<div id="anyuyiynad" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#vyqvvjolqa .gt_table {
+#anyuyiynad .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1312,7 +1308,7 @@
   border-left-color: #D3D3D3;
 }
 
-#vyqvvjolqa .gt_heading {
+#anyuyiynad .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1324,7 +1320,7 @@
   border-right-color: #D3D3D3;
 }
 
-#vyqvvjolqa .gt_title {
+#anyuyiynad .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1336,7 +1332,7 @@
   border-bottom-width: 0;
 }
 
-#vyqvvjolqa .gt_subtitle {
+#anyuyiynad .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1348,13 +1344,13 @@
   border-top-width: 0;
 }
 
-#vyqvvjolqa .gt_bottom_border {
+#anyuyiynad .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#vyqvvjolqa .gt_col_headings {
+#anyuyiynad .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1369,7 +1365,7 @@
   border-right-color: #D3D3D3;
 }
 
-#vyqvvjolqa .gt_col_heading {
+#anyuyiynad .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1389,7 +1385,7 @@
   overflow-x: hidden;
 }
 
-#vyqvvjolqa .gt_column_spanner_outer {
+#anyuyiynad .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1401,15 +1397,15 @@
   padding-right: 4px;
 }
 
-#vyqvvjolqa .gt_column_spanner_outer:first-child {
+#anyuyiynad .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#vyqvvjolqa .gt_column_spanner_outer:last-child {
+#anyuyiynad .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#vyqvvjolqa .gt_column_spanner {
+#anyuyiynad .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1421,7 +1417,7 @@
   width: 100%;
 }
 
-#vyqvvjolqa .gt_group_heading {
+#anyuyiynad .gt_group_heading {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -1446,7 +1442,7 @@
   vertical-align: middle;
 }
 
-#vyqvvjolqa .gt_empty_group_heading {
+#anyuyiynad .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1461,15 +1457,15 @@
   vertical-align: middle;
 }
 
-#vyqvvjolqa .gt_from_md > :first-child {
+#anyuyiynad .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#vyqvvjolqa .gt_from_md > :last-child {
+#anyuyiynad .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#vyqvvjolqa .gt_row {
+#anyuyiynad .gt_row {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -1488,7 +1484,7 @@
   overflow-x: hidden;
 }
 
-#vyqvvjolqa .gt_stub {
+#anyuyiynad .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1501,7 +1497,7 @@
   padding-right: 5px;
 }
 
-#vyqvvjolqa .gt_stub_row_group {
+#anyuyiynad .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1515,11 +1511,11 @@
   vertical-align: top;
 }
 
-#vyqvvjolqa .gt_row_group_first td {
+#anyuyiynad .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#vyqvvjolqa .gt_summary_row {
+#anyuyiynad .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1529,16 +1525,16 @@
   padding-right: 5px;
 }
 
-#vyqvvjolqa .gt_first_summary_row {
+#anyuyiynad .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#vyqvvjolqa .gt_first_summary_row.thick {
+#anyuyiynad .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#vyqvvjolqa .gt_last_summary_row {
+#anyuyiynad .gt_last_summary_row {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -1548,7 +1544,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#vyqvvjolqa .gt_grand_summary_row {
+#anyuyiynad .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1558,7 +1554,7 @@
   padding-right: 5px;
 }
 
-#vyqvvjolqa .gt_first_grand_summary_row {
+#anyuyiynad .gt_first_grand_summary_row {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -1568,11 +1564,11 @@
   border-top-color: #D3D3D3;
 }
 
-#vyqvvjolqa .gt_striped {
+#anyuyiynad .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#vyqvvjolqa .gt_table_body {
+#anyuyiynad .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1581,7 +1577,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#vyqvvjolqa .gt_footnotes {
+#anyuyiynad .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1595,7 +1591,7 @@
   border-right-color: #D3D3D3;
 }
 
-#vyqvvjolqa .gt_footnote {
+#anyuyiynad .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 1px;
@@ -1604,7 +1600,7 @@
   padding-right: 5px;
 }
 
-#vyqvvjolqa .gt_sourcenotes {
+#anyuyiynad .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1618,7 +1614,7 @@
   border-right-color: #D3D3D3;
 }
 
-#vyqvvjolqa .gt_sourcenote {
+#anyuyiynad .gt_sourcenote {
   font-size: 90%;
   padding-top: 1px;
   padding-bottom: 1px;
@@ -1626,36 +1622,36 @@
   padding-right: 5px;
 }
 
-#vyqvvjolqa .gt_left {
+#anyuyiynad .gt_left {
   text-align: left;
 }
 
-#vyqvvjolqa .gt_center {
+#anyuyiynad .gt_center {
   text-align: center;
 }
 
-#vyqvvjolqa .gt_right {
+#anyuyiynad .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#vyqvvjolqa .gt_font_normal {
+#anyuyiynad .gt_font_normal {
   font-weight: normal;
 }
 
-#vyqvvjolqa .gt_font_bold {
+#anyuyiynad .gt_font_bold {
   font-weight: bold;
 }
 
-#vyqvvjolqa .gt_font_italic {
+#anyuyiynad .gt_font_italic {
   font-style: italic;
 }
 
-#vyqvvjolqa .gt_super {
+#anyuyiynad .gt_super {
   font-size: 65%;
 }
 
-#vyqvvjolqa .gt_two_val_uncert {
+#anyuyiynad .gt_two_val_uncert {
   display: inline-block;
   line-height: 1em;
   text-align: right;
@@ -1664,31 +1660,31 @@
   margin-left: 0.1em;
 }
 
-#vyqvvjolqa .gt_footnote_marks {
+#anyuyiynad .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#vyqvvjolqa .gt_asterisk {
+#anyuyiynad .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#vyqvvjolqa .gt_slash_mark {
+#anyuyiynad .gt_slash_mark {
   font-size: 0.7em;
   line-height: 0.7em;
   vertical-align: 0.15em;
 }
 
-#vyqvvjolqa .gt_fraction_numerator {
+#anyuyiynad .gt_fraction_numerator {
   font-size: 0.6em;
   line-height: 0.6em;
   vertical-align: 0.45em;
 }
 
-#vyqvvjolqa .gt_fraction_denominator {
+#anyuyiynad .gt_fraction_denominator {
   font-size: 0.6em;
   line-height: 0.6em;
   vertical-align: -0.05em;
@@ -1832,7 +1828,7 @@
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer>

@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sbcdata</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.0</span>
       </span>
     </div>
 
@@ -69,7 +69,7 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">import_mimic</span><span class="op">(</span><span class="va">path</span>, verbose <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/interactive.html" class="external-link">interactive</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">import_mimic</span><span class="op">(</span><span class="va">path</span>, verbose <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/interactive.html" class="external-link">interactive</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -77,12 +77,17 @@
     <dl><dt>path</dt>
 <dd><p><code>character(1)</code>, path to the root MIMIC-IV folder (that contains
 the subfolders: core and hosp).</p></dd>
+
+
 <dt>verbose</dt>
 <dd><p><code>logical(1)</code>, if <code>TRUE</code> progress messages are shown.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p><code>data.frame</code>, same as <code>x</code> but with an added column <code>Excluded</code> and
+    
+
+<p><code>data.frame</code>, same as <code>x</code> but with an added column <code>Excluded</code> and
 3 attributes <code>"message"</code>, <code>"n_cases"</code>, <code>"n_cbc"</code> that describe the
 processing and the kept cases and complete blood counts (CBC)</p>
     </div>
@@ -107,9 +112,9 @@ Sebastian Gibb <a href="mailto:mail@sebastiangibb.de">mail@sebastiangibb.de</a><
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span>
-<span class="r-in"><span class="va">mimic</span> <span class="op">&lt;-</span> <span class="fu">import_mimic</span><span class="op">(</span><span class="st">"path/to/mimic-iv-1.0"</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">}</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="va">mimic</span> <span class="op">&lt;-</span> <span class="fu">import_mimic</span><span class="op">(</span><span class="st">"path/to/mimic-iv-1.0"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -124,7 +129,7 @@ Sebastian Gibb <a href="mailto:mail@sebastiangibb.de">mail@sebastiangibb.de</a><
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

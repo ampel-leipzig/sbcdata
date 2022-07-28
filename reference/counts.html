@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sbcdata</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.0</span>
       </span>
     </div>
 
@@ -69,25 +69,32 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">count_cases</span><span class="op">(</span><span class="va">x</span><span class="op">)</span>
-
-<span class="fu">count_cbc</span><span class="op">(</span><span class="va">x</span>, columns <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"HGB"</span>, <span class="st">"MCV"</span>, <span class="st">"PLT"</span>, <span class="st">"RBC"</span>, <span class="st">"WBC"</span><span class="op">)</span>, complete <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">count_cases</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">count_cbc</span><span class="op">(</span><span class="va">x</span>, columns <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"HGB"</span>, <span class="st">"MCV"</span>, <span class="st">"PLT"</span>, <span class="st">"RBC"</span>, <span class="st">"WBC"</span><span class="op">)</span>, complete <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>x</dt>
 <dd><p><code>data.table</code>, in the format described in <code><a href="sbcdata.html">sbcdata</a></code>.</p></dd>
+
+
 <dt>columns</dt>
 <dd><p><code>character</code>, name of columns from <code><a href="sbcdata.html">sbcdata</a></code> that should
 be treated as complete blood count (CBC).</p></dd>
+
+
 <dt>complete</dt>
 <dd><p><code>logical</code>, if <code>TRUE</code> the CBC is only count if none of the
 <code>columns</code> is <code>NA</code>.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p><code>integer</code>, number of cases or blood counts</p>
+    
+
+<p><code>integer</code>, number of cases or blood counts</p>
     </div>
     <div id="author">
     <h2>Author</h2>
@@ -96,9 +103,9 @@ be treated as complete blood count (CBC).</p></dd>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu">count_cases</span><span class="op">(</span><span class="va">sbcdata</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">count_cases</span><span class="op">(</span><span class="va">sbcdata</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 913346</span>
-<span class="r-in"><span class="fu">count_cbc</span><span class="op">(</span><span class="va">sbcdata</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">count_cbc</span><span class="op">(</span><span class="va">sbcdata</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 2580217</span>
 </code></pre></div>
     </div>
@@ -114,7 +121,7 @@ be treated as complete blood count (CBC).</p></dd>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>
