@@ -1,8 +1,12 @@
 # sbcdata 1.0
 
+## Changes 1.0.1
+
+- Fix Flowcharts in vignette.
+
 ## Changes 1.0.0
 
-- Publication.
+- First public release.
 
 # sbcdata 0.1
 

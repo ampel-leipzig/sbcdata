@@ -20,82 +20,109 @@ sbcdata
 **Compiled**: `r date()`
 
 ```{r dp}
-umg <- sbc_exclude_entries(subset(sbcdata, Center == "Greifswald"))
-ukl <- sbc_exclude_entries(subset(sbcdata, Center == "Leipzig"))
+.pn <- function(x)prettyNum(x, big.mark = ",", scientific = FALSE)
+
+create_graph <- function(x, years, icd9 = FALSE) {
+    ## to overwrite the global environment (<<-) is bad style but grViz doesn't
+    ## find these variables in the function environment
+    years <<- years
+    excl <<- attr(x, "exclude_message")
+    excl <<- gsub(">=", "&ge;", excl)
+    excl <<- gsub("<=", "&le;", excl)
+    lbl <<- attr(x, "label_message")
+    lbl <<- gsub(">", "&gt;", lbl)
+    necases <<- .pn(attr(x, "exclude_cases"))
+    necbc <<- .pn(attr(x, "exclude_cbc"))
+    nlcases <<- .pn(attr(x, "label_cases"))
+    nlcbc <<- .pn(attr(x, "label_cbc"))
+
+    icd <- if (icd9) "ICD9/10-CM" else "ICD10-GM"
+
+    graph <- "
+    digraph flowchart {
+        graph [splines = ortho];
+
+        // consort nodes
+        node [shape = box, style = 'rounded,filled', width = 2, height = 0.5, fillcolor = '#7589af'];
+        Enrollment [label = 'Enrollment']
+        Allocation [label = 'Allocation']
+        Analysis [label = 'Analysis']
+
+        // visible nodes
+        node [shape = box, style = rectangle, width = 2, height = 0.5];
+        n1 [label = '@@1-1\\n@@3\\n@@2-1'];
+        n2 [label = 'Excluded:\\l- @@1-2\\l    @@2-2\\l- @@1-3\\l    @@2-3\\l- @@1-4\\l    @@2-4\\l- @@1-5\\l    @@2-5\\l- @@1-6\\l    @@2-6\\l'];
+        n3 [label = '@@1-7\\n@@2-7'];
+        n4 [label = '@@4-1\\n@@5-1'];
+        n5 [label = '@@1-9\\n@@2-9'];
+        n6 [label = 'Excluded:\\l- @@1-10\\l    @@2-10'];
+        n7 [label = '@@4-3\\n@@5-3', width = 3];
+        n8 [label = '@@4-2\\n@@5-2'];
+
+        // plaintext nodes
+        node [shape = plaintext, width = 2, height = 0.5];
+        t1 [label = 'Control group'];
+        t2 [label = '@@6']
+
+        // invisible nodes
+        node [shape = point, width = 0, height = 0];
+        i1 [style = invis];
+        i2 [style = invis];
+        i3 [style = invis];
+        i4 [style = invis];
+        i5 [style = invis];
+
+        {rank = same Allocation n3 i2};
+
+        // edge statements
+        {rank = same; Enrollment n1};
+        n1 -> i1 [arrowhead = none, minlen = 1];
+        {rank = same; i1 -> n2 [minlen = 17]};
+        i1 -> n3;
+        {rank = same; Allocation n3};
+        n3 -> t1 [minlen = 0.5 ];
+        {rank = same; Analysis n4};
+        t1 -> i5 [arrowhead = none];
+        i5 -> n4;
+        {rank = same; n3 -> i2 [arrowhead = none, minlen = 9]};
+        i2 -> t2;
+        t2 -> n5;
+        n5 -> i3 [arrowhead = none];
+        {rank = same; i3 -> n6 [minlen = 5]};
+        i3 -> i4 [arrowhead = none];
+        {rank = same; n7 -> i4 [arrowhead = none, minlen = 1]};
+        {rank = same; i5 n7 };
+        i5 -> n7 [minlen = 1, dir = back];
+        i4 -> n8;
+        n4 -> n8 [style = invis, minlen = 5];
+        {rank = same; n4 n8};
+    }
+    [1]: excl
+    [2]: paste0('(', necases, ' cases; ', necbc, ' CBCs)')
+    [3]: years
+    [4]: lbl
+    [5]: paste0('(', nlcases, ' cases; ', nlcbc, ' CBCs)')
+    [6]: paste0('Sepsis\\nbased on ', icd)
+    "
+
+    DiagrammeR::grViz(graph)
+}
 ```
 
 # Greifswald
 
 ```{r fcumg, results = "asis", echo = FALSE, fig.width = 7, fig.height = 7, fig.cap = "Flowchart Inclusion/Exclusion Greifswald."}
-years <- "2015-2020"
-msg <- attr(umg, "message")
-ncases <- attr(umg, "n_cases")
-ncbc <- attr(umg, "n_cbc")
-graph <- "
-digraph flowchart {
-    graph [splines = false];
-
-    // consort nodes
-    node [shape = box, style = 'rounded,filled', width = 2, height = 0.5, fillcolor = '#7589af'];
-    Enrollment [label = 'Enrollment']
-    Allocation [label = 'Allocation']
-    Analysis [label = 'Analysis']
-
-    // visible nodes
-    node [shape = box, style = rectangle, width = 2, height = 0.5];
-    n1 [label = '@@1-1\\n@@3\\n@@2-1'];
-    n2 [label = 'Excluded:\\l- @@1-2\\l    @@2-2\\l- @@1-3\\l    @@2-3\\l- @@1-4\\l    @@2-4\\l- @@1-5\\l    @@2-5\\l- @@1-6\\l    @@2-6\\l'];
-    n3 [label = '@@1-7\\n@@2-7'];
-    n4 [label = '@@1-8\\n@@2-8'];
-    n5 [label = '@@1-9\\n@@2-9'];
-    n6 [label = 'Excluded:\\l- @@1-10\\l    @@2-10\\l- @@1-11\\l    @@2-11\\l'];
-    n7 [label = '@@1-12\\n@@2-12'];
-
-    // plaintext nodes
-    node [shape = plaintext, width = 2, height = 0.5];
-    t1 [label = 'Control group'];
-    t2 [label = 'Sepsis\nbased on ICD10']
-
-    // invisible nodes
-    node [shape = point, width = 0, height = 0];
-    i1 [style = invis];
-    i2 [style = invis];
-    i3 [style = invis];
-
-    {rank = same Allocation n3 i2};
-
-    // edge statements
-    {rank = same; Enrollment n1};
-    n1 -> i1 [arrowhead = none, minlen = 1];
-    {rank = same; i1 -> n2 [minlen = 15]};
-    i1 -> n3;
-    {rank = same; Allocation n3};
-    n3 -> t1 [minlen = 0.5 ];
-    {rank = same; Analysis n4};
-    t1 -> n4;
-    {rank = same; n3 -> i2 [arrowhead = none, minlen = 5]};
-    i2 -> t2;
-    t2 -> n5;
-    n5 -> i3 [arrowhead = none];
-    {rank = same; i3 -> n6 [minlen = 5]};
-    i3 -> n7;
-    {rank = same; n4 n7};
-}
-[1]: msg
-[2]: paste0('(', ncases, ' cases; ', ncbc, ' BCs)')
-[3]: years
-"
-
-DiagrammeR::grViz(graph)
+umg <- sbc_preprocess(subset(sbcdata, Center == "Greifswald"))
+create_graph(umg, "2015-2020")
 ```
 
 # Leipzig
 
-```{r fcukl, results = "asis", echo = FALSE, fig.width = 7, fig.height = 7, fig.cap = "Flowchart Inclusion/Exclusion Leipzig."}
-years <- "2014-2019"
-msg <- attr(ukl, "message")
-ncases <- attr(ukl, "n_cases")
-ncbc <- attr(ukl, "n_cbc")
-
-DiagrammeR::grViz(graph)
+```{r fcuklt, results = "asis", echo = FALSE, fig.width = 7, fig.height = 7, fig.cap = "Flowchart Inclusion/Exclusion Leipzig Training."}
+uklt <- sbc_preprocess(subset(sbcdata, Center == "Leipzig" & Set == "Training"))
+create_graph(uklt, "2014-2019")
+```
+```{r fcuklv, results = "asis", echo = FALSE, fig.width = 7, fig.height = 7, fig.cap = "Flowchart Inclusion/Exclusion Leipzig Validation."}
+uklv <- sbc_preprocess(subset(sbcdata, Center == "Leipzig" & Set == "Validation"))
+create_graph(uklv, "2020-2021")
 ```
