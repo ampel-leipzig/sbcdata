@@ -25,7 +25,7 @@ The data were collected as part of the [AMPEL](https://ampel.care) project
 through Real-Time Integration of Laboratory Findings).
 They include administration data, sepsis labels based on ICD10 codes
 and laboratory diagnostics from patients admitted to the
-University Hospital Leipzig between Januar 2014 and December 2019 and to the
+University Hospital Leipzig between Januar 2014 and December 2021 and to the
 University Hospital Greifswald between Januar 2015 and December 2020,
 respectively.
 Additionally it provides functions to generate a similar
