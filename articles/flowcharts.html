@@ -33,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sbcdata</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.1</span>
       </span>
     </div>
 
@@ -95,16 +95,101 @@
 
     
     
-<p><strong>Authors</strong>: Sebastian Gibb [aut, cre], Paul Ahrens [aut, dtc], Daniel Steinbach [aut, dtc], Maria Schmidt [aut, dtc], Thorsten Kaiser [aut, dtc], Mark Wernsdorfer [dtc], Matthias Nauck [dtc], Stefan Bollmann [dtc], Thomas Hildebrandt [dtc]<br><strong>Last modified:</strong> 2022-07-28 11:01:48<br><strong>Compiled</strong>: Thu Jul 28 11:04:03 2022</p>
+<p><strong>Authors</strong>: Sebastian Gibb [aut, cre], Paul Ahrens [aut, dtc], Daniel Steinbach [aut, dtc], Maria Schmidt [aut, dtc], Thorsten Kaiser [aut, dtc], Mark Wernsdorfer [dtc], Matthias Nauck [dtc], Stefan Bollmann [dtc], Thomas Hildebrandt [dtc]<br><strong>Last modified:</strong> 2022-07-29 18:22:28<br><strong>Compiled</strong>: Fri Jul 29 18:24:39 2022</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">umg</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/sbc_exclude_entries.html">sbc_exclude_entries</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/subset.html" class="external-link">subset</a></span><span class="op">(</span><span class="va">sbcdata</span>, <span class="va">Center</span> <span class="op">==</span> <span class="st">"Greifswald"</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="va">ukl</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/sbc_exclude_entries.html">sbc_exclude_entries</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/subset.html" class="external-link">subset</a></span><span class="op">(</span><span class="va">sbcdata</span>, <span class="va">Center</span> <span class="op">==</span> <span class="st">"Leipzig"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">.pn</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="fu"><a href="https://rdrr.io/r/base/formatc.html" class="external-link">prettyNum</a></span><span class="op">(</span><span class="va">x</span>, big.mark <span class="op">=</span> <span class="st">","</span>, scientific <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">create_graph</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">years</span>, <span class="va">icd9</span> <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="co">## to overwrite the global environment (&lt;&lt;-) is bad style but grViz doesn't</span></span>
+<span>    <span class="co">## find these variables in the function environment</span></span>
+<span>    <span class="va">years</span> <span class="op">&lt;&lt;-</span> <span class="va">years</span></span>
+<span>    <span class="va">excl</span> <span class="op">&lt;&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/attr.html" class="external-link">attr</a></span><span class="op">(</span><span class="va">x</span>, <span class="st">"exclude_message"</span><span class="op">)</span></span>
+<span>    <span class="va">excl</span> <span class="op">&lt;&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">gsub</a></span><span class="op">(</span><span class="st">"&gt;="</span>, <span class="st">"&amp;ge;"</span>, <span class="va">excl</span><span class="op">)</span></span>
+<span>    <span class="va">excl</span> <span class="op">&lt;&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">gsub</a></span><span class="op">(</span><span class="st">"&lt;="</span>, <span class="st">"&amp;le;"</span>, <span class="va">excl</span><span class="op">)</span></span>
+<span>    <span class="va">lbl</span> <span class="op">&lt;&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/attr.html" class="external-link">attr</a></span><span class="op">(</span><span class="va">x</span>, <span class="st">"label_message"</span><span class="op">)</span></span>
+<span>    <span class="va">lbl</span> <span class="op">&lt;&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">gsub</a></span><span class="op">(</span><span class="st">"&gt;"</span>, <span class="st">"&amp;gt;"</span>, <span class="va">lbl</span><span class="op">)</span></span>
+<span>    <span class="va">necases</span> <span class="op">&lt;&lt;-</span> <span class="fu">.pn</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/attr.html" class="external-link">attr</a></span><span class="op">(</span><span class="va">x</span>, <span class="st">"exclude_cases"</span><span class="op">)</span><span class="op">)</span></span>
+<span>    <span class="va">necbc</span> <span class="op">&lt;&lt;-</span> <span class="fu">.pn</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/attr.html" class="external-link">attr</a></span><span class="op">(</span><span class="va">x</span>, <span class="st">"exclude_cbc"</span><span class="op">)</span><span class="op">)</span></span>
+<span>    <span class="va">nlcases</span> <span class="op">&lt;&lt;-</span> <span class="fu">.pn</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/attr.html" class="external-link">attr</a></span><span class="op">(</span><span class="va">x</span>, <span class="st">"label_cases"</span><span class="op">)</span><span class="op">)</span></span>
+<span>    <span class="va">nlcbc</span> <span class="op">&lt;&lt;-</span> <span class="fu">.pn</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/attr.html" class="external-link">attr</a></span><span class="op">(</span><span class="va">x</span>, <span class="st">"label_cbc"</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span>    <span class="va">icd</span> <span class="op">&lt;-</span> <span class="kw">if</span> <span class="op">(</span><span class="va">icd9</span><span class="op">)</span> <span class="st">"ICD9/10-CM"</span> <span class="kw">else</span> <span class="st">"ICD10-GM"</span></span>
+<span></span>
+<span>    <span class="va">graph</span> <span class="op">&lt;-</span> <span class="st">"</span></span>
+<span><span class="st">    digraph flowchart {</span></span>
+<span><span class="st">        graph [splines = ortho];</span></span>
+<span><span class="st"></span></span>
+<span><span class="st">        // consort nodes</span></span>
+<span><span class="st">        node [shape = box, style = 'rounded,filled', width = 2, height = 0.5, fillcolor = '#7589af'];</span></span>
+<span><span class="st">        Enrollment [label = 'Enrollment']</span></span>
+<span><span class="st">        Allocation [label = 'Allocation']</span></span>
+<span><span class="st">        Analysis [label = 'Analysis']</span></span>
+<span><span class="st"></span></span>
+<span><span class="st">        // visible nodes</span></span>
+<span><span class="st">        node [shape = box, style = rectangle, width = 2, height = 0.5];</span></span>
+<span><span class="st">        n1 [label = '@@1-1\\n@@3\\n@@2-1'];</span></span>
+<span><span class="st">        n2 [label = 'Excluded:\\l- @@1-2\\l    @@2-2\\l- @@1-3\\l    @@2-3\\l- @@1-4\\l    @@2-4\\l- @@1-5\\l    @@2-5\\l- @@1-6\\l    @@2-6\\l'];</span></span>
+<span><span class="st">        n3 [label = '@@1-7\\n@@2-7'];</span></span>
+<span><span class="st">        n4 [label = '@@4-1\\n@@5-1'];</span></span>
+<span><span class="st">        n5 [label = '@@1-9\\n@@2-9'];</span></span>
+<span><span class="st">        n6 [label = 'Excluded:\\l- @@1-10\\l    @@2-10'];</span></span>
+<span><span class="st">        n7 [label = '@@4-3\\n@@5-3', width = 3];</span></span>
+<span><span class="st">        n8 [label = '@@4-2\\n@@5-2'];</span></span>
+<span><span class="st"></span></span>
+<span><span class="st">        // plaintext nodes</span></span>
+<span><span class="st">        node [shape = plaintext, width = 2, height = 0.5];</span></span>
+<span><span class="st">        t1 [label = 'Control group'];</span></span>
+<span><span class="st">        t2 [label = '@@6']</span></span>
+<span><span class="st"></span></span>
+<span><span class="st">        // invisible nodes</span></span>
+<span><span class="st">        node [shape = point, width = 0, height = 0];</span></span>
+<span><span class="st">        i1 [style = invis];</span></span>
+<span><span class="st">        i2 [style = invis];</span></span>
+<span><span class="st">        i3 [style = invis];</span></span>
+<span><span class="st">        i4 [style = invis];</span></span>
+<span><span class="st">        i5 [style = invis];</span></span>
+<span><span class="st"></span></span>
+<span><span class="st">        {rank = same Allocation n3 i2};</span></span>
+<span><span class="st"></span></span>
+<span><span class="st">        // edge statements</span></span>
+<span><span class="st">        {rank = same; Enrollment n1};</span></span>
+<span><span class="st">        n1 -&gt; i1 [arrowhead = none, minlen = 1];</span></span>
+<span><span class="st">        {rank = same; i1 -&gt; n2 [minlen = 17]};</span></span>
+<span><span class="st">        i1 -&gt; n3;</span></span>
+<span><span class="st">        {rank = same; Allocation n3};</span></span>
+<span><span class="st">        n3 -&gt; t1 [minlen = 0.5 ];</span></span>
+<span><span class="st">        {rank = same; Analysis n4};</span></span>
+<span><span class="st">        t1 -&gt; i5 [arrowhead = none];</span></span>
+<span><span class="st">        i5 -&gt; n4;</span></span>
+<span><span class="st">        {rank = same; n3 -&gt; i2 [arrowhead = none, minlen = 9]};</span></span>
+<span><span class="st">        i2 -&gt; t2;</span></span>
+<span><span class="st">        t2 -&gt; n5;</span></span>
+<span><span class="st">        n5 -&gt; i3 [arrowhead = none];</span></span>
+<span><span class="st">        {rank = same; i3 -&gt; n6 [minlen = 5]};</span></span>
+<span><span class="st">        i3 -&gt; i4 [arrowhead = none];</span></span>
+<span><span class="st">        {rank = same; n7 -&gt; i4 [arrowhead = none, minlen = 1]};</span></span>
+<span><span class="st">        {rank = same; i5 n7 };</span></span>
+<span><span class="st">        i5 -&gt; n7 [minlen = 1, dir = back];</span></span>
+<span><span class="st">        i4 -&gt; n8;</span></span>
+<span><span class="st">        n4 -&gt; n8 [style = invis, minlen = 5];</span></span>
+<span><span class="st">        {rank = same; n4 n8};</span></span>
+<span><span class="st">    }</span></span>
+<span><span class="st">    [1]: excl</span></span>
+<span><span class="st">    [2]: paste0('(', necases, ' cases; ', necbc, ' CBCs)')</span></span>
+<span><span class="st">    [3]: years</span></span>
+<span><span class="st">    [4]: lbl</span></span>
+<span><span class="st">    [5]: paste0('(', nlcases, ' cases; ', nlcbc, ' CBCs)')</span></span>
+<span><span class="st">    [6]: paste0('Sepsis\\nbased on ', icd)</span></span>
+<span><span class="st">    "</span></span>
+<span></span>
+<span>    <span class="fu">DiagrammeR</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/DiagrammeR/man/grViz.html" class="external-link">grViz</a></span><span class="op">(</span><span class="va">graph</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code></pre></div>
 <div class="section level2">
 <h2 id="greifswald">Greifswald<a class="anchor" aria-label="anchor" href="#greifswald"></a>
 </h2>
 <div class="figure">
-<div id="htmlwidget-920fe7facf61115ff837" style="width:672px;height:672px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-920fe7facf61115ff837">{"x":{"diagram":"\ndigraph flowchart {\n    graph [splines = false];\n\n    // consort nodes\n    node [shape = box, style = \"rounded,filled\", width = 2, height = 0.5, fillcolor = \"#7589af\"];\n    Enrollment [label = \"Enrollment\"]\n    Allocation [label = \"Allocation\"]\n    Analysis [label = \"Analysis\"]\n\n    // visible nodes\n    node [shape = box, style = rectangle, width = 2, height = 0.5];\n    n1 [label = \"\\n2015-2020\\n( cases;  BCs)\"];\n    n2 [label = \"Excluded:\\l- \\l    ( cases;  BCs)\\l- \\l    ( cases;  BCs)\\l- \\l    ( cases;  BCs)\\l- \\l    ( cases;  BCs)\\l- \\l    ( cases;  BCs)\\l\"];\n    n3 [label = \"\\n( cases;  BCs)\"];\n    n4 [label = \"\\n( cases;  BCs)\"];\n    n5 [label = \"\\n( cases;  BCs)\"];\n    n6 [label = \"Excluded:\\l- \\l    ( cases;  BCs)\\l- \\l    ( cases;  BCs)\\l\"];\n    n7 [label = \"\\n( cases;  BCs)\"];\n\n    // plaintext nodes\n    node [shape = plaintext, width = 2, height = 0.5];\n    t1 [label = \"Control group\"];\n    t2 [label = \"Sepsis\nbased on ICD10\"]\n\n    // invisible nodes\n    node [shape = point, width = 0, height = 0];\n    i1 [style = invis];\n    i2 [style = invis];\n    i3 [style = invis];\n\n    {rank = same Allocation n3 i2};\n\n    // edge statements\n    {rank = same; Enrollment n1};\n    n1 -> i1 [arrowhead = none, minlen = 1];\n    {rank = same; i1 -> n2 [minlen = 15]};\n    i1 -> n3;\n    {rank = same; Allocation n3};\n    n3 -> t1 [minlen = 0.5 ];\n    {rank = same; Analysis n4};\n    t1 -> n4;\n    {rank = same; n3 -> i2 [arrowhead = none, minlen = 5]};\n    i2 -> t2;\n    t2 -> n5;\n    n5 -> i3 [arrowhead = none];\n    {rank = same; i3 -> n6 [minlen = 5]};\n    i3 -> n7;\n    {rank = same; n4 n7};\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script><p class="caption">
+<div id="htmlwidget-22eb62316cf3705cefc9" style="width:672px;height:672px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-22eb62316cf3705cefc9">{"x":{"diagram":"\n    digraph flowchart {\n        graph [splines = ortho];\n\n        // consort nodes\n        node [shape = box, style = \"rounded,filled\", width = 2, height = 0.5, fillcolor = \"#7589af\"];\n        Enrollment [label = \"Enrollment\"]\n        Allocation [label = \"Allocation\"]\n        Analysis [label = \"Analysis\"]\n\n        // visible nodes\n        node [shape = box, style = rectangle, width = 2, height = 0.5];\n        n1 [label = \"All cases aged &ge; 18\\n2015-2020\\n(169,058 cases; 645,874 CBCs)\"];\n        n2 [label = \"Excluded:\\l- Duplicated blood samples\\l    (266 cases; 511 CBCs)\\l- CBCs from ICU\\l    (14,018 cases; 111,350 CBCs)\\l- CBCs from following episodes\\l    (7,148 cases; 38,859 CBCs)\\l- Incomplete CBCs\\l    (124 cases; 259 CBCs)\\l- Cases with SIRS but without sepsis diagnosis\\l    (866 cases; 6,361 CBCs)\\l\"];\n        n3 [label = \"Assessable\\n(163,099 cases; 488,534 CBCs)\"];\n        n4 [label = \"Analysed control group\\n(157,680 cases; 437,629 CBCs)\"];\n        n5 [label = \"Sepsis\\n(5,893 cases; 54,431 CBCs)\"];\n        n6 [label = \"Excluded:\\l- Cases admitted to non-medical ICU\\l    (5,177 cases; 50,457 CBCs)\"];\n        n7 [label = \"CBCs &gt; 6 h before ICU admission\\n(474 cases; 3,526 CBCs)\", width = 3];\n        n8 [label = \"Analysed sepsis group\\n(438 cases; 448 CBCs)\"];\n\n        // plaintext nodes\n        node [shape = plaintext, width = 2, height = 0.5];\n        t1 [label = \"Control group\"];\n        t2 [label = \"Sepsis\nbased on ICD10-GM\"]\n\n        // invisible nodes\n        node [shape = point, width = 0, height = 0];\n        i1 [style = invis];\n        i2 [style = invis];\n        i3 [style = invis];\n        i4 [style = invis];\n        i5 [style = invis];\n\n        {rank = same Allocation n3 i2};\n\n        // edge statements\n        {rank = same; Enrollment n1};\n        n1 -> i1 [arrowhead = none, minlen = 1];\n        {rank = same; i1 -> n2 [minlen = 17]};\n        i1 -> n3;\n        {rank = same; Allocation n3};\n        n3 -> t1 [minlen = 0.5 ];\n        {rank = same; Analysis n4};\n        t1 -> i5 [arrowhead = none];\n        i5 -> n4;\n        {rank = same; n3 -> i2 [arrowhead = none, minlen = 9]};\n        i2 -> t2;\n        t2 -> n5;\n        n5 -> i3 [arrowhead = none];\n        {rank = same; i3 -> n6 [minlen = 5]};\n        i3 -> i4 [arrowhead = none];\n        {rank = same; n7 -> i4 [arrowhead = none, minlen = 1]};\n        {rank = same; i5 n7 };\n        i5 -> n7 [minlen = 1, dir = back];\n        i4 -> n8;\n        n4 -> n8 [style = invis, minlen = 5];\n        {rank = same; n4 n8};\n    }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script><p class="caption">
 Flowchart Inclusion/Exclusion Greifswald.
 </p>
 </div>
@@ -113,9 +198,15 @@ Flowchart Inclusion/Exclusion Greifswald.
 <h2 id="leipzig">Leipzig<a class="anchor" aria-label="anchor" href="#leipzig"></a>
 </h2>
 <div class="figure">
-<div id="htmlwidget-e52088e6171f13fcb2ad" style="width:672px;height:672px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-e52088e6171f13fcb2ad">{"x":{"diagram":"\ndigraph flowchart {\n    graph [splines = false];\n\n    // consort nodes\n    node [shape = box, style = \"rounded,filled\", width = 2, height = 0.5, fillcolor = \"#7589af\"];\n    Enrollment [label = \"Enrollment\"]\n    Allocation [label = \"Allocation\"]\n    Analysis [label = \"Analysis\"]\n\n    // visible nodes\n    node [shape = box, style = rectangle, width = 2, height = 0.5];\n    n1 [label = \"\\n2014-2019\\n( cases;  BCs)\"];\n    n2 [label = \"Excluded:\\l- \\l    ( cases;  BCs)\\l- \\l    ( cases;  BCs)\\l- \\l    ( cases;  BCs)\\l- \\l    ( cases;  BCs)\\l- \\l    ( cases;  BCs)\\l\"];\n    n3 [label = \"\\n( cases;  BCs)\"];\n    n4 [label = \"\\n( cases;  BCs)\"];\n    n5 [label = \"\\n( cases;  BCs)\"];\n    n6 [label = \"Excluded:\\l- \\l    ( cases;  BCs)\\l- \\l    ( cases;  BCs)\\l\"];\n    n7 [label = \"\\n( cases;  BCs)\"];\n\n    // plaintext nodes\n    node [shape = plaintext, width = 2, height = 0.5];\n    t1 [label = \"Control group\"];\n    t2 [label = \"Sepsis\nbased on ICD10\"]\n\n    // invisible nodes\n    node [shape = point, width = 0, height = 0];\n    i1 [style = invis];\n    i2 [style = invis];\n    i3 [style = invis];\n\n    {rank = same Allocation n3 i2};\n\n    // edge statements\n    {rank = same; Enrollment n1};\n    n1 -> i1 [arrowhead = none, minlen = 1];\n    {rank = same; i1 -> n2 [minlen = 15]};\n    i1 -> n3;\n    {rank = same; Allocation n3};\n    n3 -> t1 [minlen = 0.5 ];\n    {rank = same; Analysis n4};\n    t1 -> n4;\n    {rank = same; n3 -> i2 [arrowhead = none, minlen = 5]};\n    i2 -> t2;\n    t2 -> n5;\n    n5 -> i3 [arrowhead = none];\n    {rank = same; i3 -> n6 [minlen = 5]};\n    i3 -> n7;\n    {rank = same; n4 n7};\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script><p class="caption">
-Flowchart Inclusion/Exclusion Leipzig.
+<div id="htmlwidget-bf4097c65327fa9b2fe5" style="width:672px;height:672px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-bf4097c65327fa9b2fe5">{"x":{"diagram":"\n    digraph flowchart {\n        graph [splines = ortho];\n\n        // consort nodes\n        node [shape = box, style = \"rounded,filled\", width = 2, height = 0.5, fillcolor = \"#7589af\"];\n        Enrollment [label = \"Enrollment\"]\n        Allocation [label = \"Allocation\"]\n        Analysis [label = \"Analysis\"]\n\n        // visible nodes\n        node [shape = box, style = rectangle, width = 2, height = 0.5];\n        n1 [label = \"All cases aged &ge; 18\\n2014-2019\\n(539,806 cases; 1,423,282 CBCs)\"];\n        n2 [label = \"Excluded:\\l- Duplicated blood samples\\l    (1,362 cases; 2,778 CBCs)\\l- CBCs from ICU\\l    (36,850 cases; 240,307 CBCs)\\l- CBCs from following episodes\\l    (22,295 cases; 117,703 CBCs)\\l- Incomplete CBCs\\l    (438 cases; 686 CBCs)\\l- Cases with SIRS but without sepsis diagnosis\\l    (691 cases; 2,410 CBCs)\\l\"];\n        n3 [label = \"Assessable\\n(532,469 cases; 1,059,398 CBCs)\"];\n        n4 [label = \"Analysed control group\\n(527,038 cases; 1,013,548 CBCs)\"];\n        n5 [label = \"Sepsis\\n(6,551 cases; 57,928 CBCs)\"];\n        n6 [label = \"Excluded:\\l- Cases admitted to non-medical ICU\\l    (4,368 cases; 44,324 CBCs)\"];\n        n7 [label = \"CBCs &gt; 6 h before ICU admission\\n(1,120 cases; 12,078 CBCs)\", width = 3];\n        n8 [label = \"Analysed sepsis group\\n(1,488 cases; 1,526 CBCs)\"];\n\n        // plaintext nodes\n        node [shape = plaintext, width = 2, height = 0.5];\n        t1 [label = \"Control group\"];\n        t2 [label = \"Sepsis\nbased on ICD10-GM\"]\n\n        // invisible nodes\n        node [shape = point, width = 0, height = 0];\n        i1 [style = invis];\n        i2 [style = invis];\n        i3 [style = invis];\n        i4 [style = invis];\n        i5 [style = invis];\n\n        {rank = same Allocation n3 i2};\n\n        // edge statements\n        {rank = same; Enrollment n1};\n        n1 -> i1 [arrowhead = none, minlen = 1];\n        {rank = same; i1 -> n2 [minlen = 17]};\n        i1 -> n3;\n        {rank = same; Allocation n3};\n        n3 -> t1 [minlen = 0.5 ];\n        {rank = same; Analysis n4};\n        t1 -> i5 [arrowhead = none];\n        i5 -> n4;\n        {rank = same; n3 -> i2 [arrowhead = none, minlen = 9]};\n        i2 -> t2;\n        t2 -> n5;\n        n5 -> i3 [arrowhead = none];\n        {rank = same; i3 -> n6 [minlen = 5]};\n        i3 -> i4 [arrowhead = none];\n        {rank = same; n7 -> i4 [arrowhead = none, minlen = 1]};\n        {rank = same; i5 n7 };\n        i5 -> n7 [minlen = 1, dir = back];\n        i4 -> n8;\n        n4 -> n8 [style = invis, minlen = 5];\n        {rank = same; n4 n8};\n    }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script><p class="caption">
+Flowchart Inclusion/Exclusion Leipzig Training.
+</p>
+</div>
+<div class="figure">
+<div id="htmlwidget-71f3b626b5f565641e64" style="width:672px;height:672px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-71f3b626b5f565641e64">{"x":{"diagram":"\n    digraph flowchart {\n        graph [splines = ortho];\n\n        // consort nodes\n        node [shape = box, style = \"rounded,filled\", width = 2, height = 0.5, fillcolor = \"#7589af\"];\n        Enrollment [label = \"Enrollment\"]\n        Allocation [label = \"Allocation\"]\n        Analysis [label = \"Analysis\"]\n\n        // visible nodes\n        node [shape = box, style = rectangle, width = 2, height = 0.5];\n        n1 [label = \"All cases aged &ge; 18\\n2020-2021\\n(184,253 cases; 511,061 CBCs)\"];\n        n2 [label = \"Excluded:\\l- Duplicated blood samples\\l    (404 cases; 784 CBCs)\\l- CBCs from ICU\\l    (13,677 cases; 91,369 CBCs)\\l- CBCs from following episodes\\l    (8,619 cases; 45,965 CBCs)\\l- Incomplete CBCs\\l    (366 cases; 475 CBCs)\\l- Cases with SIRS but without sepsis diagnosis\\l    (338 cases; 1,857 CBCs)\\l\"];\n        n3 [label = \"Assessable\\n(181,517 cases; 370,611 CBCs)\"];\n        n4 [label = \"Analysed control group\\n(180,157 cases; 365,794 CBCs)\"];\n        n5 [label = \"Sepsis\\n(1,725 cases; 7,377 CBCs)\"];\n        n6 [label = \"Excluded:\\l- Cases admitted to non-medical ICU\\l    (1,023 cases; 4,327 CBCs)\"];\n        n7 [label = \"CBCs &gt; 6 h before ICU admission\\n(365 cases; 2,560 CBCs)\", width = 3];\n        n8 [label = \"Analysed sepsis group\\n(472 cases; 490 CBCs)\"];\n\n        // plaintext nodes\n        node [shape = plaintext, width = 2, height = 0.5];\n        t1 [label = \"Control group\"];\n        t2 [label = \"Sepsis\nbased on ICD10-GM\"]\n\n        // invisible nodes\n        node [shape = point, width = 0, height = 0];\n        i1 [style = invis];\n        i2 [style = invis];\n        i3 [style = invis];\n        i4 [style = invis];\n        i5 [style = invis];\n\n        {rank = same Allocation n3 i2};\n\n        // edge statements\n        {rank = same; Enrollment n1};\n        n1 -> i1 [arrowhead = none, minlen = 1];\n        {rank = same; i1 -> n2 [minlen = 17]};\n        i1 -> n3;\n        {rank = same; Allocation n3};\n        n3 -> t1 [minlen = 0.5 ];\n        {rank = same; Analysis n4};\n        t1 -> i5 [arrowhead = none];\n        i5 -> n4;\n        {rank = same; n3 -> i2 [arrowhead = none, minlen = 9]};\n        i2 -> t2;\n        t2 -> n5;\n        n5 -> i3 [arrowhead = none];\n        {rank = same; i3 -> n6 [minlen = 5]};\n        i3 -> i4 [arrowhead = none];\n        {rank = same; n7 -> i4 [arrowhead = none, minlen = 1]};\n        {rank = same; i5 n7 };\n        i5 -> n7 [minlen = 1, dir = back];\n        i4 -> n8;\n        n4 -> n8 [style = invis, minlen = 5];\n        {rank = same; n4 n8};\n    }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script><p class="caption">
+Flowchart Inclusion/Exclusion Leipzig Validation.
 </p>
 </div>
 </div>
