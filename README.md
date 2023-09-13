@@ -40,7 +40,4 @@ The datasets are available under the
 
 To cite the `sbcdata` package, please use:
 
-> Sebastian Gibb, Paul Ahrens, Daniel Steinbach and Thorsten Kaiser
-(2021). sbcdata: Laboratory Diagnostics from Septic and Non-septic
-Patients Used in the AMPEL Project. R package version 0.0.1.
-https://github.com/ampel-leipzig/sbcdata
+> Gibb, S., Ahrens, P., Steinbach, D., Schmidt, M., & Kaiser, T. (2022). sbcdata: Laboratory Diagnostics from Septic and Non-septic Patients Used in the AMPEL Project (Version 1.0.0). https://doi.org/10.5281/zenodo.6922967
