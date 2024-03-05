@@ -81,7 +81,7 @@
 
       
 
-      </header><script src="sbcdata_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
+      </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Introduction to sbcdata</h1>
@@ -94,18 +94,29 @@
 
     
     
-<p><strong>Authors</strong>: Sebastian Gibb [aut, cre], Paul Ahrens [aut, dtc], Daniel Steinbach [aut, dtc], Maria Schmidt [aut, dtc], Thorsten Kaiser [aut, dtc], Mark Wernsdorfer [dtc], Matthias Nauck [dtc], Stefan Bollmann [dtc], Thomas Hildebrandt [dtc]<br><strong>Last modified:</strong> 2022-07-29 18:22:28<br><strong>Compiled</strong>: Fri Jul 29 18:25:02 2022</p>
+<p><strong>Authors</strong>: Sebastian Gibb [aut, cre], Paul Ahrens
+[aut, dtc], Daniel Steinbach [aut, dtc], Maria Schmidt [aut, dtc],
+Thorsten Kaiser [aut, dtc], Mark Wernsdorfer [dtc], Matthias Nauck
+[dtc], Stefan Bollmann [dtc], Thomas Hildebrandt [dtc]<br><strong>Last modified:</strong> 2024-03-05 09:07:10.124928<br><strong>Compiled</strong>: Tue Mar 5 09:10:54 2024</p>
 <div class="section level2">
 <h2 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
 </h2>
-<p>The data were collected as part of the <a href="https://ampel.care" class="external-link">AMPEL</a> project (Analysis and Reporting System for the Improvement of Patient Safety through Real-Time Integration of Laboratory Findings, ). They include administration data, sepsis labels based on ICD10 codes and laboratory diagnostics from patients admitted to the University Hospital Leipzig between Januar 2014 and December 2019 and to the University Hospital Greifswald between Januar 2015 and December 2020, respectively. Additionally it provides functions to generate a similar dataset from MIMIC-IV <span class="citation">(Johnson et al. 2021)</span>.</p>
+<p>The data were collected as part of the <a href="https://ampel.care" class="external-link">AMPEL</a> project (Analysis and Reporting
+System for the Improvement of Patient Safety through Real-Time
+Integration of Laboratory Findings, ). They include administration data,
+sepsis labels based on ICD10 codes and laboratory diagnostics from
+patients admitted to the University Hospital Leipzig between Januar 2014
+and December 2019 and to the University Hospital Greifswald between
+Januar 2015 and December 2020, respectively. Additionally it provides
+functions to generate a similar dataset from MIMIC-IV <span class="citation">(Johnson et al. 2021)</span>.</p>
 <div class="section level3">
 <h3 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h3>
-<p>You can install the released version of <code>sbcdata</code> from directly from github:</p>
+<p>You can install the released version of <code>sbcdata</code> from
+directly from github:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># install.packages("remotes")</span></span>
-<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"ampel-leipzig/sbcdata"</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"ampel-leipzig/sbcdata"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="license">License<a class="anchor" aria-label="anchor" href="#license"></a>
@@ -118,23 +129,24 @@
 <p>To cite the <code>sbcdata</code> package, please use:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/citation.html" class="external-link">citation</a></span><span class="op">(</span><span class="st">"sbcdata"</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## </span></span>
-<span><span class="co">## To cite package 'sbcdata' in publications use:</span></span>
+<pre><code><span><span class="co">## To cite the sbcdata package in publications use:</span></span>
 <span><span class="co">## </span></span>
-<span><span class="co">##   Gibb S, Ahrens P, Steinbach D, Schmidt M, Kaiser T (2022). _sbcdata:</span></span>
-<span><span class="co">##   Laboratory Diagnostics from Septic and Non-septic Patients Used in</span></span>
-<span><span class="co">##   the AMPEL Project_. R package version 1.0.1,</span></span>
-<span><span class="co">##   &lt;https://github.com/ampel-leipzig/sbcdata&gt;.</span></span>
+<span><span class="co">##   D. Steinbach, et al. 2024. Applying Machine Learning to Blood Count</span></span>
+<span><span class="co">##   Data Predicts Sepsis with ICU Admission Clinical Chemistry 70,</span></span>
+<span><span class="co">##   506-515.</span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">## A BibTeX entry for LaTeX users is</span></span>
 <span><span class="co">## </span></span>
-<span><span class="co">##   @Manual{,</span></span>
-<span><span class="co">##     title = {sbcdata: Laboratory Diagnostics from Septic and Non-septic Patients Used</span></span>
-<span><span class="co">## in the AMPEL Project},</span></span>
-<span><span class="co">##     author = {Sebastian Gibb and Paul Ahrens and Daniel Steinbach and Maria Schmidt and Thorsten Kaiser},</span></span>
-<span><span class="co">##     year = {2022},</span></span>
-<span><span class="co">##     note = {R package version 1.0.1},</span></span>
-<span><span class="co">##     url = {https://github.com/ampel-leipzig/sbcdata},</span></span>
+<span><span class="co">##   @Article{sbcdata,</span></span>
+<span><span class="co">##     title = {Applying Machine Learning to Blood Count Data Predicts Sepsis with {ICU} Admission},</span></span>
+<span><span class="co">##     author = {Daniel Steinbach and Paul C. Ahrens and Maria Schmidt and Martin Federbusch and Lara Heuft and Christoph Lübbert and Matthias Nauck and Matthias Gründling and Berend Isermann and Sebastian Gibb and Thorsten Kaiser},</span></span>
+<span><span class="co">##     volume = {70},</span></span>
+<span><span class="co">##     number = {3},</span></span>
+<span><span class="co">##     pages = {506--515},</span></span>
+<span><span class="co">##     year = {2024},</span></span>
+<span><span class="co">##     doi = {10.1093/clinchem/hvae001},</span></span>
+<span><span class="co">##     journal = {Clinical Chemistry},</span></span>
+<span><span class="co">##     publisher = {Oxford University Press},</span></span>
 <span><span class="co">##   }</span></span></code></pre>
 </div>
 </div>
@@ -144,7 +156,8 @@
 <div class="section level3">
 <h3 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
 </h3>
-<p>The <code>sbcdata</code> dataset contains <code>ncol(sbcdata)</code> variables for <code>nrow(sbcdata)</code> laboratory diagnostics.</p>
+<p>The <code>sbcdata</code> dataset contains <code>ncol(sbcdata)</code>
+variables for <code>nrow(sbcdata)</code> laboratory diagnostics.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">sbcdata</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## Classes 'data.table' and 'data.frame':   2709568 obs. of  18 variables:</span></span>
@@ -366,39 +379,48 @@
 </h2>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/sessionInfo.html" class="external-link">sessionInfo</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## R version 4.2.1 (2022-06-23)</span></span>
-<span><span class="co">## Platform: x86_64-apple-darwin17.0 (64-bit)</span></span>
-<span><span class="co">## Running under: macOS Big Sur ... 10.16</span></span>
+<pre><code><span><span class="co">## R version 4.3.3 (2024-02-29)</span></span>
+<span><span class="co">## Platform: x86_64-pc-linux-gnu (64-bit)</span></span>
+<span><span class="co">## Running under: Ubuntu 22.04.4 LTS</span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">## Matrix products: default</span></span>
-<span><span class="co">## BLAS:   /Library/Frameworks/R.framework/Versions/4.2/Resources/lib/libRblas.0.dylib</span></span>
-<span><span class="co">## LAPACK: /Library/Frameworks/R.framework/Versions/4.2/Resources/lib/libRlapack.dylib</span></span>
+<span><span class="co">## BLAS:   /usr/lib/x86_64-linux-gnu/openblas-pthread/libblas.so.3 </span></span>
+<span><span class="co">## LAPACK: /usr/lib/x86_64-linux-gnu/openblas-pthread/libopenblasp-r0.3.20.so;  LAPACK version 3.10.0</span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">## locale:</span></span>
-<span><span class="co">## [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8</span></span>
+<span><span class="co">##  [1] LC_CTYPE=C.UTF-8       LC_NUMERIC=C           LC_TIME=C.UTF-8       </span></span>
+<span><span class="co">##  [4] LC_COLLATE=C.UTF-8     LC_MONETARY=C.UTF-8    LC_MESSAGES=C.UTF-8   </span></span>
+<span><span class="co">##  [7] LC_PAPER=C.UTF-8       LC_NAME=C              LC_ADDRESS=C          </span></span>
+<span><span class="co">## [10] LC_TELEPHONE=C         LC_MEASUREMENT=C.UTF-8 LC_IDENTIFICATION=C   </span></span>
+<span><span class="co">## </span></span>
+<span><span class="co">## time zone: UTC</span></span>
+<span><span class="co">## tzcode source: system (glibc)</span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">## attached base packages:</span></span>
 <span><span class="co">## [1] stats     graphics  grDevices utils     datasets  methods   base     </span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">## other attached packages:</span></span>
-<span><span class="co">## [1] sbcdata_1.0.1     data.table_1.14.2</span></span>
+<span><span class="co">## [1] sbcdata_1.0.1     data.table_1.15.2</span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">## loaded via a namespace (and not attached):</span></span>
-<span><span class="co">##  [1] knitr_1.39        magrittr_2.0.3    viridisLite_0.4.0 R6_2.5.1         </span></span>
-<span><span class="co">##  [5] ragg_1.2.2        rlang_1.0.4       fastmap_1.1.0     highr_0.9        </span></span>
-<span><span class="co">##  [9] stringr_1.4.0     tools_4.2.1       xfun_0.31         cli_3.3.0        </span></span>
-<span><span class="co">## [13] jquerylib_0.1.4   htmltools_0.5.3   systemfonts_1.0.4 yaml_2.3.5       </span></span>
-<span><span class="co">## [17] digest_0.6.29     rprojroot_2.0.3   pkgdown_2.0.6     textshaping_0.3.6</span></span>
-<span><span class="co">## [21] purrr_0.3.4       sass_0.4.2        fs_1.5.2          memoise_2.0.1    </span></span>
-<span><span class="co">## [25] cachem_1.0.6      evaluate_0.15     rmarkdown_2.14    stringi_1.7.8    </span></span>
-<span><span class="co">## [29] compiler_4.2.1    bslib_0.4.0       desc_1.4.1        jsonlite_1.8.0</span></span></code></pre>
+<span><span class="co">##  [1] vctrs_0.6.5       cli_3.6.2         knitr_1.45        rlang_1.1.3      </span></span>
+<span><span class="co">##  [5] xfun_0.42         highr_0.10        stringi_1.8.3     purrr_1.0.2      </span></span>
+<span><span class="co">##  [9] textshaping_0.3.7 jsonlite_1.8.8    glue_1.7.0        htmltools_0.5.7  </span></span>
+<span><span class="co">## [13] ragg_1.2.7        sass_0.4.8        rmarkdown_2.25    evaluate_0.23    </span></span>
+<span><span class="co">## [17] jquerylib_0.1.4   fastmap_1.1.1     yaml_2.3.8        lifecycle_1.0.4  </span></span>
+<span><span class="co">## [21] memoise_2.0.1     stringr_1.5.1     compiler_4.3.3    fs_1.6.3         </span></span>
+<span><span class="co">## [25] systemfonts_1.0.5 digest_0.6.34     viridisLite_0.4.2 R6_2.5.1         </span></span>
+<span><span class="co">## [29] magrittr_2.0.3    bslib_0.6.1       tools_4.3.3       pkgdown_2.0.7    </span></span>
+<span><span class="co">## [33] cachem_1.0.8      desc_1.4.3</span></span></code></pre>
 </div>
 <div class="section level2">
-<h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
+<h2 class="unnumbered" id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
 </h2>
-<div id="refs" class="references">
-<div id="ref-Johnson2021">
-<p>Johnson, Alistair E W, Lucas Bulgarelli, Tom Pollard, Steven Horng, Leo Anthony Celi, and Roger Mark. 2021. “MIMIC-Iv.” PhysioNet. <a href="https://doi.org/10.13026/S6N6-XD98" class="external-link">https://doi.org/10.13026/S6N6-XD98</a>.</p>
+<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
+<div id="ref-Johnson2021" class="csl-entry">
+Johnson, Alistair E W, Lucas Bulgarelli, Tom Pollard, Steven Horng, Leo
+Anthony Celi, and Roger Mark. 2021. <span>“MIMIC-IV.”</span> PhysioNet.
+<a href="https://doi.org/10.13026/S6N6-XD98" class="external-link">https://doi.org/10.13026/S6N6-XD98</a>.
 </div>
 </div>
 </div>
@@ -421,7 +443,7 @@
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer>

@@ -236,143 +236,167 @@ the laboratory started after transfer to the ICU).</p>
 <span class="r-in"><span>    <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="cn">FALSE</span>, <span class="va">Id</span><span class="op">[</span><span class="op">-</span><span class="fl">1</span><span class="op">]</span> <span class="op">==</span> <span class="va">Id</span><span class="op">[</span><span class="op">-</span><span class="va">.N</span><span class="op">]</span><span class="op">)</span> <span class="op">&amp;</span>         <span class="co"># same case</span></span></span>
 <span class="r-in"><span>    <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="cn">FALSE</span>, <span class="va">Sender</span><span class="op">[</span><span class="op">-</span><span class="fl">1</span><span class="op">]</span> <span class="op">!=</span> <span class="va">Sender</span><span class="op">[</span><span class="op">-</span><span class="va">.N</span><span class="op">]</span><span class="op">)</span>   <span class="co"># new ward</span></span></span>
 <span class="r-in"><span><span class="op">)</span><span class="op">]</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             Id Age Sex Diagnosis     Center        Set Sender Episode   Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      1:      1  25   W   Control Greifswald Validation    AMB       1      0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      2:      2  75   M   Control Greifswald Validation    GEN       1      0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      3:      3  77   W    Sepsis Greifswald Validation  OTHER       1      0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      4:      3  77   W    Sepsis Greifswald Validation  OTHER       1 318840</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      5:      3  77   W    Sepsis Greifswald Validation  OTHER       1 578640</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     ---                                                                     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 665583: 169140  56   M   Control Greifswald Validation    GEN       1 118380</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 665584: 169140  56   M   Control Greifswald Validation    GEN       1 168660</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 665585: 169140  56   M   Control Greifswald Validation    GEN       1 340440</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 665586: 169141  60   W   Control Greifswald Validation     ED       1      0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 665587: 169141  60   W   Control Greifswald Validation    GEN       1  70740</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         TargetIcu SecToIcu  CRP HGB  MCV  PCT PLT RBC   WBC Excluded   Label</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      1:      &lt;NA&gt;       NA 15.5 7.0 80.5   NA 264 4.2  8.40    FALSE Control</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      2:      &lt;NA&gt;       NA  7.4 8.4 87.9   NA 260 4.8  8.47    FALSE Control</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      3:      &lt;NA&gt;       NA 96.1 4.8 81.7   NA 385 3.0 13.20     TRUE Control</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      4:      &lt;NA&gt;       NA 57.0 4.4 82.2   NA 416 2.8 14.20     TRUE Control</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      5:      &lt;NA&gt;       NA 93.4 5.7 82.0 0.22 437 3.5 13.80     TRUE Control</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     ---                                                                     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 665583:      &lt;NA&gt;       NA   NA 8.7 88.1   NA 200 4.7  6.20    FALSE Control</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 665584:      &lt;NA&gt;       NA 95.0 8.7 88.4   NA 233 4.7  6.92    FALSE Control</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 665585:      &lt;NA&gt;       NA 63.6 8.1 87.6   NA 225 4.5  3.70    FALSE Control</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 665586:      &lt;NA&gt;       NA   NA 9.1 90.0   NA 337 4.8 10.80    FALSE Control</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 665587:      &lt;NA&gt;       NA  4.7 9.7 91.7   NA 371 5.2 11.60    FALSE Control</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         isNewWard</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      1:     FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      2:     FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      3:     FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      4:     FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      5:     FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     ---          </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 665583:     FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 665584:     FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 665585:     FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 665586:     FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 665587:      TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             Id   Age    Sex Diagnosis     Center        Set Sender Episode</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          &lt;int&gt; &lt;int&gt; &lt;char&gt;    &lt;char&gt;     &lt;char&gt;     &lt;char&gt; &lt;char&gt;   &lt;int&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      1:      1    25      W   Control Greifswald Validation    AMB       1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      2:      2    75      M   Control Greifswald Validation    GEN       1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      3:      3    77      W    Sepsis Greifswald Validation  OTHER       1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      4:      3    77      W    Sepsis Greifswald Validation  OTHER       1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      5:      3    77      W    Sepsis Greifswald Validation  OTHER       1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     ---                                                                   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 665583: 169140    56      M   Control Greifswald Validation    GEN       1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 665584: 169140    56      M   Control Greifswald Validation    GEN       1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 665585: 169140    56      M   Control Greifswald Validation    GEN       1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 665586: 169141    60      W   Control Greifswald Validation     ED       1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 665587: 169141    60      W   Control Greifswald Validation    GEN       1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           Time TargetIcu SecToIcu   CRP   HGB   MCV   PCT   PLT   RBC   WBC</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          &lt;num&gt;    &lt;char&gt;    &lt;num&gt; &lt;num&gt; &lt;num&gt; &lt;num&gt; &lt;num&gt; &lt;int&gt; &lt;num&gt; &lt;num&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      1:      0      &lt;NA&gt;       NA  15.5   7.0  80.5    NA   264   4.2  8.40</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      2:      0      &lt;NA&gt;       NA   7.4   8.4  87.9    NA   260   4.8  8.47</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      3:      0      &lt;NA&gt;       NA  96.1   4.8  81.7    NA   385   3.0 13.20</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      4: 318840      &lt;NA&gt;       NA  57.0   4.4  82.2    NA   416   2.8 14.20</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      5: 578640      &lt;NA&gt;       NA  93.4   5.7  82.0  0.22   437   3.5 13.80</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     ---                                                                    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 665583: 118380      &lt;NA&gt;       NA    NA   8.7  88.1    NA   200   4.7  6.20</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 665584: 168660      &lt;NA&gt;       NA  95.0   8.7  88.4    NA   233   4.7  6.92</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 665585: 340440      &lt;NA&gt;       NA  63.6   8.1  87.6    NA   225   4.5  3.70</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 665586:      0      &lt;NA&gt;       NA    NA   9.1  90.0    NA   337   4.8 10.80</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 665587:  70740      &lt;NA&gt;       NA   4.7   9.7  91.7    NA   371   5.2 11.60</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         Excluded   Label isNewWard</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;lgcl&gt;  &lt;char&gt;    &lt;lgcl&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      1:    FALSE Control     FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      2:    FALSE Control     FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      3:     TRUE Control     FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      4:     TRUE Control     FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      5:     TRUE Control     FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     ---                           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 665583:    FALSE Control     FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 665584:    FALSE Control     FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 665585:    FALSE Control     FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 665586:    FALSE Control     FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 665587:    FALSE Control      TRUE</span>
 <span class="r-in"><span><span class="va">greifswald</span><span class="op">[</span>, <span class="va">isIcuAdmission</span> <span class="op">:=</span> <span class="va">isNewWard</span> <span class="op">&amp;</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">grepl</a></span><span class="op">(</span><span class="st">"ICU"</span>, <span class="va">Sender</span><span class="op">)</span><span class="op">]</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             Id Age Sex Diagnosis     Center        Set Sender Episode   Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      1:      1  25   W   Control Greifswald Validation    AMB       1      0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      2:      2  75   M   Control Greifswald Validation    GEN       1      0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      3:      3  77   W    Sepsis Greifswald Validation  OTHER       1      0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      4:      3  77   W    Sepsis Greifswald Validation  OTHER       1 318840</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      5:      3  77   W    Sepsis Greifswald Validation  OTHER       1 578640</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     ---                                                                     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 665583: 169140  56   M   Control Greifswald Validation    GEN       1 118380</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 665584: 169140  56   M   Control Greifswald Validation    GEN       1 168660</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 665585: 169140  56   M   Control Greifswald Validation    GEN       1 340440</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 665586: 169141  60   W   Control Greifswald Validation     ED       1      0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 665587: 169141  60   W   Control Greifswald Validation    GEN       1  70740</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         TargetIcu SecToIcu  CRP HGB  MCV  PCT PLT RBC   WBC Excluded   Label</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      1:      &lt;NA&gt;       NA 15.5 7.0 80.5   NA 264 4.2  8.40    FALSE Control</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      2:      &lt;NA&gt;       NA  7.4 8.4 87.9   NA 260 4.8  8.47    FALSE Control</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      3:      &lt;NA&gt;       NA 96.1 4.8 81.7   NA 385 3.0 13.20     TRUE Control</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      4:      &lt;NA&gt;       NA 57.0 4.4 82.2   NA 416 2.8 14.20     TRUE Control</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      5:      &lt;NA&gt;       NA 93.4 5.7 82.0 0.22 437 3.5 13.80     TRUE Control</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     ---                                                                     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 665583:      &lt;NA&gt;       NA   NA 8.7 88.1   NA 200 4.7  6.20    FALSE Control</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 665584:      &lt;NA&gt;       NA 95.0 8.7 88.4   NA 233 4.7  6.92    FALSE Control</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 665585:      &lt;NA&gt;       NA 63.6 8.1 87.6   NA 225 4.5  3.70    FALSE Control</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 665586:      &lt;NA&gt;       NA   NA 9.1 90.0   NA 337 4.8 10.80    FALSE Control</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 665587:      &lt;NA&gt;       NA  4.7 9.7 91.7   NA 371 5.2 11.60    FALSE Control</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         isNewWard isIcuAdmission</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      1:     FALSE          FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      2:     FALSE          FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      3:     FALSE          FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      4:     FALSE          FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      5:     FALSE          FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     ---                         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 665583:     FALSE          FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 665584:     FALSE          FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 665585:     FALSE          FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 665586:     FALSE          FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 665587:      TRUE          FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             Id   Age    Sex Diagnosis     Center        Set Sender Episode</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          &lt;int&gt; &lt;int&gt; &lt;char&gt;    &lt;char&gt;     &lt;char&gt;     &lt;char&gt; &lt;char&gt;   &lt;int&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      1:      1    25      W   Control Greifswald Validation    AMB       1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      2:      2    75      M   Control Greifswald Validation    GEN       1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      3:      3    77      W    Sepsis Greifswald Validation  OTHER       1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      4:      3    77      W    Sepsis Greifswald Validation  OTHER       1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      5:      3    77      W    Sepsis Greifswald Validation  OTHER       1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     ---                                                                   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 665583: 169140    56      M   Control Greifswald Validation    GEN       1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 665584: 169140    56      M   Control Greifswald Validation    GEN       1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 665585: 169140    56      M   Control Greifswald Validation    GEN       1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 665586: 169141    60      W   Control Greifswald Validation     ED       1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 665587: 169141    60      W   Control Greifswald Validation    GEN       1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           Time TargetIcu SecToIcu   CRP   HGB   MCV   PCT   PLT   RBC   WBC</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          &lt;num&gt;    &lt;char&gt;    &lt;num&gt; &lt;num&gt; &lt;num&gt; &lt;num&gt; &lt;num&gt; &lt;int&gt; &lt;num&gt; &lt;num&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      1:      0      &lt;NA&gt;       NA  15.5   7.0  80.5    NA   264   4.2  8.40</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      2:      0      &lt;NA&gt;       NA   7.4   8.4  87.9    NA   260   4.8  8.47</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      3:      0      &lt;NA&gt;       NA  96.1   4.8  81.7    NA   385   3.0 13.20</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      4: 318840      &lt;NA&gt;       NA  57.0   4.4  82.2    NA   416   2.8 14.20</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      5: 578640      &lt;NA&gt;       NA  93.4   5.7  82.0  0.22   437   3.5 13.80</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     ---                                                                    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 665583: 118380      &lt;NA&gt;       NA    NA   8.7  88.1    NA   200   4.7  6.20</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 665584: 168660      &lt;NA&gt;       NA  95.0   8.7  88.4    NA   233   4.7  6.92</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 665585: 340440      &lt;NA&gt;       NA  63.6   8.1  87.6    NA   225   4.5  3.70</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 665586:      0      &lt;NA&gt;       NA    NA   9.1  90.0    NA   337   4.8 10.80</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 665587:  70740      &lt;NA&gt;       NA   4.7   9.7  91.7    NA   371   5.2 11.60</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         Excluded   Label isNewWard isIcuAdmission</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;lgcl&gt;  &lt;char&gt;    &lt;lgcl&gt;         &lt;lgcl&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      1:    FALSE Control     FALSE          FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      2:    FALSE Control     FALSE          FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      3:     TRUE Control     FALSE          FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      4:     TRUE Control     FALSE          FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      5:     TRUE Control     FALSE          FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     ---                                          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 665583:    FALSE Control     FALSE          FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 665584:    FALSE Control     FALSE          FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 665585:    FALSE Control     FALSE          FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 665586:    FALSE Control     FALSE          FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 665587:    FALSE Control      TRUE          FALSE</span>
 <span class="r-in"><span><span class="co">## recalculate SecToIcu</span></span></span>
 <span class="r-in"><span><span class="va">greifswald</span><span class="op">[</span>, <span class="va">SecToIcu</span> <span class="op">:=</span> <span class="va">SecToIcu</span> <span class="op">-</span> <span class="va">SecToIcu</span><span class="op">[</span><span class="va">isIcuAdmission</span><span class="op">]</span><span class="op">[</span><span class="va">Episode</span><span class="op">]</span><span class="op">]</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             Id Age Sex Diagnosis     Center        Set Sender Episode   Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      1:      1  25   W   Control Greifswald Validation    AMB       1      0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      2:      2  75   M   Control Greifswald Validation    GEN       1      0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      3:      3  77   W    Sepsis Greifswald Validation  OTHER       1      0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      4:      3  77   W    Sepsis Greifswald Validation  OTHER       1 318840</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      5:      3  77   W    Sepsis Greifswald Validation  OTHER       1 578640</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     ---                                                                     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 665583: 169140  56   M   Control Greifswald Validation    GEN       1 118380</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 665584: 169140  56   M   Control Greifswald Validation    GEN       1 168660</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 665585: 169140  56   M   Control Greifswald Validation    GEN       1 340440</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 665586: 169141  60   W   Control Greifswald Validation     ED       1      0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 665587: 169141  60   W   Control Greifswald Validation    GEN       1  70740</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         TargetIcu SecToIcu  CRP HGB  MCV  PCT PLT RBC   WBC Excluded   Label</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      1:      &lt;NA&gt;       NA 15.5 7.0 80.5   NA 264 4.2  8.40    FALSE Control</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      2:      &lt;NA&gt;       NA  7.4 8.4 87.9   NA 260 4.8  8.47    FALSE Control</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      3:      &lt;NA&gt;       NA 96.1 4.8 81.7   NA 385 3.0 13.20     TRUE Control</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      4:      &lt;NA&gt;       NA 57.0 4.4 82.2   NA 416 2.8 14.20     TRUE Control</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      5:      &lt;NA&gt;       NA 93.4 5.7 82.0 0.22 437 3.5 13.80     TRUE Control</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     ---                                                                     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 665583:      &lt;NA&gt;       NA   NA 8.7 88.1   NA 200 4.7  6.20    FALSE Control</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 665584:      &lt;NA&gt;       NA 95.0 8.7 88.4   NA 233 4.7  6.92    FALSE Control</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 665585:      &lt;NA&gt;       NA 63.6 8.1 87.6   NA 225 4.5  3.70    FALSE Control</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 665586:      &lt;NA&gt;       NA   NA 9.1 90.0   NA 337 4.8 10.80    FALSE Control</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 665587:      &lt;NA&gt;       NA  4.7 9.7 91.7   NA 371 5.2 11.60    FALSE Control</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         isNewWard isIcuAdmission</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      1:     FALSE          FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      2:     FALSE          FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      3:     FALSE          FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      4:     FALSE          FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      5:     FALSE          FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     ---                         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 665583:     FALSE          FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 665584:     FALSE          FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 665585:     FALSE          FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 665586:     FALSE          FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 665587:      TRUE          FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             Id   Age    Sex Diagnosis     Center        Set Sender Episode</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          &lt;int&gt; &lt;int&gt; &lt;char&gt;    &lt;char&gt;     &lt;char&gt;     &lt;char&gt; &lt;char&gt;   &lt;int&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      1:      1    25      W   Control Greifswald Validation    AMB       1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      2:      2    75      M   Control Greifswald Validation    GEN       1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      3:      3    77      W    Sepsis Greifswald Validation  OTHER       1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      4:      3    77      W    Sepsis Greifswald Validation  OTHER       1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      5:      3    77      W    Sepsis Greifswald Validation  OTHER       1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     ---                                                                   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 665583: 169140    56      M   Control Greifswald Validation    GEN       1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 665584: 169140    56      M   Control Greifswald Validation    GEN       1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 665585: 169140    56      M   Control Greifswald Validation    GEN       1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 665586: 169141    60      W   Control Greifswald Validation     ED       1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 665587: 169141    60      W   Control Greifswald Validation    GEN       1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           Time TargetIcu SecToIcu   CRP   HGB   MCV   PCT   PLT   RBC   WBC</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          &lt;num&gt;    &lt;char&gt;    &lt;num&gt; &lt;num&gt; &lt;num&gt; &lt;num&gt; &lt;num&gt; &lt;int&gt; &lt;num&gt; &lt;num&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      1:      0      &lt;NA&gt;       NA  15.5   7.0  80.5    NA   264   4.2  8.40</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      2:      0      &lt;NA&gt;       NA   7.4   8.4  87.9    NA   260   4.8  8.47</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      3:      0      &lt;NA&gt;       NA  96.1   4.8  81.7    NA   385   3.0 13.20</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      4: 318840      &lt;NA&gt;       NA  57.0   4.4  82.2    NA   416   2.8 14.20</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      5: 578640      &lt;NA&gt;       NA  93.4   5.7  82.0  0.22   437   3.5 13.80</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     ---                                                                    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 665583: 118380      &lt;NA&gt;       NA    NA   8.7  88.1    NA   200   4.7  6.20</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 665584: 168660      &lt;NA&gt;       NA  95.0   8.7  88.4    NA   233   4.7  6.92</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 665585: 340440      &lt;NA&gt;       NA  63.6   8.1  87.6    NA   225   4.5  3.70</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 665586:      0      &lt;NA&gt;       NA    NA   9.1  90.0    NA   337   4.8 10.80</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 665587:  70740      &lt;NA&gt;       NA   4.7   9.7  91.7    NA   371   5.2 11.60</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         Excluded   Label isNewWard isIcuAdmission</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;lgcl&gt;  &lt;char&gt;    &lt;lgcl&gt;         &lt;lgcl&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      1:    FALSE Control     FALSE          FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      2:    FALSE Control     FALSE          FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      3:     TRUE Control     FALSE          FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      4:     TRUE Control     FALSE          FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      5:     TRUE Control     FALSE          FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     ---                                          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 665583:    FALSE Control     FALSE          FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 665584:    FALSE Control     FALSE          FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 665585:    FALSE Control     FALSE          FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 665586:    FALSE Control     FALSE          FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 665587:    FALSE Control      TRUE          FALSE</span>
 <span class="r-in"><span><span class="co">## drop helper columns</span></span></span>
 <span class="r-in"><span><span class="va">greifswald</span><span class="op">[</span>, <span class="fu">`:=`</span> <span class="op">(</span>isNewWard <span class="op">=</span> <span class="cn">NULL</span>, isIcuAdmission <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span><span class="op">]</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             Id Age Sex Diagnosis     Center        Set Sender Episode   Time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      1:      1  25   W   Control Greifswald Validation    AMB       1      0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      2:      2  75   M   Control Greifswald Validation    GEN       1      0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      3:      3  77   W    Sepsis Greifswald Validation  OTHER       1      0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      4:      3  77   W    Sepsis Greifswald Validation  OTHER       1 318840</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      5:      3  77   W    Sepsis Greifswald Validation  OTHER       1 578640</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     ---                                                                     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 665583: 169140  56   M   Control Greifswald Validation    GEN       1 118380</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 665584: 169140  56   M   Control Greifswald Validation    GEN       1 168660</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 665585: 169140  56   M   Control Greifswald Validation    GEN       1 340440</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 665586: 169141  60   W   Control Greifswald Validation     ED       1      0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 665587: 169141  60   W   Control Greifswald Validation    GEN       1  70740</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         TargetIcu SecToIcu  CRP HGB  MCV  PCT PLT RBC   WBC Excluded   Label</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      1:      &lt;NA&gt;       NA 15.5 7.0 80.5   NA 264 4.2  8.40    FALSE Control</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      2:      &lt;NA&gt;       NA  7.4 8.4 87.9   NA 260 4.8  8.47    FALSE Control</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      3:      &lt;NA&gt;       NA 96.1 4.8 81.7   NA 385 3.0 13.20     TRUE Control</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      4:      &lt;NA&gt;       NA 57.0 4.4 82.2   NA 416 2.8 14.20     TRUE Control</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      5:      &lt;NA&gt;       NA 93.4 5.7 82.0 0.22 437 3.5 13.80     TRUE Control</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     ---                                                                     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 665583:      &lt;NA&gt;       NA   NA 8.7 88.1   NA 200 4.7  6.20    FALSE Control</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 665584:      &lt;NA&gt;       NA 95.0 8.7 88.4   NA 233 4.7  6.92    FALSE Control</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 665585:      &lt;NA&gt;       NA 63.6 8.1 87.6   NA 225 4.5  3.70    FALSE Control</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 665586:      &lt;NA&gt;       NA   NA 9.1 90.0   NA 337 4.8 10.80    FALSE Control</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 665587:      &lt;NA&gt;       NA  4.7 9.7 91.7   NA 371 5.2 11.60    FALSE Control</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             Id   Age    Sex Diagnosis     Center        Set Sender Episode</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          &lt;int&gt; &lt;int&gt; &lt;char&gt;    &lt;char&gt;     &lt;char&gt;     &lt;char&gt; &lt;char&gt;   &lt;int&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      1:      1    25      W   Control Greifswald Validation    AMB       1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      2:      2    75      M   Control Greifswald Validation    GEN       1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      3:      3    77      W    Sepsis Greifswald Validation  OTHER       1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      4:      3    77      W    Sepsis Greifswald Validation  OTHER       1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      5:      3    77      W    Sepsis Greifswald Validation  OTHER       1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     ---                                                                   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 665583: 169140    56      M   Control Greifswald Validation    GEN       1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 665584: 169140    56      M   Control Greifswald Validation    GEN       1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 665585: 169140    56      M   Control Greifswald Validation    GEN       1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 665586: 169141    60      W   Control Greifswald Validation     ED       1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 665587: 169141    60      W   Control Greifswald Validation    GEN       1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           Time TargetIcu SecToIcu   CRP   HGB   MCV   PCT   PLT   RBC   WBC</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          &lt;num&gt;    &lt;char&gt;    &lt;num&gt; &lt;num&gt; &lt;num&gt; &lt;num&gt; &lt;num&gt; &lt;int&gt; &lt;num&gt; &lt;num&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      1:      0      &lt;NA&gt;       NA  15.5   7.0  80.5    NA   264   4.2  8.40</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      2:      0      &lt;NA&gt;       NA   7.4   8.4  87.9    NA   260   4.8  8.47</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      3:      0      &lt;NA&gt;       NA  96.1   4.8  81.7    NA   385   3.0 13.20</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      4: 318840      &lt;NA&gt;       NA  57.0   4.4  82.2    NA   416   2.8 14.20</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      5: 578640      &lt;NA&gt;       NA  93.4   5.7  82.0  0.22   437   3.5 13.80</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     ---                                                                    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 665583: 118380      &lt;NA&gt;       NA    NA   8.7  88.1    NA   200   4.7  6.20</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 665584: 168660      &lt;NA&gt;       NA  95.0   8.7  88.4    NA   233   4.7  6.92</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 665585: 340440      &lt;NA&gt;       NA  63.6   8.1  87.6    NA   225   4.5  3.70</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 665586:      0      &lt;NA&gt;       NA    NA   9.1  90.0    NA   337   4.8 10.80</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 665587:  70740      &lt;NA&gt;       NA   4.7   9.7  91.7    NA   371   5.2 11.60</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         Excluded   Label</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;lgcl&gt;  &lt;char&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      1:    FALSE Control</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      2:    FALSE Control</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      3:     TRUE Control</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      4:     TRUE Control</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      5:     TRUE Control</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     ---                 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 665583:    FALSE Control</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 665584:    FALSE Control</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 665585:    FALSE Control</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 665586:    FALSE Control</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 665587:    FALSE Control</span>
 </code></pre></div>
     </div>
   </div>
@@ -387,7 +411,7 @@ the laboratory started after transfer to the ICU).</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer></div>
