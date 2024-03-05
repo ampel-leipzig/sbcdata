@@ -7,13 +7,13 @@
   "codeRepository": "https://github.com/ampel-leipzig/sbcdata",
   "issueTracker": "https://github.com/ampel-leipzig/sbcdata/issues/",
   "license": "https://spdx.org/licenses/CC-BY-4.0",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.2.1 (2022-06-23)",
+  "runtimePlatform": "R version 4.3.3 (2024-02-29)",
   "author": [
     {
       "@type": "Person",
@@ -202,7 +202,86 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "47113.858KB",
+  "fileSize": "47116.486KB",
+  "citation": [
+    {
+      "@type": "ScholarlyArticle",
+      "datePublished": "2024",
+      "author": [
+        {
+          "@type": "Person",
+          "givenName": "Daniel",
+          "familyName": "Steinbach"
+        },
+        {
+          "@type": "Person",
+          "givenName": "Paul C.",
+          "familyName": "Ahrens"
+        },
+        {
+          "@type": "Person",
+          "givenName": "Maria",
+          "familyName": "Schmidt"
+        },
+        {
+          "@type": "Person",
+          "givenName": "Martin",
+          "familyName": "Federbusch"
+        },
+        {
+          "@type": "Person",
+          "givenName": "Lara",
+          "familyName": "Heuft"
+        },
+        {
+          "@type": "Person",
+          "givenName": "Christoph",
+          "familyName": "Lübbert"
+        },
+        {
+          "@type": "Person",
+          "givenName": "Matthias",
+          "familyName": "Nauck"
+        },
+        {
+          "@type": "Person",
+          "givenName": "Matthias",
+          "familyName": "Gründling"
+        },
+        {
+          "@type": "Person",
+          "givenName": "Berend",
+          "familyName": "Isermann"
+        },
+        {
+          "@type": "Person",
+          "givenName": "Sebastian",
+          "familyName": "Gibb",
+          "email": "mail@sebastiangibb.de"
+        },
+        {
+          "@type": "Person",
+          "givenName": "Thorsten",
+          "familyName": "Kaiser"
+        }
+      ],
+      "name": "Applying Machine Learning to Blood Count Data Predicts Sepsis with {ICU} Admission",
+      "identifier": "10.1093/clinchem/hvae001",
+      "pagination": "506--515",
+      "@id": "https://doi.org/10.1093/clinchem/hvae001",
+      "sameAs": "https://doi.org/10.1093/clinchem/hvae001",
+      "isPartOf": {
+        "@type": "PublicationIssue",
+        "issueNumber": "3",
+        "datePublished": "2024",
+        "isPartOf": {
+          "@type": ["PublicationVolume", "Periodical"],
+          "volumeNumber": "70",
+          "name": "Clinical Chemistry"
+        }
+      }
+    }
+  ],
   "releaseNotes": "https://github.com/ampel-leipzig/sbcdata/blob/master/NEWS.md",
   "readme": "https://github.com/ampel-leipzig/sbcdata/blob/main/README.md",
   "contIntegration": ["https://github.com/ampel-leipzig/sbcdata/actions", "https://codecov.io/gh/ampel-leipzig/sbcdata?branch=main"],

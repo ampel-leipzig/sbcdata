@@ -1,0 +1,31 @@
+bibentry(
+  bibtype="Article",
+  title = "Applying Machine Learning to Blood Count Data Predicts Sepsis with {ICU} Admission",
+  author = c(
+    person("Daniel", "Steinbach", role = "aut"),
+    person("Paul C.", "Ahrens", role = "aut"),
+    person("Maria", "Schmidt", role = "aut"),
+    person("Martin", "Federbusch", role = "aut"),
+    person("Lara", "Heuft", role = "aut"),
+    person("Christoph", "Lübbert", role = "aut"),
+    person("Matthias", "Nauck", role = "aut"),
+    person("Matthias", "Gründling", role = "aut"),
+    person("Berend", "Isermann", role = "aut"),
+    person("Sebastian", "Gibb", role=c("aut", "cre"), email="mail@sebastiangibb.de"),
+    person("Thorsten", "Kaiser", role = "aut")
+  ),
+  volume = "70",
+  number = "3",
+  pages = "506--515",
+  year = "2024",
+  doi = "10.1093/clinchem/hvae001",
+  journal = "Clinical Chemistry",
+  publisher= "Oxford University Press",
+  key = "sbcdata",
+  header = "To cite the sbcdata package in publications use:",
+  textVersion = paste(
+    "D. Steinbach, et al. 2024.",
+    "Applying Machine Learning to Blood Count Data Predicts Sepsis with ICU Admission",
+    "Clinical Chemistry 70, 506-515."
+  )
+)

@@ -40,4 +40,7 @@ The datasets are available under the
 
 To cite the `sbcdata` package, please use:
 
-> Gibb, S., Ahrens, P., Steinbach, D., Schmidt, M., & Kaiser, T. (2022). sbcdata: Laboratory Diagnostics from Septic and Non-septic Patients Used in the AMPEL Project (Version 1.0.0). https://doi.org/10.5281/zenodo.6922967
+> Applying Machine Learning to Blood Count Data Predicts Sepsis with ICU Admission.
+> D. Steinbach, P. C. Ahrens, M. Schmidt, M. Federbusch, L. Heuft, Ch. Lübbert, M. Nauck, M. Gründling, B. Isermann, S. Gibb, Th. Kaiser
+> 2024. Clinical Chemistry.
+> DOI: [10.1093/clinchem/hvae001](http://doi.org/10.1093/clinchem/hvae001).

@@ -1,5 +1,5 @@
 # -----------------------------------------------------------
-# CITATION file created with {cffr} R package, v0.2.2
+# CITATION file created with {cffr} R package, v0.5.0
 # See also: https://docs.ropensci.org/cffr/
 # -----------------------------------------------------------
  
@@ -9,7 +9,8 @@ type: software
 license: CC-BY-4.0
 title: 'sbcdata: Laboratory Diagnostics from Septic and Non-septic Patients Used in
   the AMPEL Project'
-version: 1.0.0
+version: 1.0.1
+doi: 10.1093/clinchem/hvae001
 abstract: The data were collected as part of the AMPEL project (Analysis and Reporting
   System for the Improvement of Patient Safety through Real-Time Integration of Laboratory
   Findings, \urlhttps://ampel.care). They include administration data, sepsis labels
@@ -36,45 +37,45 @@ authors:
   given-names: Thorsten
   email: thorsten.kaiser@medizin.uni-leipzig.de
 preferred-citation:
-  type: manual
-  title: 'sbcdata: Laboratory Diagnostics from Septic and Non-septic Patients Used
-    in the AMPEL Project'
+  type: article
+  title: Applying Machine Learning to Blood Count Data Predicts Sepsis with ICU Admission
   authors:
-  - family-names: Gibb
-    given-names: Sebastian
-    email: mail@sebastiangibb.de
-    orcid: https://orcid.org/0000-0001-7406-4443
-  - family-names: Ahrens
-    given-names: Paul
-    email: paul.ahrens@medizin.uni-leipzig.de
   - family-names: Steinbach
     given-names: Daniel
     email: daniel.steinbach@medizin.uni-leipzig.de
+  - family-names: Ahrens
+    given-names: Paul C.
   - family-names: Schmidt
     given-names: Maria
     email: maria.schmidt@medizin.uni-leipzig.de
-  - family-names: Kaiser
-    given-names: Thorsten
-    email: thorsten.kaiser@medizin.uni-leipzig.de
-  version: 1.0.0
-  abstract: The data were collected as part of the AMPEL project (Analysis and Reporting
-    System for the Improvement of Patient Safety through Real-Time Integration of
-    Laboratory Findings, \urlhttps://ampel.care). They include administration data,
-    sepsis labels based on ICD10 codes and laboratory diagnostics from patients admitted
-    to the University Hospital Leipzig between Januar 2014 and December 2021 and to
-    the University Hospital Greifswald between Januar 2015 and December 2020, respectively.
-    Additionally it provides functions to generate a similar dataset from MIMIC-IV
-    (Johnson et al. 2021 \doi10.13026/S6N6-XD98).
-  repository-code: https://github.com/ampel-leipzig/sbcdata/issues/
-  url: https://github.com/ampel-leipzig/sbcdata
-  date-released: '2022-07-28'
-  contact:
+  - family-names: Federbusch
+    given-names: Martin
+  - family-names: Heuft
+    given-names: Lara
+  - family-names: Lübbert
+    given-names: Christoph
+  - family-names: Nauck
+    given-names: Matthias
+  - family-names: Gründling
+    given-names: Matthias
+  - family-names: Isermann
+    given-names: Berend
   - family-names: Gibb
     given-names: Sebastian
     email: mail@sebastiangibb.de
     orcid: https://orcid.org/0000-0001-7406-4443
-  license: CC-BY-4.0
-  year: '2022'
+  - family-names: Kaiser
+    given-names: Thorsten
+    email: thorsten.kaiser@medizin.uni-leipzig.de
+  volume: '70'
+  issue: '3'
+  year: '2024'
+  doi: 10.1093/clinchem/hvae001
+  journal: Clinical Chemistry
+  publisher:
+    name: Oxford University Press
+  start: '506'
+  end: '515'
 repository-code: https://github.com/ampel-leipzig/sbcdata/issues/
 url: https://github.com/ampel-leipzig/sbcdata
 date-released: '2022-07-28'
@@ -87,12 +88,12 @@ references:
 - type: software
   title: 'R: A Language and Environment for Statistical Computing'
   notes: Depends
+  url: https://www.R-project.org/
   authors:
   - name: R Core Team
   location:
     name: Vienna, Austria
-  year: '2022'
-  url: https://www.R-project.org/
+  year: '2024'
   institution:
     name: R Foundation for Statistical Computing
   version: '>= 4.1'
@@ -100,101 +101,114 @@ references:
   title: data.table
   abstract: 'data.table: Extension of `data.frame`'
   notes: Depends
+  url: https://r-datatable.com
+  repository: https://CRAN.R-project.org/package=data.table
   authors:
+  - family-names: Barrett
+    given-names: Tyson
+    email: t.barrett88@gmail.com
   - family-names: Dowle
     given-names: Matt
     email: mattjdowle@gmail.com
   - family-names: Srinivasan
     given-names: Arun
     email: asrini@pm.me
-  year: '2022'
-  url: https://CRAN.R-project.org/package=data.table
+  year: '2024'
 - type: software
   title: knitr
   abstract: 'knitr: A General-Purpose Package for Dynamic Report Generation in R'
   notes: Suggests
+  url: https://yihui.org/knitr/
+  repository: https://CRAN.R-project.org/package=knitr
   authors:
   - family-names: Xie
     given-names: Yihui
     email: xie@yihui.name
     orcid: https://orcid.org/0000-0003-0645-5666
-  year: '2022'
-  url: https://CRAN.R-project.org/package=knitr
+  year: '2024'
 - type: software
   title: rmarkdown
   abstract: 'rmarkdown: Dynamic Documents for R'
   notes: Suggests
+  url: https://pkgs.rstudio.com/rmarkdown/
+  repository: https://CRAN.R-project.org/package=rmarkdown
   authors:
   - family-names: Allaire
     given-names: JJ
-    email: jj@rstudio.com
+    email: jj@posit.co
   - family-names: Xie
     given-names: Yihui
     email: xie@yihui.name
     orcid: https://orcid.org/0000-0003-0645-5666
+  - family-names: Dervieux
+    given-names: Christophe
+    email: cderv@posit.co
+    orcid: https://orcid.org/0000-0003-4474-2498
   - family-names: McPherson
     given-names: Jonathan
-    email: jonathan@rstudio.com
+    email: jonathan@posit.co
   - family-names: Luraschi
     given-names: Javier
-    email: javier@rstudio.com
   - family-names: Ushey
     given-names: Kevin
-    email: kevin@rstudio.com
+    email: kevin@posit.co
   - family-names: Atkins
     given-names: Aron
-    email: aron@rstudio.com
+    email: aron@posit.co
   - family-names: Wickham
     given-names: Hadley
-    email: hadley@rstudio.com
+    email: hadley@posit.co
   - family-names: Cheng
     given-names: Joe
-    email: joe@rstudio.com
+    email: joe@posit.co
   - family-names: Chang
     given-names: Winston
-    email: winston@rstudio.com
+    email: winston@posit.co
   - family-names: Iannone
     given-names: Richard
-    email: rich@rstudio.com
+    email: rich@posit.co
     orcid: https://orcid.org/0000-0003-3925-190X
-  year: '2022'
-  url: https://CRAN.R-project.org/package=rmarkdown
+  year: '2024'
 - type: software
   title: viridisLite
   abstract: 'viridisLite: Colorblind-Friendly Color Maps (Lite Version)'
   notes: Suggests
+  url: https://sjmgarnier.github.io/viridisLite/
+  repository: https://CRAN.R-project.org/package=viridisLite
   authors:
   - family-names: Garnier
     given-names: Simon
     email: garnier@njit.edu
-  year: '2022'
-  url: https://CRAN.R-project.org/package=viridisLite
+  year: '2024'
 - type: software
   title: DiagrammeR
   abstract: 'DiagrammeR: Graph/Network Visualization'
   notes: Suggests
+  url: https://github.com/rich-iannone/DiagrammeR
+  repository: https://CRAN.R-project.org/package=DiagrammeR
   authors:
   - family-names: Iannone
     given-names: Richard
     email: riannone@me.com
     orcid: https://orcid.org/0000-0003-3925-190X
-  year: '2022'
-  url: https://CRAN.R-project.org/package=DiagrammeR
+  year: '2024'
 - type: software
   title: gtsummary
   abstract: 'gtsummary: Presentation-Ready Data Summary and Analytic Result Tables'
   notes: Suggests
+  url: https://www.danieldsjoberg.com/gtsummary/
+  repository: https://CRAN.R-project.org/package=gtsummary
   authors:
   - family-names: Sjoberg
     given-names: Daniel D.
     email: danield.sjoberg@gmail.com
     orcid: https://orcid.org/0000-0003-0862-2018
-  - family-names: Curry
-    given-names: Michael
-    orcid: https://orcid.org/0000-0002-0261-4044
   - family-names: Larmarange
     given-names: Joseph
     orcid: https://orcid.org/0000-0001-7097-700X
+  - family-names: Curry
+    given-names: Michael
+    orcid: https://orcid.org/0000-0002-0261-4044
   - family-names: Lavery
     given-names: Jessica
     orcid: https://orcid.org/0000-0002-2746-5647
@@ -204,16 +218,16 @@ references:
   - family-names: Zabor
     given-names: Emily C.
     orcid: https://orcid.org/0000-0002-1402-4498
-  year: '2022'
-  url: https://CRAN.R-project.org/package=gtsummary
+  year: '2024'
 - type: software
   title: testthat
   abstract: 'testthat: Unit Testing for R'
   notes: Suggests
+  url: https://testthat.r-lib.org
+  repository: https://CRAN.R-project.org/package=testthat
   authors:
   - family-names: Wickham
     given-names: Hadley
-    email: hadley@rstudio.com
-  year: '2022'
-  url: https://CRAN.R-project.org/package=testthat
+    email: hadley@posit.co
+  year: '2024'
   version: '>= 3.0.0'
