@@ -3,7 +3,7 @@
 <!-- badges: start -->
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![license](https://img.shields.io/badge/license-CC%20BY%204.0-brightgreen.svg?style=flat)](https://creativecommons.org/licenses/by/4.0/)
-[![R build status](https://github.com/ampel-leipzig/sbcdata/workflows/R-CMD-check/badge.svg)](https://github.com/ampel-leipzig/sbcdata/actions)
+[![R-CMD-check](https://github.com/ampel-leipzig/sbcdata/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/ampel-leipzig/sbcdata/actions/workflows/R-CMD-check.yaml)
 [![Codecov test coverage](https://codecov.io/gh/ampel-leipzig/sbcdata/branch/main/graph/badge.svg)](https://codecov.io/gh/ampel-leipzig/sbcdata?branch=main)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.6922967.svg)](https://doi.org/10.5281/zenodo.6922967)
 <!-- badges: end -->
