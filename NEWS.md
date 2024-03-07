@@ -1,5 +1,9 @@
 # sbcdata 1.0
 
+## Changes 1.0.2
+
+- Update http://www.ampel-cdss.com/ URL.
+
 ## Changes 1.0.1
 
 - Fix Flowcharts in vignette.

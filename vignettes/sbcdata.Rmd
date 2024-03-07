@@ -22,10 +22,10 @@ sbcdata
 
 # Introduction
 
-The data were collected as part of the [AMPEL](https://ampel.care) project
+The data were collected as part of the [AMPEL](http://www.ampel-cdss.com/) project
 (Analysis and Reporting System for the Improvement of Patient Safety
 through Real-Time Integration of Laboratory Findings,
-\url{https://ampel.care}).
+\url{http://www.ampel-cdss.com/}).
 They include administration data, sepsis labels based on ICD10 codes
 and laboratory diagnostics from patients admitted to the
 University Hospital Leipzig between Januar 2014 and December 2019 and to the

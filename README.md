@@ -20,7 +20,7 @@ remotes::install_github("ampel-leipzig/sbcdata")
 
 ## About the data
 
-The data were collected as part of the [AMPEL](https://ampel.care) project
+The data were collected as part of the [AMPEL](http://www.ampel-cdss.com/) project
 (Analysis and Reporting System for the Improvement of Patient Safety
 through Real-Time Integration of Laboratory Findings).
 They include administration data, sepsis labels based on ICD10 codes

@@ -5,7 +5,7 @@
 \alias{sbcdata-package}
 \title{sbcdata: Laboratory Diagnostics from Septic and Non-septic Patients Used in the AMPEL Project}
 \description{
-The data were collected as part of the AMPEL project (Analysis and Reporting System for the Improvement of Patient Safety through Real-Time Integration of Laboratory Findings, \url{https://ampel.care}). They include administration data, sepsis labels based on ICD10 codes and laboratory diagnostics from patients admitted to the University Hospital Leipzig between Januar 2014 and December 2021 and to the University Hospital Greifswald between Januar 2015 and December 2020, respectively. Additionally it provides functions to generate a similar dataset from MIMIC-IV (Johnson et al. 2021 \doi{10.13026/S6N6-XD98}).
+The data were collected as part of the AMPEL project (Analysis and Reporting System for the Improvement of Patient Safety through Real-Time Integration of Laboratory Findings, \url{http://www.ampel-cdss.com/}). They include administration data, sepsis labels based on ICD10 codes and laboratory diagnostics from patients admitted to the University Hospital Leipzig between Januar 2014 and December 2021 and to the University Hospital Greifswald between Januar 2015 and December 2020, respectively. Additionally it provides functions to generate a similar dataset from MIMIC-IV (Johnson et al. 2021 \doi{10.13026/S6N6-XD98}).
 }
 \seealso{
 Useful links:
